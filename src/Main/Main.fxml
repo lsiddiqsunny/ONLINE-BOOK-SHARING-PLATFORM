@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="347.0" prefWidth="287.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Controller">
+   <children>
+      <ComboBox fx:id="loginas" layoutX="82.0" layoutY="61.0" prefHeight="31.0" prefWidth="124.0" promptText="Login As" />
+      <Text fx:id="loginalert" layoutX="112.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="65.6708984375" />
+      <TextField fx:id="userid" layoutX="51.0" layoutY="125.0" promptText="Enter your user id" />
+      <PasswordField fx:id="userpassword" layoutX="50.0" layoutY="174.0" promptText="Enter your password" />
+      <Button fx:id="loginbutton" layoutX="151.0" layoutY="220.0" mnemonicParsing="false" onAction="#Login" prefHeight="31.0" prefWidth="88.0" text="Login" />
+
+      <Button fx:id="resetbutton" layoutX="51.0" layoutY="220.0" mnemonicParsing="false" onAction="#Reset" prefHeight="31.0" prefWidth="88.0" text="Reset" />
+   </children>
+</AnchorPane>
