@@ -5,8 +5,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
+import static Main.newaccount.*;
 
 
 public class Controller {
@@ -24,6 +32,8 @@ public class Controller {
     Button loginbutton=new Button();
     @FXML
     Button resetbutton=new Button();
+    @FXML
+    Button newcustomer=new Button();
     ObservableList<String> loginoptions =
             FXCollections.observableArrayList(
                     "Customer",
@@ -44,7 +54,7 @@ public class Controller {
 
             String userName=userid.getText();
             String password=userpassword.getText();
-          //  System.out.println(combotext+" "+userName+" "+password);
+            //  System.out.println(combotext+" "+userName+" "+password);
             boolean success = new Users().validateLogin(combotext,userName, password);
             if (success)
             {
@@ -88,5 +98,22 @@ public class Controller {
     void Reset(ActionEvent actionEvent) {
         userid.clear();
         userpassword.clear();
+    }
+    @FXML
+    void newaccount(ActionEvent actionEvent) {
+        Stage stage;
+        Parent root;
+        stage = (Stage) newcustomer.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+            root = FXMLLoader.load(getClass().getResource("newaccount.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("New Account");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

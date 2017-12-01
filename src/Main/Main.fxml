@@ -14,5 +14,6 @@
       <Button fx:id="loginbutton" layoutX="151.0" layoutY="220.0" mnemonicParsing="false" onAction="#Login" prefHeight="31.0" prefWidth="88.0" text="Login" />
 
       <Button fx:id="resetbutton" layoutX="51.0" layoutY="220.0" mnemonicParsing="false" onAction="#Reset" prefHeight="31.0" prefWidth="88.0" text="Reset" />
+      <Button fx:id="newcustomer" layoutX="36.0" layoutY="291.0" mnemonicParsing="false" onAction="#newaccount" text="Create new customer account" />
    </children>
 </AnchorPane>
