@@ -3,6 +3,7 @@ package Main;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Random;
 
 /**
  * Created by Latif Siddiq Suuny on 01-Dec-17.
@@ -59,7 +60,7 @@ pst.setString(1,branch);
         {
             System.out.println(e);
         }
-        return null;
+        return String.valueOf(new Random().nextInt(100));
     }
     public  static String  getid()
     {
@@ -90,7 +91,7 @@ return rs.getString(1);
         Branch=getBranch(Branch);
        // System.out.println(Branch);
         Location=getLocation(Location);
-       // System.out.println(Location);
+        System.out.println(Location);
         String  id=Integer.toString(Integer.parseInt(getid())+1001);
         System.out.print(id);
         String sql = "INSERT INTO Customer (Customer_id,Customer_name,Email,Phone_number,Password,Location_id,Branch_id) VALUES (?,?,?,?,?,?,?)";
