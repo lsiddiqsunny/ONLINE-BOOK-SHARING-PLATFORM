@@ -1,5 +1,7 @@
 package Main;
 
+import javafx.scene.control.Alert;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -108,7 +110,11 @@ return rs.getString(1);
             pst.setString(6,Location);
             pst.setString(7,Branch);
            pst.executeQuery();
-
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Account created!");
+            alert.setHeaderText("Account created Successfully!");
+            alert.setContentText("Your customer id is "+id+".\nPlease remember the id to log into the system.");
+            alert.showAndWait();
 
             pst.close();
             con.close();

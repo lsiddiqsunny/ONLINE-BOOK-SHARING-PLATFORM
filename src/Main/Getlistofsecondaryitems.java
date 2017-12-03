@@ -19,7 +19,7 @@ public class Getlistofsecondaryitems {
             Connection con = new oracleDBMS().getConnection();
             PreparedStatement pst = con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            ResultSetMetaData rsmd = rs.getMetaData();
+
 
             while (rs.next())
             {
@@ -45,7 +45,6 @@ public class Getlistofsecondaryitems {
             Connection con = new oracleDBMS().getConnection();
             PreparedStatement pst = con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            ResultSetMetaData rsmd = rs.getMetaData();
 
             while (rs.next())
             {

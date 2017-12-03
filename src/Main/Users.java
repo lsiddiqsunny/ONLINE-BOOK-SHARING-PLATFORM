@@ -1,15 +1,13 @@
 package Main;
 
-/**
+/*
  * Created by Latif Siddiq Suuny on 30-Nov-17.
  */
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Users
 {

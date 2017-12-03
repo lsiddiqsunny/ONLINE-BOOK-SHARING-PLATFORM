@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import static Main.newaccount.*;
+
 
 
 public class Controller {
@@ -62,12 +62,24 @@ public class Controller {
                 try
                 {
 
-                    loginalert.setText("Success");
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Correct Credentials");
-                    alert.setHeaderText("Correct Credentials");
-                    alert.setContentText("Login Successful!");
-                    alert.showAndWait();
+                 if(combotext.equals("Customer")){
+                     User.userkey=userName;
+                     Stage stage;
+                     Parent root;
+                     stage = (Stage) loginbutton.getScene().getWindow();
+                     //load up OTHER FXML document
+                     try {
+                         root = FXMLLoader.load(getClass().getResource("User.fxml"));
+                         Scene scene = new Scene(root);
+                         stage.setScene(scene);
+                         stage.setTitle("Customer Account");
+                         stage.show();
+
+
+                     } catch (IOException e) {
+                         e.printStackTrace();
+                     }
+                 }
                 } catch (Exception e)
                 {
                     loginalert.setText(e.toString());

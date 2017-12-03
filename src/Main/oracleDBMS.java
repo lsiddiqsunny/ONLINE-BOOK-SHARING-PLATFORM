@@ -1,7 +1,6 @@
 package Main;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class oracleDBMS
 {
@@ -40,7 +39,7 @@ public class oracleDBMS
             try
             {
                 connection = DriverManager.getConnection(CONN_STRING, username, password);
-                System.out.println("Connection Successful!");
+               // System.out.println("Connection Successful!");
 
             } catch (SQLException e)
             {
