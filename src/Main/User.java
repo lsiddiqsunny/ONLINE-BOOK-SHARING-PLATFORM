@@ -10,7 +10,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.List;
+
 
 public class User {
     public static String userkey;
@@ -36,6 +36,20 @@ public class User {
 
     @FXML
     public   void Updateonformation(ActionEvent event) {
+        Stage stage;
+        Parent root;
+        stage = (Stage) updateinfo.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+            root = FXMLLoader.load(getClass().getResource("Userupdate.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Update Information");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
     @FXML

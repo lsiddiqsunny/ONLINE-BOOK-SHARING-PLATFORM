@@ -80,10 +80,31 @@ public class Controller {
                          e.printStackTrace();
                      }
                  }
+                 else if(combotext.equals("Publisher")){
+                    User.userkey=userName;
+                    Stage stage;
+                    Parent root;
+                    stage = (Stage) loginbutton.getScene().getWindow();
+                    //load up OTHER FXML document
+                    try {
+                        root = FXMLLoader.load(getClass().getResource("publisher.fxml"));
+                        Scene scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.setTitle("Publisher Account");
+                        stage.show();
+
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
                 } catch (Exception e)
                 {
                     loginalert.setText(e.toString());
                 }
+
+
+
 
             } else
             {

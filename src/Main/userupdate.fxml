@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="352.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Userupdate">
+   <children>
+      <Text layoutX="31.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
+      <ComboBox fx:id="Location" layoutX="31.0" layoutY="211.0" prefHeight="31.0" prefWidth="163.0" promptText="Select Location" />
+      <ComboBox fx:id="branch" layoutX="211.0" layoutY="211.0" prefHeight="31.0" prefWidth="163.0" promptText="Select branch" />
+      <Text layoutX="31.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
+      <Text layoutX="31.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:" />
+      <TextField fx:id="name" layoutX="114.0" layoutY="44.0" prefHeight="31.0" prefWidth="259.0" promptText="Enter your name" />
+      <TextField fx:id="email" layoutX="114.0" layoutY="88.0" prefHeight="31.0" prefWidth="259.0" promptText="Enter your new email" />
+      <TextField fx:id="phone" layoutX="143.0" layoutY="127.0" prefHeight="31.0" prefWidth="231.0" promptText="Enter your new phone number" />
+      <Text layoutX="31.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
+      <PasswordField fx:id="password" layoutX="143.0" layoutY="165.0" prefHeight="31.0" prefWidth="231.0" promptText="Enter new password" />
+      <Button fx:id="submitbutton" layoutX="263.0" layoutY="271.0" mnemonicParsing="false" onAction="#submitupdate" prefHeight="31.0" prefWidth="110.0" text="Submit" />
+      <Button fx:id="resetbutton" layoutX="142.0" layoutY="271.0" mnemonicParsing="false" onAction="#reset" prefHeight="31.0" prefWidth="110.0" text="Reset" />
+      <Button fx:id="backbutton" layoutX="25.0" layoutY="271.0" mnemonicParsing="false" onAction="#back" prefHeight="31.0" prefWidth="110.0" text="Back" />
+      <Text fill="#c61d1d" layoutX="57.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fill which field(s) you want to change">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
