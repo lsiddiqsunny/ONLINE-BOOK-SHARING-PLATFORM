@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Employee">
+   <children>
+      <Button fx:id="underpeople" layoutX="22.0" layoutY="340.0" mnemonicParsing="false" onAction="#Underpeople" text="See people working under you" />
+      <Button fx:id="workspace" layoutX="270.0" layoutY="340.0" mnemonicParsing="false" onAction="#Workspace" text="Workspace" />
+      <Button fx:id="logout" layoutX="500.0" layoutY="340.0" mnemonicParsing="false" onAction="#Logout" text="Logout" />
+      <Button fx:id="editprofile" layoutX="390.0" layoutY="340.0" mnemonicParsing="false" onAction="#Editprofile" text="Edit Profile" />
+      <Text fx:id="employeename" layoutX="36.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="22.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee ID:" />
+      <Text fx:id="employeeid" layoutX="127.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="22.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
+      <Text fx:id="employeeemail" layoutX="120.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="22.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number:" />
+      <Text fx:id="employeephone" layoutX="172.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="27.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address: " />
+      <Text fx:id="employeeaddress" layoutX="120.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="22.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Job:" />
+      <Text fx:id="employeejob" layoutX="95.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="21.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department:" />
+      <Text fx:id="employeedepartment" layoutX="120.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="22.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager Name:" />
+      <Text fx:id="employeemanager" layoutX="144.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+   </children>
+</AnchorPane>

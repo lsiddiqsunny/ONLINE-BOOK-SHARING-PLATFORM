@@ -81,7 +81,7 @@ public class Controller {
                      }
                  }
                  else if(combotext.equals("Publisher")){
-                    User.userkey=userName;
+                    Publisher.publisherkey=userName;
                     Stage stage;
                     Parent root;
                     stage = (Stage) loginbutton.getScene().getWindow();
@@ -97,7 +97,24 @@ public class Controller {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                }
+                }else{
+                     Employee.employeekey=userName;
+                     Stage stage;
+                     Parent root;
+                     stage = (Stage) loginbutton.getScene().getWindow();
+                     //load up OTHER FXML document
+                     try {
+                         root = FXMLLoader.load(getClass().getResource("Employee.fxml"));
+                         Scene scene = new Scene(root);
+                         stage.setScene(scene);
+                         stage.setTitle("Employee Account");
+                         stage.show();
+
+
+                     } catch (IOException e) {
+                         e.printStackTrace();
+                     }
+                 }
                 } catch (Exception e)
                 {
                     loginalert.setText(e.toString());

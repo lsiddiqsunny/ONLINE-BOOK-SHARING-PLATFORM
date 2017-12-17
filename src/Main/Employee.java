@@ -1,0 +1,132 @@
+package Main;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.util.List;
+
+public class Employee {
+    public  static  String employeekey;
+    @FXML
+    Button logout=new Button();
+    @FXML
+    Button  underpeople=new Button();
+    @FXML
+    Button  workspace=new Button();
+    @FXML
+    Button  editprofile=new Button();
+
+    @FXML
+    private Text employeephone=new Text();
+
+    @FXML
+    private Text employeejob=new Text();
+
+    @FXML
+    private Text employeeemail=new Text();
+
+    @FXML
+    private Text employeeaddress=new Text();
+    @FXML
+    private Text employeedepartment=new Text();
+    @FXML
+    private Text employeemanager=new Text();
+
+    @FXML
+    private Text employeeid=new Text();
+
+    @FXML
+    private Text employeename=new Text();
+    @FXML
+    void Logout(ActionEvent actionEvent) {
+        Stage stage;
+        Parent root;
+        stage = (Stage) logout.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+            root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Home page");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void Workspace(ActionEvent actionEvent) {
+//        Stage stage;
+//        Parent root;
+//        stage = (Stage) logout.getScene().getWindow();
+//        //load up OTHER FXML document
+//        try {
+//            root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+//            Scene scene = new Scene(root);
+//            stage.setScene(scene);
+//            stage.setTitle("Home page");
+//            stage.show();
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+    }
+    @FXML
+    void Editprofile(ActionEvent actionEvent) {
+//        Stage stage;
+//        Parent root;
+//        stage = (Stage) logout.getScene().getWindow();
+//        //load up OTHER FXML document
+//        try {
+//            root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+//            Scene scene = new Scene(root);
+//            stage.setScene(scene);
+//            stage.setTitle("Home page");
+//            stage.show();
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+    }
+    @FXML
+    void Underpeople(ActionEvent actionEvent) {
+        Stage stage;
+        Parent root;
+        stage = (Stage) underpeople.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+            root = FXMLLoader.load(getClass().getResource("employeetable.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Employee List");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void initialize() {
+        employeename.setText(employeeutil.getusername(employeekey));
+        employeeaddress.setText(employeeutil.getuserLocation(employeeutil.getuserLocationid(employeekey)));
+        employeeemail.setText(employeeutil.getusermailphone(employeekey,"Email"));
+        employeephone.setText(employeeutil.getusermailphone(employeekey,"Phone_number"));
+        employeeid.setText(employeekey);
+        employeejob.setText(employeeutil.getuserjob(employeekey));
+        employeedepartment.setText(employeeutil.getuserdepartment(employeekey));
+        if(employeeutil.getusermanager(employeekey).length()!=0)
+        employeemanager.setText(employeeutil.getusermanager(employeekey));
+        else employeemanager.setText("NO MANAGER");
+
+
+    }
+
+}
