@@ -34,12 +34,14 @@ public class oracleDBMS
 
     public Connection getConnection()
     {
+
         if (connection == null)
         {
             try
             {
+              //  System.out.println(CONN_STRING);
                 connection = DriverManager.getConnection(CONN_STRING, username, password);
-               // System.out.println("Connection Successful!");
+               //System.out.println("Connection Successful!");
 
             } catch (SQLException e)
             {

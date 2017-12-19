@@ -54,7 +54,7 @@ public class Controller {
 
             String userName=userid.getText();
             String password=userpassword.getText();
-            //  System.out.println(combotext+" "+userName+" "+password);
+          //    System.out.println(combotext+" "+userName+" "+password);
             boolean success = new Users().validateLogin(combotext,userName, password);
             if (success)
             {

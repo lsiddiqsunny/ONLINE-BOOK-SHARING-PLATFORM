@@ -21,6 +21,8 @@
       <Text layoutX="21.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Publisher ID:" />
       <Text layoutX="21.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Books provided by this company:" />
       <TableView fx:id="booklist" layoutX="24.0" layoutY="241.0" prefHeight="143.0" prefWidth="551.0" />
-      <Button fx:id="logout" layoutX="510.0" layoutY="26.0" mnemonicParsing="false" onAction="#Logout" text="Logout" />
+      <Button fx:id="logout" layoutX="486.0" layoutY="26.0" mnemonicParsing="false" onAction="#Logout" prefHeight="31.0" prefWidth="92.0" text="Logout" />
+      <Button fx:id="editprofile" layoutX="486.0" layoutY="74.0" mnemonicParsing="false" onAction="#Editprofile" text="Edit Profile" />
+      <Button fx:id="transcation" layoutX="448.0" layoutY="125.0" mnemonicParsing="false" onAction="#Transaction" text="Make a ranscation" />
    </children>
 </AnchorPane>

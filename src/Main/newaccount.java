@@ -125,19 +125,6 @@ public class newaccount {
         branch.setItems(branchlist);
 
 
-//        List<List<String>> locations= Getlistofsecondaryitems.getAlllocation();
-//        ObservableList<String> locationlist =FXCollections.observableArrayList(
-//                "Dhaka"
-//        );
-//
-//        for(List<String> s: locations){
-//
-//            for(String x:s){
-//                  System.out.println(x);
-//              //  locationlist.add(x);
-//            }
-//        }
-//        location.setItems(locationlist);
 
     }
 
