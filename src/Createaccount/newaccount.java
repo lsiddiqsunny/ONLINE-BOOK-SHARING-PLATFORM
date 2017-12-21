@@ -1,5 +1,6 @@
-package Main;
+package Createaccount;
 
+import Main.Getlistofsecondaryitems;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -80,7 +81,7 @@ public class newaccount {
         stage = (Stage) back.getScene().getWindow();
         //load up OTHER FXML document
         try {
-            root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+            root = FXMLLoader.load(getClass().getResource("../Main/Main.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Home page");

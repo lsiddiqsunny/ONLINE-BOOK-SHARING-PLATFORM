@@ -1,5 +1,7 @@
-package Main;
+package Publisher;
 
+import Main.Getlistofsecondaryitems;
+import Createaccount.InsertCustomerdata;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,7 +15,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
-import static Main.Publisher.publisherkey;
+import static Publisher.Publisher.publisherkey;
 
 public class Publisheredit {
     @FXML
@@ -44,7 +46,7 @@ public class Publisheredit {
         String bookid=null;
         try{
             locationid= Location.getValue().toString();
-            locationid=InsertCustomerdata.getLocation(locationid);
+            locationid= InsertCustomerdata.getLocation(locationid);
            // System.out.println(locationid);
             publisherutil.setName(locationid,publisherkey,"Location_id");
 

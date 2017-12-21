@@ -1,4 +1,6 @@
-package Main;
+package Employee;
+
+import Main.oracleDBMS;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -130,7 +132,7 @@ public class employeeutil {
         }
         catch(Exception e)
         {
-
+System.out.println(e.toString());
         }
         return resultList;
     }

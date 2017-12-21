@@ -1,4 +1,4 @@
-package Main;
+package Employee;
 
 public class employeedata {
     private final String Employeename;

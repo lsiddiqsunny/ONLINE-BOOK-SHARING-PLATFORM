@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
+
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="551.0" prefWidth="391.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.newaccount">
-   <children>
+<AnchorPane prefHeight="551.0" prefWidth="391.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Createaccount.newaccount">
+
    
          <ComboBox fx:id="branch" layoutX="15.0" layoutY="340.0" prefHeight="31.0" prefWidth="362.0" promptText="Select Branch" />
          <TextField fx:id="name" layoutX="17.0" layoutY="74.0" prefHeight="31.0" prefWidth="362.0" promptText="Enter your name" />
@@ -18,6 +18,6 @@
          <Button fx:id="resetbutton" layoutX="17.0" layoutY="394.0" mnemonicParsing="false" onAction="#reset" prefHeight="31.0" prefWidth="154.0" text="Reset" />
          <Text fx:id="Alert" layoutX="169.0" layoutY="456.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="52.0" />
          <Button fx:id="back" layoutX="101.0" layoutY="474.0" mnemonicParsing="false" onAction="#Backbutton" prefHeight="31.0" prefWidth="187.0" text="Back" />
-   </children>
+
 
 </AnchorPane>

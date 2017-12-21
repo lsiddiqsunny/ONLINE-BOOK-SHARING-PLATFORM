@@ -1,6 +1,10 @@
 package Main;
 
 
+import Customer.User;
+import Customer.Users;
+import Employee.Employee;
+import Publisher.Publisher;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -62,59 +66,65 @@ public class Controller {
                 try
                 {
 
-                 if(combotext.equals("Customer")){
-                     User.userkey=userName;
-                     Stage stage;
-                     Parent root;
-                     stage = (Stage) loginbutton.getScene().getWindow();
-                     //load up OTHER FXML document
-                     try {
-                         root = FXMLLoader.load(getClass().getResource("User.fxml"));
-                         Scene scene = new Scene(root);
-                         stage.setScene(scene);
-                         stage.setTitle("Customer Account");
-                         stage.show();
+                    switch (combotext) {
+                        case "Customer": {
+                            User.userkey = userName;
+                            Stage stage;
+                            Parent root;
+                            stage = (Stage) loginbutton.getScene().getWindow();
+                            //load up OTHER FXML document
+                            try {
+                                root = FXMLLoader.load(getClass().getResource("../Customer/User.fxml"));
+                                Scene scene = new Scene(root);
+                                stage.setScene(scene);
+                                stage.setTitle("Customer Account");
+                                stage.show();
 
 
-                     } catch (IOException e) {
-                         e.printStackTrace();
-                     }
-                 }
-                 else if(combotext.equals("Publisher")){
-                    Publisher.publisherkey=userName;
-                    Stage stage;
-                    Parent root;
-                    stage = (Stage) loginbutton.getScene().getWindow();
-                    //load up OTHER FXML document
-                    try {
-                        root = FXMLLoader.load(getClass().getResource("publisher.fxml"));
-                        Scene scene = new Scene(root);
-                        stage.setScene(scene);
-                        stage.setTitle("Publisher Account");
-                        stage.show();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        }
+                        case "Publisher": {
+                            Publisher.publisherkey = userName;
+                            Stage stage;
+                            Parent root;
+                            stage = (Stage) loginbutton.getScene().getWindow();
+                            //load up OTHER FXML document
+                            try {
+                                root = FXMLLoader.load(getClass().getResource("../Publisher/publisher.fxml"));
+                                Scene scene = new Scene(root);
+                                stage.setScene(scene);
+                                stage.setTitle("Publisher Account");
+                                stage.show();
 
 
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        }
+                        default: {
+                            Employee.employeekey = userName;
+                            Stage stage;
+                            Parent root;
+                            stage = (Stage) loginbutton.getScene().getWindow();
+                            //load up OTHER FXML document
+                            try {
+                                root = FXMLLoader.load(getClass().getResource("../Employee/Employee.fxml"));
+                                Scene scene = new Scene(root);
+                                stage.setScene(scene);
+                                stage.setTitle("Employee Account");
+                                stage.show();
+
+
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        }
                     }
-                }else{
-                     Employee.employeekey=userName;
-                     Stage stage;
-                     Parent root;
-                     stage = (Stage) loginbutton.getScene().getWindow();
-                     //load up OTHER FXML document
-                     try {
-                         root = FXMLLoader.load(getClass().getResource("Employee.fxml"));
-                         Scene scene = new Scene(root);
-                         stage.setScene(scene);
-                         stage.setTitle("Employee Account");
-                         stage.show();
-
-
-                     } catch (IOException e) {
-                         e.printStackTrace();
-                     }
-                 }
                 } catch (Exception e)
                 {
                     loginalert.setText(e.toString());
@@ -156,7 +166,7 @@ public class Controller {
         stage = (Stage) newcustomer.getScene().getWindow();
         //load up OTHER FXML document
         try {
-            root = FXMLLoader.load(getClass().getResource("newaccount.fxml"));
+            root = FXMLLoader.load(getClass().getResource("../Createaccount/newaccount.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("New Account");

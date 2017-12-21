@@ -1,5 +1,7 @@
-package Main;
+package Customer;
 
+import Main.Getlistofsecondaryitems;
+import Createaccount.InsertCustomerdata;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -133,7 +135,7 @@ public class Userupdate {
         }
         try{
             String Loc=Location.getValue().toString();
-            Loc=InsertCustomerdata.getLocation(Loc);
+            Loc= InsertCustomerdata.getLocation(Loc);
 
 
                 if(updatedatabase.setName(Loc,User.userkey,"Location_id")){

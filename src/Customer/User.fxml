@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.User">
-   <children>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.User">
+
       <Text fx:id="username" layoutX="20.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="563.6708984375">
          <font>
             <Font size="24.0" />
@@ -20,7 +20,9 @@
       <Text fx:id="email" layoutX="155.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text layoutX="20.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number:" />
       <Text fx:id="phone" layoutX="148.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Button fx:id="updateinfo" layoutX="20.0" layoutY="310.0" mnemonicParsing="false" onAction="#Updateonformation" text="Update Information" />
+      <Button fx:id="updateinfo" layoutX="14.0" layoutY="317.0" mnemonicParsing="false" onAction="#Updateonformation" text="Update Information" />
       <Button fx:id="back" layoutX="515.0" layoutY="317.0" mnemonicParsing="false" onAction="#backbutton" text="Logout" />
-   </children>
+      <Button fx:id="review" layoutX="363.0" layoutY="317.0" mnemonicParsing="false" onAction="#Review" text="View All Reviews" />
+      <Button fx:id="searchbook" layoutX="177.0" layoutY="317.0" mnemonicParsing="false" onAction="#Searchbook" text="Search Book and Buy" />
+
 </AnchorPane>

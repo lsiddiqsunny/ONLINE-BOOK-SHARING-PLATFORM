@@ -1,4 +1,6 @@
-package Main;
+package Customer;
+
+import Main.oracleDBMS;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

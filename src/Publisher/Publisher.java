@@ -1,6 +1,5 @@
-package Main;
+package Publisher;
 
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,7 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -35,7 +33,7 @@ public class Publisher {
     @FXML
     Button editprofile=new Button();
     @FXML
-    Button transaction=new Button();
+    Button transcation=new Button();
     @FXML
     void Transaction(ActionEvent actionEvent){
 
@@ -65,7 +63,7 @@ public class Publisher {
         stage = (Stage) logout.getScene().getWindow();
         //load up OTHER FXML document
         try {
-            root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+            root = FXMLLoader.load(getClass().getResource("../Main/Main.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Home page");

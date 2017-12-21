@@ -1,4 +1,4 @@
-package Main;
+package Customer;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,7 +33,30 @@ public class User {
     Text username=new Text();
     @FXML
     Button back=new Button();
+    @FXML
+    Button review=new Button();
+    @FXML
+    Button searchbook=new Button();
+@FXML
+void Searchbook(ActionEvent actionEvent){
 
+}
+    @FXML
+    void Review(ActionEvent actionEvent){
+        Parent root;
+        Stage stage = (Stage) review.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+            root = FXMLLoader.load(getClass().getResource("viewreview.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("View Reviews");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     @FXML
     public   void Updateonformation(ActionEvent event) {
         Stage stage;
@@ -41,7 +64,7 @@ public class User {
         stage = (Stage) updateinfo.getScene().getWindow();
         //load up OTHER FXML document
         try {
-            root = FXMLLoader.load(getClass().getResource("Userupdate.fxml"));
+            root = FXMLLoader.load(getClass().getResource("userupdate.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Update Information");
@@ -59,7 +82,7 @@ public class User {
         stage = (Stage) back.getScene().getWindow();
         //load up OTHER FXML document
         try {
-            root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+            root = FXMLLoader.load(getClass().getResource("../Main/Main.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Home page");

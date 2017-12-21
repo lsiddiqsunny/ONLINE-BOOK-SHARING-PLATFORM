@@ -1,4 +1,4 @@
-package Main;
+package Employee;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -6,12 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.List;
 
 public class Employee {
     public  static  String employeekey;
@@ -52,7 +50,7 @@ public class Employee {
         stage = (Stage) logout.getScene().getWindow();
         //load up OTHER FXML document
         try {
-            root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+            root = FXMLLoader.load(getClass().getResource("../Main/Main.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Home page");

@@ -1,4 +1,4 @@
-package Main;
+package Publisher;
 
 public  class bookinfo {
     private final String Bookname;

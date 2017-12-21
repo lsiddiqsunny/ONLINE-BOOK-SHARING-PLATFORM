@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane prefHeight="557.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Employeetable">
+<AnchorPane prefHeight="557.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Employee.Employeetable">
    <children>
       <Text layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee List Under  you" />
       <Button fx:id="backbutton" layoutX="505.0" layoutY="18.0" mnemonicParsing="false" onAction="#Backbutton" prefHeight="31.0" prefWidth="84.0" text="Back" />

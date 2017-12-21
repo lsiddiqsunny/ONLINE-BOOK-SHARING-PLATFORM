@@ -1,8 +1,10 @@
-package Main;
+package Customer;
 
 /*
  * Created by Latif Siddiq Suuny on 30-Nov-17.
  */
+
+import Main.oracleDBMS;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,5 +1,6 @@
-package Main;
+package Employee;
 
+import Employee.Employee;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,13 +17,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
-import static Main.Employee.employeekey;
+import static Employee.Employee.employeekey;
 
 
 public class Employeetable {
     @FXML
     TableView<employeedata> employeelist=new TableView<>();
-    final ObservableList<employeedata> data = FXCollections.observableArrayList();
+    private final ObservableList<employeedata> data = FXCollections.observableArrayList();
     TableColumn<employeedata, String> employeename=new TableColumn<>("Employee Name");
 
     TableColumn<employeedata, String> phonenumber=new TableColumn<>("Phone number");
@@ -37,7 +38,7 @@ public class Employeetable {
         stage = (Stage) backbutton.getScene().getWindow();
         //load up OTHER FXML document
         try {
-            root = FXMLLoader.load(getClass().getResource("employee.fxml"));
+            root = FXMLLoader.load(getClass().getResource("Employee.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Employee Account");
@@ -57,7 +58,7 @@ public class Employeetable {
         for (List<String> row : userDataList)
         {
             data.add(new employeedata(row.get(0), row.get(1), row.get(2)));
-            System.out.println(data.get(i));
+            //System.out.println(data.get(i));
             i++;
         }
 
