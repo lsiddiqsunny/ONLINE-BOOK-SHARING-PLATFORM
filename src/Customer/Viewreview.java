@@ -29,7 +29,7 @@ public class Viewreview {
         stage = (Stage) back.getScene().getWindow();
         //load up OTHER FXML document
         try {
-            root = FXMLLoader.load(getClass().getResource("User.fxml"));
+            root = FXMLLoader.load(getClass().getResource("Usertest.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("User Account");

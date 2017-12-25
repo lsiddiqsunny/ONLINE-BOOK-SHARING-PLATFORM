@@ -82,10 +82,10 @@ void Searchbook(ActionEvent actionEvent){
         stage = (Stage) back.getScene().getWindow();
         //load up OTHER FXML document
         try {
-            root = FXMLLoader.load(getClass().getResource("../Main/Main.fxml"));
+            root = FXMLLoader.load(getClass().getResource("Usertest.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Home page");
+            stage.setTitle("Customer Page");
             stage.show();
 
         } catch (IOException e) {

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Usertest">
+   <left>
+      <StackPane prefHeight="400.0" prefWidth="198.0" BorderPane.alignment="CENTER">
+         <children>
+            <ToggleButton fx:id="seeall" mnemonicParsing="false" onAction="#Seeall" prefHeight="11.0" prefWidth="45.0" stylesheets="@togglestyle.css" textAlignment="CENTER" StackPane.alignment="TOP_LEFT" />
+            <AnchorPane id="mainanchor" fx:id="anchorpane" prefHeight="400.0" prefWidth="192.0" stylesheets="@../Main/test.css">
+               <children>
+                  <Button fx:id="close" layoutX="16.0" layoutY="336.0" mnemonicParsing="false" onAction="#Close" prefHeight="31.0" prefWidth="149.0" text="Close the Slidebar">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Button fx:id="profile" layoutX="14.0" layoutY="108.0" mnemonicParsing="false" onAction="#Profile" prefHeight="31.0" prefWidth="154.0" text="Your Profile">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Button fx:id="review" layoutX="14.0" layoutY="154.0" mnemonicParsing="false" onAction="#Review" prefHeight="31.0" prefWidth="153.0" text="View Your Reviews">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Button fx:id="update" layoutX="14.0" layoutY="200.0" mnemonicParsing="false" onAction="#Update" prefHeight="31.0" prefWidth="154.0" text="Update Your Profile">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Button fx:id="cart" layoutX="15.0" layoutY="243.0" mnemonicParsing="false" onAction="#Cart" prefHeight="31.0" prefWidth="154.0" text="Your Cart">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Button fx:id="logout" layoutX="15.0" layoutY="289.0" mnemonicParsing="false" onAction="#Logout" prefHeight="31.0" prefWidth="155.0" text="Logout">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Text fx:id="username" fill="#f8f8f8" layoutX="14.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="33.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+   </left>
+</BorderPane>

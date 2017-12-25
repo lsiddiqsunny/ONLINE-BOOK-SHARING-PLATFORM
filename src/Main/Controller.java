@@ -37,6 +37,8 @@ public class Controller {
     @FXML
     Button resetbutton=new Button();
     @FXML
+    Button forgetpassword=new Button();
+    @FXML
     Button newcustomer=new Button();
     ObservableList<String> loginoptions =
             FXCollections.observableArrayList(
@@ -74,7 +76,7 @@ public class Controller {
                             stage = (Stage) loginbutton.getScene().getWindow();
                             //load up OTHER FXML document
                             try {
-                                root = FXMLLoader.load(getClass().getResource("../Customer/User.fxml"));
+                                root = FXMLLoader.load(getClass().getResource("../Customer/Usertest.fxml"));
                                 Scene scene = new Scene(root);
                                 stage.setScene(scene);
                                 stage.setTitle("Customer Account");
@@ -170,6 +172,23 @@ public class Controller {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("New Account");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void Forgetpassword(ActionEvent actionEvent) {
+        Stage stage;
+        Parent root;
+        stage = (Stage) forgetpassword.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+            root = FXMLLoader.load(getClass().getResource("../Forgetpassword/forgetpassword.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Forget Password");
             stage.show();
 
         } catch (IOException e) {

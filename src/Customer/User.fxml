@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.User">
-
-      <Text fx:id="username" layoutX="20.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="563.6708984375">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
-      <Text layoutX="20.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Id: " />
-      <Text fx:id="id" layoutX="169.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="20.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address and Branch: " />
-      <Text fx:id="Location" layoutX="171.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="409.1474609375" />
-      <Text layoutX="20.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
-      <Text fx:id="email" layoutX="155.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="20.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number:" />
-      <Text fx:id="phone" layoutX="148.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Button fx:id="updateinfo" layoutX="14.0" layoutY="317.0" mnemonicParsing="false" onAction="#Updateonformation" text="Update Information" />
-      <Button fx:id="back" layoutX="515.0" layoutY="317.0" mnemonicParsing="false" onAction="#backbutton" text="Logout" />
-      <Button fx:id="review" layoutX="363.0" layoutY="317.0" mnemonicParsing="false" onAction="#Review" text="View All Reviews" />
-      <Button fx:id="searchbook" layoutX="177.0" layoutY="317.0" mnemonicParsing="false" onAction="#Searchbook" text="Search Book and Buy" />
+<AnchorPane id="mainanchor" prefHeight="348.0" prefWidth="584.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.User">
+   <children>
+   
+         <Text id="textedit" fx:id="username" layoutX="20.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="563.6708984375">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Text>
+         <Text id="textedit" layoutX="20.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Id: " />
+         <Text id="textedit" fx:id="id" layoutX="125.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="454.0" />
+         <Text id="textedit" layoutX="20.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address and Branch: " />
+         <Text id="textedit" fx:id="Location" layoutX="171.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="409.1474609375" />
+         <Text id="textedit" layoutX="20.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
+         <Text id="textedit" fx:id="email" layoutX="121.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="409.1474609375" />
+         <Text id="textedit" layoutX="20.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number:" />
+         <Text id="textedit" fx:id="phone" layoutX="147.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="409.1474609375" />
+         <Button fx:id="back" layoutX="456.0" layoutY="291.0" mnemonicParsing="false" onAction="#backbutton" prefHeight="31.0" prefWidth="101.0" text="Back">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+   </children>
 
 </AnchorPane>
