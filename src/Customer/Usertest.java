@@ -1,27 +1,47 @@
 package Customer;
 
+import Publisher.bookinfo;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 import static Customer.User.userkey;
-
+import static Book.Bookinfo.bookid;
 
 public class Usertest {
     @FXML
-    ToggleButton seeall=new ToggleButton();
+    GridPane gridPane=new GridPane();
+    @FXML
+    GridPane gridPane1=new GridPane();
+    @FXML
+    GridPane gridPane2=new GridPane();
+    @FXML
+    Button seeall=new Button();
     @FXML
     AnchorPane anchorpane=new AnchorPane();
-
+    @FXML
+    AnchorPane anchorpane2=new AnchorPane();
+    @FXML
+    Button transcation=new Button();
+    @FXML
+    Button search=new Button();
+    @FXML
+    Button noti=new Button();
+    @FXML
+    Button help=new Button();
     @FXML
     private Button logout=new Button();
 
@@ -41,6 +61,8 @@ public class Usertest {
 
     @FXML
     private Text username=new Text();
+    @FXML
+    Label offer=new Label();
 
     @FXML
     void Profile(ActionEvent event) {
@@ -62,7 +84,7 @@ public class Usertest {
     }
     @FXML
     void Close(ActionEvent event) {
-        seeall.setVisible(true);
+        anchorpane2.setVisible(true);
         anchorpane.setVisible(false);
     }
 
@@ -105,6 +127,22 @@ public class Usertest {
     void Cart(ActionEvent event) {
 
     }
+    @FXML
+    void Noti(ActionEvent event) {
+
+    }
+    @FXML
+    void Help(ActionEvent event) {
+
+    }
+    @FXML
+    void Search(ActionEvent event) {
+
+    }
+    @FXML
+    void Transaction(ActionEvent event) {
+
+    }
 
     @FXML
     void Logout(ActionEvent event) {
@@ -125,7 +163,9 @@ public class Usertest {
     }
     @FXML
     void Seeall(ActionEvent event) {
-        seeall.setVisible(false);
+
+        anchorpane2.setVisible(false);
+        //System.out.println("here");
         anchorpane.setVisible(true);
         setup();
     }
@@ -135,8 +175,114 @@ public class Usertest {
 
     @FXML
     public void initialize() {
-   seeall.setVisible(true);
+        anchorpane2.setVisible(true);
         anchorpane.setVisible(false);
+
+List<List<String>> booklist=userutil.getAllBooks();
+
+        for(int i=0;i<5;i++){
+            Text name=new Text();
+            Text author=new Text();
+            Text rating=new Text("");
+            Button details=new Button("See Details");
+            List<String> l=booklist.get(i);
+            name.setText(l.get(0));
+            author.setText(l.get(1));
+            gridPane.add(name,i,0);
+            gridPane.add(author,i,1);
+            gridPane.add(details,i,2);
+            details.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    Stage stage;
+                    Parent root;
+                    stage = (Stage) details.getScene().getWindow();
+                    //load up OTHER FXML document
+                    try {
+                        bookid=l.get(0);
+                        root = FXMLLoader.load(getClass().getResource("../Book/bookinfo.fxml"));
+                        Scene scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.setTitle("Book Information");
+                        stage.show();
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+
+        }
+
+        for(int i=0;i<5;i++){
+            Text name=new Text();
+            Text author=new Text();
+            Text rating=new Text("");
+            Button details=new Button("See Details");
+            List<String> l=booklist.get(i+5);
+            name.setText(l.get(0));
+            author.setText(l.get(1));
+            gridPane1.add(name,i,0);
+            gridPane1.add(author,i,1);
+            gridPane1.add(details,i,2);
+
+            details.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    Stage stage;
+                    Parent root;
+                    stage = (Stage) details.getScene().getWindow();
+                    //load up OTHER FXML document
+                    try {
+                        root = FXMLLoader.load(getClass().getResource("../Book/bookinfo.fxml"));
+                        Scene scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.setTitle("Book Information");
+                        stage.show();
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+
+        for(int i=0;i<5;i++){
+            Text name=new Text();
+            Text author=new Text();
+            Text rating=new Text("");
+            Button details=new Button("See Details");
+            List<String> l=booklist.get(i+10);
+            name.setText(l.get(0));
+            author.setText(l.get(1));
+            gridPane2.add(name,i,0);
+            gridPane2.add(author,i,1);
+            gridPane2.add(details,i,2);
+            details.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    Stage stage;
+                    Parent root;
+                    stage = (Stage) details.getScene().getWindow();
+                    //load up OTHER FXML document
+                    try {
+                        root = FXMLLoader.load(getClass().getResource("../Book/bookinfo.fxml"));
+                        Scene scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.setTitle("Book Information");
+                        stage.show();
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+        }
+
+offer.setText(userutil.getOffer());
         setup();
+
     }
 }

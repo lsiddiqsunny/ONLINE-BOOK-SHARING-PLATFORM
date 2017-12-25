@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="mainanchor" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Book.Bookinfo">
+   <children>
+      <Button fx:id="backbutton" alignment="CENTER" layoutX="509.0" layoutY="335.0" mnemonicParsing="false" onAction="#Back" text="Back">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <Button fx:id="cart" layoutX="405.0" layoutY="335.0" mnemonicParsing="false" onAction="#Cart" text="Add to cart">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>
