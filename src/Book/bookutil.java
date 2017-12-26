@@ -10,11 +10,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class bookutil {
+    public static String getOffer()
+    {
+        String sql = "select PERCENTAGE\n" +
+                "from OFFER_DETAILS\n" +
+                "where  MONTHS_BETWEEN(offer_end, sysdate)>0";
+
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                String s="";
+                s+=rs.getString("PERCENTAGE");
+
+              s+="%";
+              // System.out.println(s);
+               return  s;
+
+
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+
+        }
+        return "0%";
+    }
     public static String getBookid(String book_name)
     {
         String sql = "select book_id\n" +
                 "from book\n" +
-                "where book_name = ?";
+                "where book_name like ?";
       //  System.out.println(book_name);
         try{
             Connection con = new oracleDBMS().getConnection();
@@ -41,8 +74,9 @@ public class bookutil {
     }
     public static List<String> getBookinfo(String book_id)
     {
-        String sql = "select book_name,get_author_name(book_id) author,price\n" +
-                "from book\n" +
+        String sql = "select DISTINCT book_name,get_author_name(book_id) author,price,ISBN,(select t.book_type_name from book_type t where b.book_type_id=t.book_type_id) type\n" +
+                "\n" +
+                "from book b\n" +
                 "where book_id=?";
         //  System.out.println(book_name);
          List<String>l=new ArrayList<>();
@@ -58,6 +92,8 @@ public class bookutil {
                 l.add(rs.getString("book_name"));
                l.add(rs.getString("author"));
                 l.add(rs.getString("price"));
+                l.add(rs.getString("ISBN"));
+                l.add(rs.getString("type"));
                 return l;
 
 

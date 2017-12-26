@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Employee.Employee">
+<AnchorPane id="mainanchor" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Employee.Employee">
    <children>
-      <Button fx:id="underpeople" layoutX="22.0" layoutY="340.0" mnemonicParsing="false" onAction="#Underpeople" text="See people working under you" />
-      <Button fx:id="workspace" layoutX="270.0" layoutY="340.0" mnemonicParsing="false" onAction="#Workspace" text="Workspace" />
-      <Button fx:id="logout" layoutX="500.0" layoutY="340.0" mnemonicParsing="false" onAction="#Logout" text="Logout" />
-      <Button fx:id="editprofile" layoutX="390.0" layoutY="340.0" mnemonicParsing="false" onAction="#Editprofile" text="Edit Profile" />
+      <Button fx:id="underpeople" layoutX="22.0" layoutY="340.0" mnemonicParsing="false" onAction="#Underpeople" text="See people working under you">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button fx:id="workspace" layoutX="270.0" layoutY="340.0" mnemonicParsing="false" onAction="#Workspace" text="Workspace">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button fx:id="logout" layoutX="500.0" layoutY="340.0" mnemonicParsing="false" onAction="#Logout" text="Logout">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button fx:id="editprofile" layoutX="390.0" layoutY="340.0" mnemonicParsing="false" onAction="#Editprofile" text="Edit Profile">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
       <Text fx:id="employeename" layoutX="36.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="30.0" />
@@ -23,7 +35,7 @@
       <Text fx:id="employeeemail" layoutX="120.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text layoutX="22.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number:" />
       <Text fx:id="employeephone" layoutX="172.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="27.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address: " />
+      <Text layoutX="18.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address: " />
       <Text fx:id="employeeaddress" layoutX="120.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text layoutX="22.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Job:" />
       <Text fx:id="employeejob" layoutX="95.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" />

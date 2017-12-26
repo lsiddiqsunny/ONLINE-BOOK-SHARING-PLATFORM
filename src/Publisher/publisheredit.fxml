@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="248.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Publisher.Publisheredit">
+<AnchorPane id="mainanchor" prefHeight="339.0" prefWidth="248.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Publisher.Publisheredit">
    <children>
-      <Button fx:id="backbutton" layoutX="102.0" layoutY="335.0" mnemonicParsing="false" onAction="#Backbutton" text="Back" />
+      <Button fx:id="backbutton" layoutX="14.0" layoutY="281.0" mnemonicParsing="false" onAction="#Backbutton" prefHeight="31.0" prefWidth="68.0" text="Back">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
       <ComboBox fx:id="Location" layoutX="11.0" layoutY="54.0" prefHeight="31.0" prefWidth="226.0" promptText="Change Your Location" />
       <ComboBox fx:id="Booklist" layoutX="11.0" layoutY="108.0" prefHeight="31.0" prefWidth="226.0" promptText="Change Price of Book" />
       <TextField fx:id="Price" layoutX="14.0" layoutY="160.0" prefHeight="31.0" prefWidth="226.0" promptText="Enter new Price" />
       <PasswordField fx:id="Password" layoutX="14.0" layoutY="220.0" prefHeight="31.0" prefWidth="226.0" promptText="Enter New Password" />
-      <Button fx:id="submit" layoutX="144.0" layoutY="281.0" mnemonicParsing="false" onAction="#Submit" prefHeight="31.0" prefWidth="90.0" text="Submit" />
-      <Button fx:id="reset" layoutX="14.0" layoutY="281.0" mnemonicParsing="false" onAction="#Reset" prefHeight="31.0" prefWidth="90.0" text="Reset" />
+      <Button fx:id="submit" layoutX="166.0" layoutY="281.0" mnemonicParsing="false" onAction="#Submit" prefHeight="31.0" prefWidth="68.0" text="Submit">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button fx:id="reset" layoutX="90.0" layoutY="281.0" mnemonicParsing="false" onAction="#Reset" prefHeight="31.0" prefWidth="68.0" text="Reset">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
    </children>
 </AnchorPane>

@@ -18,8 +18,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
+import static Book.Bookinfo.Bookname;
 import static Customer.User.userkey;
-import static Book.Bookinfo.bookid;
+import static Book.Bookinfo.Bookname;
 
 public class Usertest {
     @FXML
@@ -137,7 +138,20 @@ public class Usertest {
     }
     @FXML
     void Search(ActionEvent event) {
+        Stage stage;
+        Parent root;
+        stage = (Stage) search.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+            root = FXMLLoader.load(getClass().getResource("../Book/SearchBook.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Search Book");
+            stage.show();
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     void Transaction(ActionEvent event) {
@@ -188,9 +202,11 @@ List<List<String>> booklist=userutil.getAllBooks();
             List<String> l=booklist.get(i);
             name.setText(l.get(0));
             author.setText(l.get(1));
+            rating.setText(l.get(2));
             gridPane.add(name,i,0);
             gridPane.add(author,i,1);
             gridPane.add(details,i,2);
+            gridPane.add(rating,i,3);
             details.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
@@ -199,7 +215,7 @@ List<List<String>> booklist=userutil.getAllBooks();
                     stage = (Stage) details.getScene().getWindow();
                     //load up OTHER FXML document
                     try {
-                        bookid=l.get(0);
+                        Bookname=l.get(0);
                         root = FXMLLoader.load(getClass().getResource("../Book/bookinfo.fxml"));
                         Scene scene = new Scene(root);
                         stage.setScene(scene);
@@ -223,13 +239,16 @@ List<List<String>> booklist=userutil.getAllBooks();
             List<String> l=booklist.get(i+5);
             name.setText(l.get(0));
             author.setText(l.get(1));
+            rating.setText(l.get(2));
             gridPane1.add(name,i,0);
             gridPane1.add(author,i,1);
             gridPane1.add(details,i,2);
+            gridPane1.add(rating,i,3);
 
             details.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
+                    Bookname=l.get(0);
                     Stage stage;
                     Parent root;
                     stage = (Stage) details.getScene().getWindow();
@@ -256,12 +275,15 @@ List<List<String>> booklist=userutil.getAllBooks();
             List<String> l=booklist.get(i+10);
             name.setText(l.get(0));
             author.setText(l.get(1));
+            rating.setText(l.get(2));
             gridPane2.add(name,i,0);
             gridPane2.add(author,i,1);
             gridPane2.add(details,i,2);
+            gridPane2.add(rating,i,3);
             details.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
+                    Bookname=l.get(0);
                     Stage stage;
                     Parent root;
                     stage = (Stage) details.getScene().getWindow();

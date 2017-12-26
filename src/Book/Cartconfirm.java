@@ -50,11 +50,11 @@ public class Cartconfirm {
     }
     @FXML
     void Confirm(ActionEvent event) {
-String s=amount.getText();
-if(s.isEmpty()){
-    s="0";
-}
-bookutil.updateorder(bookid,s,userkey);
+        String s=amount.getText();
+        if(s.isEmpty()){
+            s="0";
+        }
+        bookutil.updateorder(bookid,s,userkey);
     }
     @FXML
     public void initialize() {

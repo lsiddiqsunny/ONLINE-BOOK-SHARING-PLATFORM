@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,17 +8,32 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="mainanchor" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Book.Bookinfo">
+<AnchorPane id="mainanchor" prefHeight="403.0" prefWidth="537.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Book.Bookinfo">
    <children>
-      <Button fx:id="backbutton" alignment="CENTER" layoutX="509.0" layoutY="335.0" mnemonicParsing="false" onAction="#Back" text="Back">
+      <Button fx:id="backbutton" alignment="CENTER" layoutX="292.0" layoutY="352.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="102.0" text="Back" AnchorPane.rightAnchor="14.0">
          <effect>
             <InnerShadow />
          </effect>
       </Button>
-      <Button fx:id="cart" layoutX="405.0" layoutY="335.0" mnemonicParsing="false" onAction="#Cart" text="Add to cart">
+      <Button fx:id="cart" layoutX="306.0" layoutY="352.0" mnemonicParsing="false" onAction="#Cart" prefHeight="31.0" prefWidth="102.0" text="Add to cart">
          <effect>
             <InnerShadow />
          </effect>
       </Button>
+      <Label layoutX="36.0" layoutY="112.0" prefHeight="21.0" prefWidth="102.0" text="Author :" textFill="#1e0b0b" />
+      <Label layoutX="36.0" layoutY="161.0" prefHeight="21.0" prefWidth="102.0" text="Price:" textFill="#1e0b0b" />
+      <Label layoutX="37.0" layoutY="208.0" prefHeight="21.0" prefWidth="102.0" text="Commission: " textFill="#1e0b0b" />
+      <Text fx:id="bookname" layoutX="10.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="516.6708984375" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.3291015625">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fx:id="author" layoutX="151.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="376.6708984375" />
+      <Text fx:id="price" layoutX="138.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="242.6708984375" />
+      <Text fx:id="commission" layoutX="139.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="376.6708984375" />
+      <Label layoutX="37.0" layoutY="246.0" text="ISBN Number:" textFill="#1e0b0b" />
+      <Label layoutX="36.0" layoutY="286.0" text="Catagory:" textFill="#1e0b0b" />
+      <Text fx:id="isbn" layoutX="151.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="376.6708984375" />
+      <Text fx:id="catagory" layoutX="151.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="376.6708984375" />
    </children>
 </AnchorPane>

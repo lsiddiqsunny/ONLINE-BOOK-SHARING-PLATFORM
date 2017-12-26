@@ -13,7 +13,7 @@ public class userutil {
     {
         String sql = "select offer_details,to_char(offer_end,'DD-MM-YYYY') offer_end\n" +
                 "from OFFER_DETAILS\n" +
-                "where  MONTHS_BETWEEN(offer_end, sysdate)<0";
+                "where  MONTHS_BETWEEN(offer_end, sysdate)>0";
 
         try{
             Connection con = new oracleDBMS().getConnection();
@@ -58,7 +58,7 @@ public class userutil {
     }
     public static List<List<String>> getAllBooks()
     {
-        String sql = "select  Book_name ,get_author_name(book_id) Author from book";
+        String sql = "select  Book_name ,get_author_name(book_id) Author,rating  from book";
         List<List<String>> resultList = new ArrayList<>();
         try{
             Connection con = new oracleDBMS().getConnection();
@@ -72,6 +72,10 @@ public class userutil {
                 List<String> row = new ArrayList<>();
                 row.add(rs.getString("Book_name"));
                 row.add(rs.getString("Author"));
+                if(rs.getString("rating")==null){
+                    row.add("Rating: N/A");
+                }
+                else  row.add("Rating: "+rs.getString("rating"));
 
                 resultList.add(row);
             }
@@ -79,7 +83,7 @@ public class userutil {
             con.close();
         }
         catch(Exception e)
-        {
+        {System.out.println(e.toString());
 
         }
         return resultList;

@@ -95,9 +95,9 @@ public class Publisher {
           //  System.out.println(data.get(i));
             i++;
         }
-//        bookname.setPrefWidth(200);
-//        authorname.setPrefWidth(200);
-//        price.setPrefWidth(200);
+        bookname.setPrefWidth(200);
+        authorname.setPrefWidth(200);
+        price.setPrefWidth(200);
         bookname.setCellValueFactory(new PropertyValueFactory<>("Bookname"));
         authorname.setCellValueFactory(new PropertyValueFactory<>("Authorname"));
         price.setCellValueFactory(new PropertyValueFactory<>("Price"));

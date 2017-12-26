@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="352.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Userupdate">
+<AnchorPane id="mainanchor" prefHeight="327.0" prefWidth="398.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Userupdate">
    <children>
       <Text layoutX="31.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
       <ComboBox fx:id="Location" layoutX="31.0" layoutY="211.0" prefHeight="31.0" prefWidth="163.0" promptText="Select Location" />
@@ -17,10 +18,19 @@
       <TextField fx:id="phone" layoutX="143.0" layoutY="127.0" prefHeight="31.0" prefWidth="231.0" promptText="Enter your new phone number" />
       <Text layoutX="31.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
       <PasswordField fx:id="password" layoutX="143.0" layoutY="165.0" prefHeight="31.0" prefWidth="231.0" promptText="Enter new password" />
-      <Button fx:id="submitbutton" layoutX="263.0" layoutY="271.0" mnemonicParsing="false" onAction="#submitupdate" prefHeight="31.0" prefWidth="110.0" text="Submit" />
-      <Button fx:id="resetbutton" layoutX="142.0" layoutY="271.0" mnemonicParsing="false" onAction="#reset" prefHeight="31.0" prefWidth="110.0" text="Reset" />
-      <Button fx:id="backbutton" layoutX="25.0" layoutY="271.0" mnemonicParsing="false" onAction="#back" prefHeight="31.0" prefWidth="110.0" text="Back" />
-      <Text fill="#c61d1d" layoutX="57.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fill which field(s) you want to change">
+      <Button fx:id="submitbutton" layoutX="263.0" layoutY="271.0" mnemonicParsing="false" onAction="#submitupdate" prefHeight="31.0" prefWidth="110.0" text="Submit">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button fx:id="resetbutton" layoutX="142.0" layoutY="271.0" mnemonicParsing="false" onAction="#reset" prefHeight="31.0" prefWidth="110.0" text="Reset">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button fx:id="backbutton" layoutX="25.0" layoutY="271.0" mnemonicParsing="false" onAction="#back" prefHeight="31.0" prefWidth="110.0" text="Back">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Text fill="#1e0202" layoutX="57.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fill which field(s) you want to change">
          <font>
             <Font size="18.0" />
          </font>
