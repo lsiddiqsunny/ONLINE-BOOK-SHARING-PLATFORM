@@ -18,7 +18,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-
+import static Book.SearchBook.end;
+import static Book.SearchBook.start;
 
 
 public class Controller {
@@ -70,12 +71,15 @@ public class Controller {
 
                     switch (combotext) {
                         case "Customer": {
+
                             User.userkey = userName;
                             Stage stage;
                             Parent root;
                             stage = (Stage) loginbutton.getScene().getWindow();
                             //load up OTHER FXML document
                             try {
+                                start=0;
+                                end=0;
                                 root = FXMLLoader.load(getClass().getResource("../Customer/Usertest.fxml"));
                                 Scene scene = new Scene(root);
                                 stage.setScene(scene);

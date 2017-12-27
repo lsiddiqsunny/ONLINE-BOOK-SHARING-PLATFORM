@@ -22,12 +22,12 @@
             <InnerShadow />
          </effect>
       </Button>
-      <Button layoutX="491.0" layoutY="510.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="103.0" text="Next">
+      <Button fx:id="next" layoutX="491.0" layoutY="510.0" mnemonicParsing="false" onAction="#Next" prefHeight="31.0" prefWidth="103.0" text="Next" visible="false">
          <effect>
             <InnerShadow />
          </effect>
       </Button>
-      <Button layoutX="378.0" layoutY="510.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="103.0" text="Previous">
+      <Button fx:id="previous" layoutX="378.0" layoutY="510.0" mnemonicParsing="false" onAction="#Previous" prefHeight="31.0" prefWidth="103.0" text="Previous" visible="false">
          <effect>
             <InnerShadow />
          </effect>
@@ -37,5 +37,6 @@
             <InnerShadow />
          </effect>
       </Button>
+      <Label fx:id="page" layoutX="462.0" layoutY="478.0" prefHeight="21.0" prefWidth="243.0" />
    </children>
 </AnchorPane>

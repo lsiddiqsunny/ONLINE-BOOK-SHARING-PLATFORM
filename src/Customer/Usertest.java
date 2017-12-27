@@ -1,6 +1,6 @@
 package Customer;
 
-import Publisher.bookinfo;
+import static Book.SearchBook.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -9,7 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
@@ -126,7 +125,21 @@ public class Usertest {
 
     @FXML
     void Cart(ActionEvent event) {
+        Stage stage;
+        Parent root;
+        stage = (Stage) cart.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
 
+            root = FXMLLoader.load(getClass().getResource("../CustomerOrder/customercart.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Your cart");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     void Noti(ActionEvent event) {
@@ -143,6 +156,7 @@ public class Usertest {
         stage = (Stage) search.getScene().getWindow();
         //load up OTHER FXML document
         try {
+
             root = FXMLLoader.load(getClass().getResource("../Book/SearchBook.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);

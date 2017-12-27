@@ -10,6 +10,108 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class bookutil {
+    public static List<List<String>> getSearchBookbyauthor(String sitem)
+    {
+        sitem= sitem.toLowerCase();
+        String sql = "select distinct b.Book_name Book_name,GET_AUTHOR_NAME(b.Book_id) Author,b.rating rating from book b,author a\n" +
+                "where b.book_id=a.book_id and lower(a.author_name) LIKE '%"+sitem+"%' ";
+        List<List<String>> resultList = new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString(1));
+                row.add(rs.getString(2));
+                if(rs.getString(3)==null){
+                    row.add("Rating: N/A");
+                }
+                else  row.add("Rating: "+rs.getString(3));
+
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {System.out.println(e.toString());
+
+        }
+        return resultList;
+    }
+    public static List<List<String>> getSearchBookbytype(String sitem)
+    {
+        sitem= sitem.toLowerCase();
+        String sql = "select distinct b.Book_name Book_name ,GET_AUTHOR_NAME(b.Book_id) Author,b.rating rating  from book b,book_type t\n" +
+                "where b.book_type_id=t.book_type_id and Lower(t.book_type_name) LIKE '%"+sitem+"%' ";
+        List<List<String>> resultList = new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString(1));
+                row.add(rs.getString(2));
+                if(rs.getString(3)==null){
+                    row.add("Rating: N/A");
+                }
+                else  row.add("Rating: "+rs.getString(3));
+
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {System.out.println(e.toString());
+
+        }
+        return resultList;
+    }
+    public static List<List<String>> getSearchBookbybook(String sitem)
+    {
+       sitem= sitem.toLowerCase();
+        String sql = "select distinct Book_name ,GET_AUTHOR_NAME(b.Book_id) Author,rating  from book b\n" +
+                "where  lower(Book_name) LIKE '%"+sitem+"%' ";
+        List<List<String>> resultList = new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString(1));
+                row.add(rs.getString(2));
+                if(rs.getString(3)==null){
+                    row.add("Rating: N/A");
+                }
+                else  row.add("Rating: "+rs.getString(3));
+
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {System.out.println(e.toString());
+
+        }
+        return resultList;
+    }
     public static String getOffer()
     {
         String sql = "select PERCENTAGE\n" +
@@ -28,9 +130,9 @@ public class bookutil {
                 String s="";
                 s+=rs.getString("PERCENTAGE");
 
-              s+="%";
-              // System.out.println(s);
-               return  s;
+                s+="%";
+                // System.out.println(s);
+                return  s;
 
 
             }
@@ -48,7 +150,7 @@ public class bookutil {
         String sql = "select book_id\n" +
                 "from book\n" +
                 "where book_name like ?";
-      //  System.out.println(book_name);
+        //  System.out.println(book_name);
         try{
             Connection con = new oracleDBMS().getConnection();
             PreparedStatement pst = con.prepareStatement(sql);
@@ -79,7 +181,7 @@ public class bookutil {
                 "from book b\n" +
                 "where book_id=?";
         //  System.out.println(book_name);
-         List<String>l=new ArrayList<>();
+        List<String>l=new ArrayList<>();
         try{
             Connection con = new oracleDBMS().getConnection();
             PreparedStatement pst = con.prepareStatement(sql);
@@ -90,7 +192,7 @@ public class bookutil {
             while (rs.next())
             {
                 l.add(rs.getString("book_name"));
-               l.add(rs.getString("author"));
+                l.add(rs.getString("author"));
                 l.add(rs.getString("price"));
                 l.add(rs.getString("ISBN"));
                 l.add(rs.getString("type"));
