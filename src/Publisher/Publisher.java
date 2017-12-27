@@ -97,11 +97,11 @@ public class Publisher {
         }
         bookname.setPrefWidth(200);
         authorname.setPrefWidth(200);
-        price.setPrefWidth(200);
+        price.setPrefWidth(100);
         bookname.setCellValueFactory(new PropertyValueFactory<>("Bookname"));
         authorname.setCellValueFactory(new PropertyValueFactory<>("Authorname"));
         price.setCellValueFactory(new PropertyValueFactory<>("Price"));
-        //   System.out.println(bookname.getColumns().isEmpty());
+
         booklist.getColumns().setAll(bookname,authorname,price);
         booklist.setEditable(true);
 

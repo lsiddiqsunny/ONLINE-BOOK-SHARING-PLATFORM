@@ -206,7 +206,7 @@ public class Usertest {
         anchorpane2.setVisible(true);
         anchorpane.setVisible(false);
 
-List<List<String>> booklist=userutil.getAllBooks();
+        List<List<String>> booklist=userutil.getAllBooks();
 
         for(int i=0;i<5;i++){
             Text name=new Text();
@@ -216,11 +216,12 @@ List<List<String>> booklist=userutil.getAllBooks();
             List<String> l=booklist.get(i);
             name.setText(l.get(0));
             author.setText(l.get(1));
-            rating.setText(l.get(2));
+            rating.setText(l.get(2)); details.setEffect(cart.getEffect());
             gridPane.add(name,i,0);
             gridPane.add(author,i,1);
             gridPane.add(details,i,2);
             gridPane.add(rating,i,3);
+
             details.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
@@ -254,6 +255,7 @@ List<List<String>> booklist=userutil.getAllBooks();
             name.setText(l.get(0));
             author.setText(l.get(1));
             rating.setText(l.get(2));
+            details.setEffect(cart.getEffect());
             gridPane1.add(name,i,0);
             gridPane1.add(author,i,1);
             gridPane1.add(details,i,2);
@@ -290,6 +292,7 @@ List<List<String>> booklist=userutil.getAllBooks();
             name.setText(l.get(0));
             author.setText(l.get(1));
             rating.setText(l.get(2));
+            details.setEffect(cart.getEffect());
             gridPane2.add(name,i,0);
             gridPane2.add(author,i,1);
             gridPane2.add(details,i,2);
@@ -317,7 +320,7 @@ List<List<String>> booklist=userutil.getAllBooks();
 
         }
 
-offer.setText(userutil.getOffer());
+        offer.setText(userutil.getOffer());
         setup();
 
     }

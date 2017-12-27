@@ -102,6 +102,7 @@ public class SearchBook {
             String x=  l.get(1).replace(',','\n');
             author.setText(x);
             rating.setText(l.get(2));
+            details.setEffect(back.getEffect());
             vBox.getChildren().add(name);
             vBox.getChildren().add(author);
             vBox.getChildren().add(details);
