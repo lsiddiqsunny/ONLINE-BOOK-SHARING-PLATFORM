@@ -23,7 +23,7 @@ import static Customer.User.userkey;
 public class Customercart {
     final ObservableList<orderinfo> data = FXCollections.observableArrayList();
 int co=0;
-    ArrayList<orderinfo> Item = new ArrayList<>();
+   public static ArrayList<orderinfo> Item = new ArrayList<>();
     @FXML
     Button back=new Button();
     @FXML
@@ -61,14 +61,27 @@ int co=0;
     TableColumn<orderinfo, String> status=new TableColumn<>("Payment Status");
     @FXML
     void Select(ActionEvent event) {
-        for(orderinfo e:Item){
-            System.out.println(e.toString());
+        Stage stage;
+        Parent root;
+        stage = (Stage) select.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+
+            root = FXMLLoader.load(getClass().getResource("purchase.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Confirm Order");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }
 
     @FXML
     public void initialize() {
+        Item.clear();
         List<List<String>> cartList=cartutil.getAllBooks(userkey) ;
         carttable.setEditable(true);
         int i=0;
@@ -106,9 +119,10 @@ int co=0;
                     items.setText(co+" rows selected.");
                     Item.remove(newValue);
                 }else {
+                    if(newValue.getStatus().equals("UNPAID")){
                     Item.add(newValue);
                     co++;
-                    items.setText(co+" rows selected.");
+                    items.setText(co+" rows selected.");}
                 }
             }
         });

@@ -35,6 +35,48 @@ public class Publisher {
     @FXML
     Button transcation=new Button();
     @FXML
+    Button editbook=new Button();
+    @FXML
+    Button request=new Button();
+    @FXML
+    void Editbook(ActionEvent actionEvent){
+        Stage stage;
+        Parent root;
+        stage = (Stage) editprofile.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+            root = FXMLLoader.load(getClass().getResource("editbook.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Edit ");
+
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    @FXML
+    void Request(ActionEvent actionEvent){
+        Stage stage;
+        Parent root;
+        stage = (Stage) request.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+            root = FXMLLoader.load(getClass().getResource("pendingrequest.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Pending Requests");
+
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    @FXML
     void Transaction(ActionEvent actionEvent){
 
     }

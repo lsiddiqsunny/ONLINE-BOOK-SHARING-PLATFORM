@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="mainanchor" prefHeight="565.0" prefWidth="523.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Publisher.PendingRequest">
+   <children>
+      <Label layoutX="160.0" layoutY="14.0" text="Pending Book Edit">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <TableView fx:id="editlist" layoutX="14.0" layoutY="50.0" prefHeight="176.0" prefWidth="491.0" />
+      <TableView fx:id="newbook" layoutX="21.0" layoutY="283.0" prefHeight="200.0" prefWidth="491.0" />
+      <Label layoutX="81.0" layoutY="236.0" prefHeight="36.0" prefWidth="372.0" text="Pending New Addition of Books">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Button fx:id="back" layoutX="440.0" layoutY="520.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="70.0" text="Back">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>

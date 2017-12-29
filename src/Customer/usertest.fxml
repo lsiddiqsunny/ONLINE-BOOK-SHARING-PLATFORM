@@ -13,6 +13,40 @@
    <left>
       <StackPane id="anotheranchor" prefHeight="523.0" prefWidth="220.0" stylesheets="@../Main/test.css" BorderPane.alignment="CENTER">
          <children>
+            <AnchorPane id="mainanchor" fx:id="anchorpane" prefHeight="524.0" prefWidth="229.0" stylesheets="@../Main/test.css">
+               <children>
+                  <Button fx:id="close" layoutX="32.0" layoutY="185.0" mnemonicParsing="false" onAction="#Close" prefHeight="30.0" prefWidth="150.0" text="Close the Sidebar" AnchorPane.bottomAnchor="255.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Button fx:id="profile" layoutX="32.0" layoutY="237.0" mnemonicParsing="false" onAction="#Profile" prefHeight="30.0" prefWidth="150.0" text="Your Profile" AnchorPane.bottomAnchor="210.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Button fx:id="review" layoutX="32.0" layoutY="367.0" mnemonicParsing="false" onAction="#Review" prefHeight="31.0" prefWidth="153.0" text="View Your Reviews" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Button fx:id="update" layoutX="32.0" layoutY="320.0" mnemonicParsing="false" onAction="#Update" prefHeight="30.0" prefWidth="150.0" text="Update Your Profile" AnchorPane.bottomAnchor="165.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Button fx:id="logout" layoutX="32.0" layoutY="417.0" mnemonicParsing="false" onAction="#Logout" prefHeight="30.0" prefWidth="150.0" text="Logout" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Button>
+                  <Text fx:id="username" fill="#f8f8f8" layoutX="14.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="33.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
             <AnchorPane id="mainanchor" fx:id="anchorpane2" prefHeight="523.0" prefWidth="226.0" stylesheets="@../Main/test.css">
                <children>
                   <Button fx:id="seeall" layoutX="38.0" layoutY="223.0" mnemonicParsing="false" onAction="#Seeall" prefHeight="30.0" prefWidth="150.0" text="Open The Sidebar" AnchorPane.bottomAnchor="255.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0">
@@ -35,51 +69,12 @@
                         <InnerShadow />
                      </effect>
                   </Button>
-                  <Button fx:id="transaction" layoutX="35.0" layoutY="370.0" mnemonicParsing="false" onAction="#Transaction" prefHeight="30.0" prefWidth="150.0" text="Transactions" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0">
-                     <effect>
-                        <InnerShadow />
-                     </effect>
-                  </Button>
                   <Label fx:id="offer" alignment="CENTER" layoutX="32.0" layoutY="14.0" prefHeight="179.0" prefWidth="151.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0" />
-               </children>
-            </AnchorPane>
-            <AnchorPane id="mainanchor" fx:id="anchorpane" prefHeight="524.0" prefWidth="229.0" stylesheets="@../Main/test.css">
-               <children>
-                  <Button fx:id="close" layoutX="32.0" layoutY="185.0" mnemonicParsing="false" onAction="#Close" prefHeight="30.0" prefWidth="150.0" text="Close the Sidebar" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0">
+                  <Button fx:id="cart" layoutX="35.0" layoutY="372.0" mnemonicParsing="false" onAction="#Cart" prefHeight="30.0" prefWidth="150.0" text="Your Cart" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0">
                      <effect>
                         <InnerShadow />
                      </effect>
                   </Button>
-                  <Button fx:id="profile" layoutX="32.0" layoutY="237.0" mnemonicParsing="false" onAction="#Profile" prefHeight="30.0" prefWidth="150.0" text="Your Profile" AnchorPane.bottomAnchor="255.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0">
-                     <effect>
-                        <InnerShadow />
-                     </effect>
-                  </Button>
-                  <Button fx:id="review" layoutX="32.0" layoutY="282.0" mnemonicParsing="false" onAction="#Review" prefHeight="31.0" prefWidth="153.0" text="View Your Reviews" AnchorPane.bottomAnchor="210.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0">
-                     <effect>
-                        <InnerShadow />
-                     </effect>
-                  </Button>
-                  <Button fx:id="update" layoutX="32.0" layoutY="327.0" mnemonicParsing="false" onAction="#Update" prefHeight="30.0" prefWidth="150.0" text="Update Your Profile" AnchorPane.bottomAnchor="165.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0">
-                     <effect>
-                        <InnerShadow />
-                     </effect>
-                  </Button>
-                  <Button fx:id="cart" layoutX="32.0" layoutY="372.0" mnemonicParsing="false" onAction="#Cart" prefHeight="30.0" prefWidth="150.0" text="Your Cart" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0">
-                     <effect>
-                        <InnerShadow />
-                     </effect>
-                  </Button>
-                  <Button fx:id="logout" layoutX="32.0" layoutY="417.0" mnemonicParsing="false" onAction="#Logout" prefHeight="30.0" prefWidth="150.0" text="Logout" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0">
-                     <effect>
-                        <InnerShadow />
-                     </effect>
-                  </Button>
-                  <Text fx:id="username" fill="#f8f8f8" layoutX="14.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0">
-                     <font>
-                        <Font size="33.0" />
-                     </font>
-                  </Text>
                </children>
             </AnchorPane>
          </children>

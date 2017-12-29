@@ -56,6 +56,103 @@ public class userutil {
         }
         return "";
     }
+    public static List<List<String>> getHighrated()
+    {
+        String sql = "select  Book_name ,get_author_name(book_id) Author,rating  from book where rating is not null order by rating desc";
+        List<List<String>> resultList = new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString("Book_name"));
+                row.add(rs.getString("Author"));
+                if(rs.getString("rating")==null){
+                    row.add("Rating: N/A");
+                }
+                else  row.add("Rating: "+rs.getString("rating"));
+
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {System.out.println(e.toString());
+
+        }
+        return resultList;
+    }
+
+    public static List<List<String>> getlastadded()
+    {
+        String sql = "select  Book_name ,get_author_name(book_id) Author,rating  from book  order by add_date desc";
+        List<List<String>> resultList = new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString("Book_name"));
+                row.add(rs.getString("Author"));
+                if(rs.getString("rating")==null){
+                    row.add("Rating: N/A");
+                }
+                else  row.add("Rating: "+rs.getString("rating"));
+
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {System.out.println(e.toString());
+
+        }
+        return resultList;
+    }
+    public static List<List<String>> gettopsold()
+    {
+        String sql = "select  Book_name ,get_author_name(book_id) Author,rating  from book where total_sold <> 0 order by total_sold desc";
+        List<List<String>> resultList = new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString("Book_name"));
+                row.add(rs.getString("Author"));
+                if(rs.getString("rating")==null){
+                    row.add("Rating: N/A");
+                }
+                else  row.add("Rating: "+rs.getString("rating"));
+
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {System.out.println(e.toString());
+
+        }
+        return resultList;
+    }
     public static List<List<String>> getAllBooks()
     {
         String sql = "select  Book_name ,get_author_name(book_id) Author,rating  from book";

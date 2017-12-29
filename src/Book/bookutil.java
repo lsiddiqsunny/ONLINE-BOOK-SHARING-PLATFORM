@@ -176,8 +176,8 @@ public class bookutil {
     }
     public static List<String> getBookinfo(String book_id)
     {
-        String sql = "select DISTINCT book_name,get_author_name(book_id) author,price,ISBN,(select t.book_type_name from book_type t where b.book_type_id=t.book_type_id) type\n" +
-                "\n" +
+        String sql = "select DISTINCT book_name,get_author_name(book_id) author,price,ISBN,(select t.book_type_name from book_type t where b.book_type_id=t.book_type_id) type,\n" +
+                "total_in_storage\n" +
                 "from book b\n" +
                 "where book_id=?";
         //  System.out.println(book_name);
@@ -196,6 +196,7 @@ public class bookutil {
                 l.add(rs.getString("price"));
                 l.add(rs.getString("ISBN"));
                 l.add(rs.getString("type"));
+                l.add(rs.getString("total_in_storage"));
                 return l;
 
 
@@ -211,7 +212,9 @@ public class bookutil {
     }
     public static void updateorder(String book_id,String am,String user)
     {
-        String sql = "Insert into customer_order values ((select count(*) from customer_order)+1,sysdate,0,?,?,?)";
+        String sql = "Insert into customer_order values ((select count(*) from customer_order)+1,sysdate,0,?,?,?,(select PERCENTAGE\n" +
+                "from OFFER_DETAILS\n" +
+                "                where  MONTHS_BETWEEN(offer_end, sysdate)>0))";
         //  System.out.println(book_name);
         List<String>l=new ArrayList<>();
         try{
@@ -238,5 +241,78 @@ public class bookutil {
             System.out.println(e.toString());
 
         }
+    }
+    public static void insertreview(String book_id,String userid,String review,String rating)
+    {
+        String sql = "Insert into review values((select count(*) from review)+1,SYSDATE,?,?,?,?)";
+        //  System.out.println(book_name);
+        List<String>l=new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,review);
+            pst.setString(2,userid);
+            pst.setString(3,book_id);
+            pst.setString(4,rating);
+            pst.executeQuery();
+
+
+
+
+            pst.close();
+            con.close();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Review added");
+            alert.setHeaderText("Review added Successfully!");
+            alert.setContentText("Your Review Has Been Added Successfully");
+            alert.showAndWait();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+
+        }
+    }
+    public static boolean checkorder(String book_id,String am)
+    {
+        String sql = "SELECT ENOUGH_IN_STORE(?,?) \n" +
+                "FROM BOOK\n" +
+                "WHERE BOOK_ID=?";
+        //  System.out.println(book_name);
+        List<String>l=new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,am);
+
+            pst.setString(2,book_id);
+            pst.setString(3,book_id);
+            pst.executeQuery();
+
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+               if(rs.getString(1).charAt(0)=='Y') return true;
+               else return  false;
+
+            }
+
+
+            pst.close();
+            con.close();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Book added");
+            alert.setHeaderText("Book added Successfully!");
+            alert.setContentText("The book is added to your cart.");
+            alert.showAndWait();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+
+        }
+        return  false;
     }
 }

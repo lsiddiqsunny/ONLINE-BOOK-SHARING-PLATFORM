@@ -22,10 +22,6 @@ public class Publisheredit {
     ComboBox Location=new ComboBox();
 
     @FXML
-    ComboBox Booklist=new ComboBox();
-    @FXML
-    TextField Price=new TextField();
-    @FXML
     PasswordField Password=new PasswordField();
     @FXML
     Button backbutton=new Button();
@@ -35,7 +31,7 @@ public class Publisheredit {
     Button reset=new Button();
     @FXML
     void Reset(ActionEvent event) {
-        Password.clear();Price.clear();;
+        Password.clear();
 
     }
     @FXML
@@ -43,29 +39,18 @@ public class Publisheredit {
 
         String userpass=Password.getText();
         String locationid=null;
-        String bookid=null;
+
         try{
             locationid= Location.getValue().toString();
             locationid= InsertCustomerdata.getLocation(locationid);
-           // System.out.println(locationid);
+            // System.out.println(locationid);
             publisherutil.setName(locationid,publisherkey,"Location_id");
 
         }catch (Exception e){
 
 
         }
-        try{
-            bookid= Booklist.getValue().toString();
-            bookid=publisherutil.getBook(bookid);
-            System.out.println(bookid);
-            if(Price.getText().length()!=0){
-publisherutil.setPrice(bookid,Price.getText().toString());
-            }
 
-        }
-        catch (Exception e){
-
-        }
         if(userpass.length()!=0){
             publisherutil.setName(userpass,publisherkey,"Password");
         }
@@ -106,15 +91,7 @@ publisherutil.setPrice(bookid,Price.getText().toString());
             }
         }
         Location.setItems(locationlist);
-        List<List<String>> userDataList=publisherutil.getAllBooks(publisherkey);
-        ObservableList<String> booklist =FXCollections.observableArrayList();
-        for (List<String> row : userDataList)
-        {
-            booklist.add(row.get(0));
-            //  System.out.println(data.get(i));
 
-        }
-        Booklist.setItems(booklist);
 
 
     }

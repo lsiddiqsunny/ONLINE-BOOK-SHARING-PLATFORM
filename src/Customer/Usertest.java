@@ -167,10 +167,7 @@ public class Usertest {
             e.printStackTrace();
         }
     }
-    @FXML
-    void Transaction(ActionEvent event) {
 
-    }
 
     @FXML
     void Logout(ActionEvent event) {
@@ -206,9 +203,12 @@ public class Usertest {
         anchorpane2.setVisible(true);
         anchorpane.setVisible(false);
 
-        List<List<String>> booklist=userutil.getAllBooks();
-
-        for(int i=0;i<5;i++){
+        List<List<String>> booklist=userutil.getHighrated();
+        int sz=0;
+        if(booklist==null)sz=0;
+        else sz=booklist.size();
+        for(int i=0;i<Integer.min(5,sz);i++){
+           // System.out.println("here");
             Text name=new Text();
             Text author=new Text();
             Text rating=new Text("");
@@ -217,6 +217,7 @@ public class Usertest {
             name.setText(l.get(0));
             author.setText(l.get(1));
             rating.setText(l.get(2)); details.setEffect(cart.getEffect());
+
             gridPane.add(name,i,0);
             gridPane.add(author,i,1);
             gridPane.add(details,i,2);
@@ -245,13 +246,16 @@ public class Usertest {
 
 
         }
-
-        for(int i=0;i<5;i++){
+        booklist=userutil.getlastadded();
+       sz=0;
+        if(booklist==null)sz=0;
+        else sz=booklist.size();
+        for(int i=0;i<Integer.min(5,sz);i++){
             Text name=new Text();
             Text author=new Text();
             Text rating=new Text("");
             Button details=new Button("See Details");
-            List<String> l=booklist.get(i+5);
+            List<String> l=booklist.get(i);
             name.setText(l.get(0));
             author.setText(l.get(1));
             rating.setText(l.get(2));
@@ -282,13 +286,16 @@ public class Usertest {
                 }
             });
         }
-
-        for(int i=0;i<5;i++){
+        booklist=userutil.gettopsold();
+        sz=0;
+        if(booklist==null)sz=0;
+        else sz=booklist.size();
+        for(int i=0;i<Integer.min(5,sz);i++){
             Text name=new Text();
             Text author=new Text();
             Text rating=new Text("");
             Button details=new Button("See Details");
-            List<String> l=booklist.get(i+10);
+            List<String> l=booklist.get(i);
             name.setText(l.get(0));
             author.setText(l.get(1));
             rating.setText(l.get(2));

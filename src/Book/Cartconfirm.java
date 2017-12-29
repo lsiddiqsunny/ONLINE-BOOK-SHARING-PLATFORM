@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -54,6 +55,16 @@ public class Cartconfirm {
         if(s.isEmpty()){
             s="0";
         }
+        boolean ok=bookutil.checkorder(bookid,s);
+        if(!ok){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Not enough book in storage");
+            alert.setHeaderText("Not enough book in storage");
+            alert.setContentText("Please enter less amount of books");
+            alert.showAndWait();
+            return;
+        }
+
         bookutil.updateorder(bookid,s,userkey);
     }
     @FXML
