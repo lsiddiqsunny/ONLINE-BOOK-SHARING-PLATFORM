@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 
 <AnchorPane id="mainanchor" prefHeight="583.0" prefWidth="505.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Publisher.Transaction">
    <children>
@@ -14,19 +13,14 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TableView fx:id="requestlist" layoutX="14.0" layoutY="50.0" prefHeight="165.0" prefWidth="477.0" />
+      <TableView fx:id="requestlist" layoutX="27.0" layoutY="44.0" prefHeight="165.0" prefWidth="477.0" />
       <Label layoutX="194.0" layoutY="251.0" text="Your Request">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TableView fx:id="newbook" layoutX="8.0" layoutY="293.0" prefHeight="200.0" prefWidth="491.0" />
-      <Button layoutX="417.0" layoutY="220.0" mnemonicParsing="false" text="Confirm">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button layoutX="422.0" layoutY="500.0" mnemonicParsing="false" text="Confirm">
+      <TableView fx:id="newbook" layoutX="24.0" layoutY="292.0" prefHeight="212.0" prefWidth="491.0" />
+      <Button layoutX="417.0" layoutY="220.0" mnemonicParsing="false" onAction="#Confirm" text="Confirm">
          <effect>
             <InnerShadow />
          </effect>
@@ -36,5 +30,7 @@
             <InnerShadow />
          </effect>
       </Button>
+      <Label fx:id="items" layoutX="29.0" layoutY="225.0" />
+      <Label fx:id="items1" layoutX="7.0" layoutY="505.0" text="If status is CONFIRMED,you will be paid soon or contact with respective branch." />
    </children>
 </AnchorPane>

@@ -11,6 +11,29 @@ import java.util.List;
 import static Createaccount.InsertCustomerdata.getLocation;
 
 public class publisherutil {
+    public  static boolean  updatebookreq(String id) {
+        String sql = "update bookrequest\n" +
+                "set statues=1\n" +
+                "where request_id=?";
+        // System.out.println(sql);
+        try {
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setString(1, id);
+
+            ResultSet rs = pst.executeQuery();
+
+
+            pst.close();
+            con.close();
+            return true;
+        } catch (Exception e) {
+            System.out.println(e);
+        } return false;
+    }
+
+
     public static List<List<String>> getPendingBook(String publisher_id)
     {
         String sql = "SELECT PENDINGBOOKUPDATE, (SELECT BOOK_NAME FROM BOOK B WHERE B.BOOK_ID=P.BOOK_ID) BOOK_NAME,PRICE,GET_STATUS_EDIT(STATUS) STATUS FROM PENDINGBOOKUPDATE P WHERE PUBLISHER_ID=?";
@@ -36,6 +59,39 @@ public class publisherutil {
         }
         catch(Exception e)
         {
+
+        }
+        return resultList;
+    }
+    public static List<List<String>> getBookReq(String publisher_id)
+    {
+        String sql = "SELECT REQUEST_ID,(SELECT BOOK_NAME FROM BOOK B WHERE B.BOOK_ID=P.BOOK_ID) BOOK_NAME,AMOUNT,GET_STATUS_EDIT(STATUES) STATUES,\n" +
+                "(SELECT BRANCH_NAME FROM EMPLOYEE E,BRANCH BR WHERE P.EMPLOYEE_ID=E.EMPLOYEE_ID AND E.BRANCH_ID=BR.BRANCH_ID) BRANCH_NAME\n" +
+                "FROM BOOKREQUEST P\n" +
+                "WHERE PUBLISHER_ID=?";
+        List<List<String>> resultList = new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,publisher_id);
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString("REQUEST_ID"));
+                row.add(rs.getString("BOOK_NAME"));
+                row.add(rs.getString("AMOUNT"));
+                row.add(rs.getString("STATUES"));
+                row.add(rs.getString("BRANCH_NAME"));
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {System.out.println(e.toString());
 
         }
         return resultList;
