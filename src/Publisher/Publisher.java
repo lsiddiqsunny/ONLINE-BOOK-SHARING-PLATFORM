@@ -78,7 +78,20 @@ public class Publisher {
     }
     @FXML
     void Transaction(ActionEvent actionEvent){
+        Stage stage;
+        Parent root;
+        stage = (Stage) transcation.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+            root = FXMLLoader.load(getClass().getResource("Transaction.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Transaction");
+            stage.show();
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     void Editprofile(ActionEvent actionEvent){

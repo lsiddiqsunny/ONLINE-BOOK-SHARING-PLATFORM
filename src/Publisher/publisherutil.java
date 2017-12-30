@@ -11,6 +11,66 @@ import java.util.List;
 import static Createaccount.InsertCustomerdata.getLocation;
 
 public class publisherutil {
+    public static List<List<String>> getPendingBook(String publisher_id)
+    {
+        String sql = "SELECT PENDINGBOOKUPDATE, (SELECT BOOK_NAME FROM BOOK B WHERE B.BOOK_ID=P.BOOK_ID) BOOK_NAME,PRICE,GET_STATUS_EDIT(STATUS) STATUS FROM PENDINGBOOKUPDATE P WHERE PUBLISHER_ID=?";
+        List<List<String>> resultList = new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,publisher_id);
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString("PENDINGBOOKUPDATE"));
+                row.add(rs.getString("BOOK_NAME"));
+                row.add(rs.getString("PRICE"));
+                row.add(rs.getString("STATUS"));
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+
+        }
+        return resultList;
+    }
+
+
+    public static List<List<String>> getPendingReq(String publisher_id)
+    {
+        String sql = "SELECT PENDINGBOOKINSERTID, BOOK_NAME,PRICE,GET_STATUS_EDIT(STATUS) STATUS FROM PENDINGBOOKINSERT P WHERE PUBLISHER_ID=?";
+        List<List<String>> resultList = new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,publisher_id);
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString("PENDINGBOOKINSERTID"));
+                row.add(rs.getString("BOOK_NAME"));
+                row.add(rs.getString("PRICE"));
+                row.add(rs.getString("STATUS"));
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+
+        }
+        return resultList;
+    }
     public  static boolean  pendingbookinsert(String a,String b,String c,String d,String e,String f,String g) {
         String sql = "Insert into PENDINGBOOKINSERT values((select count(*) from PENDINGBOOKINSERT)+1,?,?,?,?,?,?,0,?)";
        // System.out.println(a+" "+b+" "+c+" "+d+" "+e+" "+f+" "+g);

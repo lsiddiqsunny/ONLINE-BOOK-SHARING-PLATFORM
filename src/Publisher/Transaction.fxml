@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="mainanchor" prefHeight="583.0" prefWidth="505.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Publisher.Transaction">
+   <children>
+      <Label layoutX="175.0" layoutY="14.0" text="Request For Book">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TableView fx:id="requestlist" layoutX="14.0" layoutY="50.0" prefHeight="165.0" prefWidth="477.0" />
+      <Label layoutX="194.0" layoutY="251.0" text="Your Request">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TableView fx:id="newbook" layoutX="8.0" layoutY="293.0" prefHeight="200.0" prefWidth="491.0" />
+      <Button layoutX="417.0" layoutY="220.0" mnemonicParsing="false" text="Confirm">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <Button layoutX="422.0" layoutY="500.0" mnemonicParsing="false" text="Confirm">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <Button fx:id="back" layoutX="422.0" layoutY="538.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="74.0" text="Back">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>

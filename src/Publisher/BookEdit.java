@@ -17,7 +17,7 @@ public class BookEdit {
     }
 
 
-    public String getAuthorName() {
+    public String getBookName() {
         return BookName;
     }
     public String getPrice() {
