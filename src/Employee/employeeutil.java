@@ -9,6 +9,184 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class employeeutil {
+    public static int getusermaxsalary(String Employee_id)
+    {
+        String sql = "select j.max_salary from employee e,job j where e.job_id=j.job_id and e.employee_id=?";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setString(1,Employee_id);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next())
+            {
+
+                return   Integer.parseInt(rs.getString(1));
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        return 0;
+    }
+
+    public static void updateusersalary(String sal,String Employee_id)
+    {
+        String sql = "update employee set salary=? where employee_id=?";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,sal);
+            pst.setString(2,Employee_id);
+            ResultSet rs = pst.executeQuery();
+
+
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+
+    }
+    public static void updateusercommission(String sal,String Employee_id)
+    {
+        String sql = "update employee set commission_pct=? where employee_id=?";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,sal);
+            pst.setString(2,Employee_id);
+            ResultSet rs = pst.executeQuery();
+
+
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+
+    }
+    public static void updateuserwork(String sal,String ordered,String Employee_id)
+    {
+        String sql = "insert into workinfo values ((select count(*) from workinfo)+1,SYSDATE,?,?,?,0)";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,sal);
+            pst.setString(2,ordered);
+            pst.setString(3,Employee_id);
+
+            ResultSet rs = pst.executeQuery();
+
+
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+
+    }
+    public static int getusersalary(String Employee_id)
+    {
+        String sql = "SELECT salary FROM Employee where employee_id=?";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setString(1,Employee_id);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next())
+            {
+
+                return   Integer.parseInt(rs.getString(1));
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        return 0;
+    }
+    public static double getusercommission(String Employee_id)
+    {
+        String sql = "SELECT Commission_pct FROM Employee where employee_id=?";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setString(1,Employee_id);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next())
+            {
+
+                return   Double.parseDouble(rs.getString(1));
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        return 0;
+    }
+    public static int getuserjobid(String Employee_id)
+    {
+        String sql = "SELECT job_id FROM Employee where employee_id=?";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setString(1,Employee_id);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next())
+            {
+
+                return   Integer.parseInt(rs.getString(1));
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        return 0;
+    }
+    public  static boolean  setName(String Name,String id,String Type) {
+        String sql = "Update Employee Set "+Type+"=? Where Employee_id=?";
+        // System.out.println(sql);
+        try {
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setString(1, Name);
+            pst.setString(2, id);
+            ResultSet rs = pst.executeQuery();
+
+
+            pst.close();
+            con.close();
+            return true;
+        } catch (Exception e) {
+            System.out.println(e);
+        } return false;
+    }
     public  static String  getusername(String Employee_id)
     {
         String sql = "SELECT Employee_name FROM Employee Where Employee_id=?";
@@ -108,7 +286,7 @@ public class employeeutil {
     }
     public static List<List<String>> getAllEmployee(String employee_id)
     {
-        String sql = "SELECT E.EMPLOYEE_NAME Name,E.PHONE_NUMBER Phone,(SELECT J.JOB_NAME FROM JOB J WHERE E.JOB_ID=J.JOB_ID) JOB_NAME\n" +
+        String sql = "SELECT E.Employee_id id,E.EMPLOYEE_NAME Name,E.PHONE_NUMBER Phone,(SELECT J.JOB_NAME FROM JOB J WHERE E.JOB_ID=J.JOB_ID) JOB_NAME\n" +
                 "FROM EMPLOYEE E\n" +
                 "WHERE E.MANAGER_ID=?";
         List<List<String>> resultList = new ArrayList<>();
@@ -122,6 +300,7 @@ public class employeeutil {
             while (rs.next())
             {
                 List<String> row = new ArrayList<>();
+                row.add(rs.getString("id"));
                 row.add(rs.getString("Name"));
                 row.add(rs.getString("Phone"));
                 row.add(rs.getString("Job_name"));

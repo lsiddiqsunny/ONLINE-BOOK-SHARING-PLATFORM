@@ -61,38 +61,45 @@ public class Employee {
         }
     }
     @FXML
+   public void Load(String s){
+        Stage stage;
+        Parent root;
+        stage = (Stage) workspace.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+            root = FXMLLoader.load(getClass().getResource(s));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Workspace");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
     void Workspace(ActionEvent actionEvent) {
-//        Stage stage;
-//        Parent root;
-//        stage = (Stage) logout.getScene().getWindow();
-//        //load up OTHER FXML document
-//        try {
-//            root = FXMLLoader.load(getClass().getResource("Main.fxml"));
-//            Scene scene = new Scene(root);
-//            stage.setScene(scene);
-//            stage.setTitle("Home page");
-//            stage.show();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        int x=employeeutil.getuserjobid(employeekey);
+        if(x==1){
+            Load("../Workspace/managingderector.fxml");
+        }
     }
     @FXML
     void Editprofile(ActionEvent actionEvent) {
-//        Stage stage;
-//        Parent root;
-//        stage = (Stage) logout.getScene().getWindow();
-//        //load up OTHER FXML document
-//        try {
-//            root = FXMLLoader.load(getClass().getResource("Main.fxml"));
-//            Scene scene = new Scene(root);
-//            stage.setScene(scene);
-//            stage.setTitle("Home page");
-//            stage.show();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        Stage stage;
+        Parent root;
+        stage = (Stage) editprofile.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+            root = FXMLLoader.load(getClass().getResource("editprofile.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Edit Profile");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     void Underpeople(ActionEvent actionEvent) {
@@ -121,7 +128,7 @@ public class Employee {
         employeejob.setText(employeeutil.getuserjob(employeekey));
         employeedepartment.setText(employeeutil.getuserdepartment(employeekey));
         if(employeeutil.getusermanager(employeekey).length()!=0)
-        employeemanager.setText(employeeutil.getusermanager(employeekey));
+            employeemanager.setText(employeeutil.getusermanager(employeekey));
         else employeemanager.setText("NO MANAGER");
 
 

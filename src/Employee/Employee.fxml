@@ -6,25 +6,21 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="mainanchor" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Employee.Employee">
+<AnchorPane id="mainanchor" prefHeight="350.0" prefWidth="600.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Employee.Employee">
    <children>
-      <Button fx:id="underpeople" layoutX="22.0" layoutY="340.0" mnemonicParsing="false" onAction="#Underpeople" text="See people working under you">
+      <Button fx:id="workspace" layoutX="492.0" layoutY="107.0" mnemonicParsing="false" onAction="#Workspace" text="Workspace">
          <effect>
             <InnerShadow />
          </effect></Button>
-      <Button fx:id="workspace" layoutX="270.0" layoutY="340.0" mnemonicParsing="false" onAction="#Workspace" text="Workspace">
+      <Button fx:id="logout" layoutX="492.0" layoutY="63.0" mnemonicParsing="false" onAction="#Logout" prefHeight="31.0" prefWidth="94.0" text="Logout">
          <effect>
             <InnerShadow />
          </effect></Button>
-      <Button fx:id="logout" layoutX="500.0" layoutY="340.0" mnemonicParsing="false" onAction="#Logout" text="Logout">
+      <Button fx:id="editprofile" layoutX="492.0" layoutY="151.0" mnemonicParsing="false" onAction="#Editprofile" prefHeight="31.0" prefWidth="94.0" text="Edit Profile">
          <effect>
             <InnerShadow />
          </effect></Button>
-      <Button fx:id="editprofile" layoutX="390.0" layoutY="340.0" mnemonicParsing="false" onAction="#Editprofile" text="Edit Profile">
-         <effect>
-            <InnerShadow />
-         </effect></Button>
-      <Text fx:id="employeename" layoutX="36.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0">
+      <Text fx:id="employeename" layoutX="18.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="564.0">
          <font>
             <Font size="30.0" />
          </font>

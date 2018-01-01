@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="mainanchor" prefHeight="400.0" prefWidth="303.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Managingderector">
+   <children>
+      <Button fx:id="underpeople" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#Underpeople" prefHeight="31.0" prefWidth="275.0" text="See people working under you">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <Button fx:id="back" layoutX="224.0" layoutY="355.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="70.0" text="Back">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <Button layoutX="14.0" layoutY="60.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="275.0" text="Chcek your ordered works in queue">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>
