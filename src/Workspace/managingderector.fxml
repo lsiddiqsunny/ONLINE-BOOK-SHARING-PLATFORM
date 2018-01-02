@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import java.lang.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -22,7 +22,7 @@
             <InnerShadow />
          </effect>
       </Button>
-      <Button fx:id="notice" layoutX="14.0" layoutY="107.0" mnemonicParsing="false" onAction="#Notice" prefHeight="31.0" prefWidth="275.0" text="Give A Notice">
+      <Button fx:id="notice" layoutX="14.0" layoutY="107.0" mnemonicParsing="false" onAction="#Notice" prefHeight="31.0" prefWidth="275.0" text="Give or Update  Notices">
          <effect>
             <InnerShadow />
          </effect>

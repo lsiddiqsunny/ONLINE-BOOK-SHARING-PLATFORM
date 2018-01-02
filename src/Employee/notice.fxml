@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Employee.Notice"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane id="mainanchor" prefHeight="517.0" prefWidth="391.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Employee.Notice">
+   <children>
+      <TableView fx:id="noticelist" layoutX="24.0" layoutY="45.0" prefHeight="416.0" prefWidth="352.0" />
+      <Label layoutX="158.0" layoutY="24.0" text="Active Notice" />
+      <Button fx:id="back" layoutX="267.0" layoutY="471.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="112.0" text="Back">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+   </children>
 </AnchorPane>

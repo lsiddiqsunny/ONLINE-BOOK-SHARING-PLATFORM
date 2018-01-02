@@ -24,6 +24,8 @@ public class Notice {
     @FXML
     Button notice=new Button();
     @FXML
+    Button showactive=new Button();
+    @FXML
     Button back=new Button();
     @FXML
     ComboBox joblist=new ComboBox();
@@ -64,6 +66,23 @@ public class Notice {
             alert.setHeaderText("Notice Published");
             alert.setContentText("Notice Sent to All");
             alert.showAndWait();
+        }
+    }
+    @FXML
+    void Showactive(ActionEvent event){
+        Stage stage;
+        Parent root;
+        stage = (Stage) back.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+            root = FXMLLoader.load(getClass().getResource("activenotice.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Active Notices");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     @FXML

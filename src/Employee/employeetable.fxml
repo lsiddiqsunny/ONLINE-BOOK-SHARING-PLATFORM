@@ -9,12 +9,12 @@
 <AnchorPane id="mainanchor" prefHeight="612.0" prefWidth="600.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Employee.Employeetable">
    <children>
       <Text layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee List Under  you" />
-      <Button fx:id="backbutton" layoutX="505.0" layoutY="18.0" mnemonicParsing="false" onAction="#Backbutton" prefHeight="31.0" prefWidth="84.0" text="Back">
+      <Button fx:id="backbutton" layoutX="431.0" layoutY="567.0" mnemonicParsing="false" onAction="#Backbutton" prefHeight="31.0" prefWidth="155.0" text="Back">
          <effect>
             <InnerShadow />
          </effect></Button>
       <TableView fx:id="employeelist" layoutX="14.0" layoutY="65.0" prefHeight="485.0" prefWidth="573.0" />
-      <Button fx:id="status" layoutX="470.0" layoutY="567.0" mnemonicParsing="false" onAction="#Status" text="Change Status">
+      <Button fx:id="status" layoutX="223.0" layoutY="567.0" mnemonicParsing="false" onAction="#Status" prefHeight="31.0" prefWidth="155.0" text="Change Status">
          <effect>
             <InnerShadow />
          </effect>

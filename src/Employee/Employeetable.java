@@ -34,25 +34,41 @@ public class Employeetable {
 
     TableColumn<employeedata, String> jobname=new TableColumn<>("Job Name");
     TableColumn<employeedata, String> id=new TableColumn<>("Employee ID");
+
     @FXML
     Button backbutton =new Button();
     @FXML
     Button status =new Button();
     @FXML
-    public void Status(ActionEvent actionEvent){
+    public void Load1(String s){
         Stage stage;
         Parent root;
         stage = (Stage) status.getScene().getWindow();
         //load up OTHER FXML document
         try {
-            root = FXMLLoader.load(getClass().getResource("changestatus.fxml"));
+            root = FXMLLoader.load(getClass().getResource(s));
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Workspace");
+            stage.setTitle("Change Status");
             stage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+    @FXML
+    public void Status(ActionEvent actionEvent){
+        int x=employeeutil.getuserjobid(employeekey);
+        if(managedkey!=null) {
+            if(x>=1 && x<=8) {
+
+                Load1("changestatus.fxml");
+
+            }
+            else if(x==14){
+                Load1("../Workspace/bookdistribute.fxml");
+            }
+
         }
     }
     @FXML
@@ -75,10 +91,10 @@ public class Employeetable {
     @FXML
     void Backbutton(ActionEvent actionEvent) {
 
-       int x=employeeutil.getuserjobid(employeekey);
-       if(x>=1 && x<=8 ){
-           Load("../Workspace/managingderector.fxml");
-       }
+        int x=employeeutil.getuserjobid(employeekey);
+        if((x>=1 && x<=8 )||x==14){
+            Load("../Workspace/managingderector.fxml");
+        }
     }
 
     @FXML

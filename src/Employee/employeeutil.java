@@ -9,6 +9,69 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class employeeutil {
+    public static List<List<String>> getAllSelectedNotice(String job_id,String branch_id)
+    {
+        String sql = "SELECT NOTICE_ID,NOTICE,NOTICE_TIME,(SELECT JOB_NAME FROM JOB J WHERE J.JOB_ID=N.JOB_ID),GET_STATUS_NOTICE(ACTIVE) \n" +
+                "FROM NOTICE N WHERE JOB_ID=? AND BRANCH_ID=?  ORDER BY ACTIVE DESC";
+        List<List<String>> resultList = new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,job_id);
+            pst.setString(2,branch_id);
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString(1));
+                row.add(rs.getString(2));
+                row.add(rs.getString(3));
+                row.add(rs.getString(4));
+                row.add(rs.getString(5));
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return resultList;
+    }
+    public static List<List<String>> getAllNotice(String employee_id)
+    {
+        String sql = "SELECT NOTICE_ID,NOTICE,NOTICE_TIME,(SELECT JOB_NAME FROM JOB J WHERE J.JOB_ID=N.JOB_ID),GET_STATUS_NOTICE(ACTIVE)" +
+                " FROM NOTICE N WHERE GIVENBY=?  ORDER BY ACTIVE DESC";
+        List<List<String>> resultList = new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,employee_id);
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString(1));
+                row.add(rs.getString(2));
+                row.add(rs.getString(3));
+                row.add(rs.getString(4));
+                row.add(rs.getString(5));
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return resultList;
+    }
     public static void nullnotice()
     {
         String sql = "DELETE FROM NOTICE WHERE JOB_ID IS NULL";
@@ -30,7 +93,7 @@ public class employeeutil {
     }
     public static void noticetojob(String sal,String ordered,String Employee_id,String d)
     {
-        String sql = "INSERT INTO NOTICE VALUES((SELECT COUNT(*) FROM NOTICE)+1,?,SYSDATE,?,?,?)";
+        String sql = "INSERT INTO NOTICE VALUES((SELECT COUNT(*) FROM NOTICE)+1,?,SYSDATE,?,?,?,1)";
         try{
             Connection con = new oracleDBMS().getConnection();
             PreparedStatement pst = con.prepareStatement(sql);
@@ -51,7 +114,7 @@ public class employeeutil {
     }
     public static void noticetoall(String sal,String ordered,String Employee_id)
     {
-        String sql = "INSERT INTO NOTICE VALUES((SELECT COUNT(*) FROM NOTICE)+(select COUNT(JOB_ID) from employee e where manager_id=?)+1,?,SYSDATE,?,?,NULL)";
+        String sql = "INSERT INTO NOTICE VALUES((SELECT COUNT(*) FROM NOTICE)+(select COUNT(JOB_ID) from employee e where manager_id=?)+1,?,SYSDATE,?,?,NULL,1)";
         try{
             Connection con = new oracleDBMS().getConnection();
             PreparedStatement pst = con.prepareStatement(sql);
@@ -219,6 +282,27 @@ public class employeeutil {
     public static void updatework(String id)
     {
         String sql = "update workinfo set work_status=1 where work_id=?";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,id);
+
+
+            ResultSet rs = pst.executeQuery();
+
+
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+
+    }
+    public static void updatenotice(String id)
+    {
+        String sql = "update notice set active=0 where notice_id=?";
         try{
             Connection con = new oracleDBMS().getConnection();
             PreparedStatement pst = con.prepareStatement(sql);
