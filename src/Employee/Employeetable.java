@@ -76,7 +76,7 @@ public class Employeetable {
     void Backbutton(ActionEvent actionEvent) {
 
        int x=employeeutil.getuserjobid(employeekey);
-       if(x==1){
+       if(x>=1 && x<=8 ){
            Load("../Workspace/managingderector.fxml");
        }
     }

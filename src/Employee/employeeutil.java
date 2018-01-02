@@ -9,6 +9,126 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class employeeutil {
+    public static void nullnotice()
+    {
+        String sql = "DELETE FROM NOTICE WHERE JOB_ID IS NULL";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+
+
+
+            ResultSet rs = pst.executeQuery();
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+
+    }
+    public static void noticetojob(String sal,String ordered,String Employee_id,String d)
+    {
+        String sql = "INSERT INTO NOTICE VALUES((SELECT COUNT(*) FROM NOTICE)+1,?,SYSDATE,?,?,?)";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,sal);
+            pst.setString(2,ordered);
+            pst.setString(3,Employee_id);
+            pst.setString(4,d);
+
+            ResultSet rs = pst.executeQuery();
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+
+    }
+    public static void noticetoall(String sal,String ordered,String Employee_id)
+    {
+        String sql = "INSERT INTO NOTICE VALUES((SELECT COUNT(*) FROM NOTICE)+(select COUNT(JOB_ID) from employee e where manager_id=?)+1,?,SYSDATE,?,?,NULL)";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,ordered);
+            pst.setString(2,sal);
+            pst.setString(3,ordered);
+            pst.setString(4,Employee_id);
+
+
+            ResultSet rs = pst.executeQuery();
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+
+    }
+    public static List<List<String>> getAllOrder(String employee_id)
+    {
+        String sql = "SELECT work_id,work_details,TO_CHAR(work_order_time,'DD/MM/YYYY'),(SELECT employee_name FROM employee e " +
+                "WHERE e.employee_id=w.employee_id),GET_STATUS_WORK(work_status) FROM workinfo w WHERE OrderedBy=?";
+        List<List<String>> resultList = new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,employee_id);
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString(1));
+                row.add(rs.getString(2));
+                row.add(rs.getString(3));
+                row.add(rs.getString(4));
+                row.add(rs.getString(5));
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return resultList;
+    }
+    public static List<List<String>> getJoblist(String employee_id)
+    {
+        String sql = "select distinct (select j.job_name from job j where j.job_id=e.job_id) from employee e where manager_id=?";
+        List<List<String>> resultList = new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,employee_id);
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString(1));
+
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return resultList;
+    }
     public static int getusermaxsalary(String Employee_id)
     {
         String sql = "select j.max_salary from employee e,job j where e.job_id=j.job_id and e.employee_id=?";
@@ -96,6 +216,48 @@ public class employeeutil {
         }
 
     }
+    public static void updatework(String id)
+    {
+        String sql = "update workinfo set work_status=1 where work_id=?";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,id);
+
+
+            ResultSet rs = pst.executeQuery();
+
+
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+
+    }
+    public static void updatework1(String id)
+    {
+        String sql = "update workinfo set work_status=2 where work_id=?";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,id);
+
+
+            ResultSet rs = pst.executeQuery();
+
+
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+
+    }
     public static int getusersalary(String Employee_id)
     {
         String sql = "SELECT salary FROM Employee where employee_id=?";
@@ -167,6 +329,30 @@ public class employeeutil {
             System.out.println(e);
         }
         return 0;
+    }
+    public static String getjobid(String Employee_id)
+    {
+        String sql = "select job_id from job where job_name=?";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setString(1,Employee_id);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next())
+            {
+
+                return rs.getString(1);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        return "";
     }
     public  static boolean  setName(String Name,String id,String Type) {
         String sql = "Update Employee Set "+Type+"=? Where Employee_id=?";
@@ -311,7 +497,38 @@ public class employeeutil {
         }
         catch(Exception e)
         {
-System.out.println(e.toString());
+            System.out.println(e.toString());
+        }
+        return resultList;
+    }
+    public static List<List<String>> getAllWork(String employee_id)
+    {
+        String sql = "SELECT work_id,work_details,TO_CHAR(work_order_time,'DD/MM/YYYY'),(SELECT employee_name FROM employee e " +
+                "WHERE e.employee_id=w.orderedby),GET_STATUS_WORK(work_status) FROM workinfo w WHERE EMPLOYEE_ID=?";
+        List<List<String>> resultList = new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,employee_id);
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString(1));
+                row.add(rs.getString(2));
+                row.add(rs.getString(3));
+                row.add(rs.getString(4));
+                row.add(rs.getString(5));
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
         }
         return resultList;
     }
@@ -383,6 +600,30 @@ System.out.println(e.toString());
                 return rs.getString("Street_Address")+","+rs.getString("Post_code")+","+rs.getString("City")+".";
 
 
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return "";
+    }
+    public static String getuserBranch(String Employee_id)
+    {
+        String sql = "select branch_id from employee where employee_id=?";
+
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,Employee_id);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next())
+            {
+
+                return rs.getString(1);
             }
             pst.close();
             con.close();

@@ -44,6 +44,11 @@ public class Employee {
     @FXML
     private Text employeename=new Text();
     @FXML
+    Button notification=new Button();
+    @FXML
+    Button shownotice=new Button();
+
+    @FXML
     void Logout(ActionEvent actionEvent) {
         Stage stage;
         Parent root;
@@ -54,6 +59,41 @@ public class Employee {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Home page");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void Shownotice(ActionEvent actionEvent) {
+        Stage stage;
+        Parent root;
+        stage = (Stage) shownotice.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+            root = FXMLLoader.load(getClass().getResource("notice.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Notice");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void Notification(ActionEvent actionEvent) {
+        Stage stage;
+        Parent root;
+        stage = (Stage) notification.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+            root = FXMLLoader.load(getClass().getResource("notification.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Notification");
             stage.show();
 
         } catch (IOException e) {
@@ -80,7 +120,7 @@ public class Employee {
     @FXML
     void Workspace(ActionEvent actionEvent) {
         int x=employeeutil.getuserjobid(employeekey);
-        if(x==1){
+        if(x>=1 && x<=8 ){
             Load("../Workspace/managingderector.fxml");
         }
     }

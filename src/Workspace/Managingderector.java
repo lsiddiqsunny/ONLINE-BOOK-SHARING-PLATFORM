@@ -16,6 +16,27 @@ public class Managingderector {
     @FXML
     Button back=new Button();
     @FXML
+    Button work=new Button();
+    @FXML
+    Button notice=new Button();
+    @FXML
+    void Notice(ActionEvent event){
+        Stage stage;
+        Parent root;
+        stage = (Stage) notice.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+            root = FXMLLoader.load(getClass().getResource("notice.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Notice");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
     void Back(ActionEvent event){
         Stage stage;
         Parent root;
@@ -26,6 +47,23 @@ public class Managingderector {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Employee Account");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void Work(ActionEvent event){
+        Stage stage;
+        Parent root;
+        stage = (Stage) work.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+            root = FXMLLoader.load(getClass().getResource("Works.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Order List");
             stage.show();
 
         } catch (IOException e) {

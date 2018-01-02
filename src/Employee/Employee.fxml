@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.effect.*?>
-<?import java.lang.*?>
+
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="mainanchor" prefHeight="350.0" prefWidth="600.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Employee.Employee">
    <children>
-      <Button fx:id="workspace" layoutX="492.0" layoutY="107.0" mnemonicParsing="false" onAction="#Workspace" text="Workspace">
+      <Button fx:id="workspace" layoutX="480.0" layoutY="107.0" mnemonicParsing="false" onAction="#Workspace" prefHeight="31.0" prefWidth="106.0" text="Workspace">
          <effect>
             <InnerShadow />
          </effect></Button>
-      <Button fx:id="logout" layoutX="492.0" layoutY="63.0" mnemonicParsing="false" onAction="#Logout" prefHeight="31.0" prefWidth="94.0" text="Logout">
+      <Button fx:id="logout" layoutX="478.0" layoutY="64.0" mnemonicParsing="false" onAction="#Logout" prefHeight="31.0" prefWidth="106.0" text="Logout">
          <effect>
             <InnerShadow />
          </effect></Button>
-      <Button fx:id="editprofile" layoutX="492.0" layoutY="151.0" mnemonicParsing="false" onAction="#Editprofile" prefHeight="31.0" prefWidth="94.0" text="Edit Profile">
+      <Button fx:id="editprofile" layoutX="480.0" layoutY="151.0" mnemonicParsing="false" onAction="#Editprofile" prefHeight="31.0" prefWidth="106.0" text="Edit Profile">
          <effect>
             <InnerShadow />
          </effect></Button>
@@ -39,5 +39,15 @@
       <Text fx:id="employeedepartment" layoutX="120.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text layoutX="22.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager Name:" />
       <Text fx:id="employeemanager" layoutX="144.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Button fx:id="notification" layoutX="480.0" layoutY="196.0" mnemonicParsing="false" onAction="#Notification" prefHeight="31.0" prefWidth="106.0" text="Notification">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <Button fx:id="shownotice" layoutX="480.0" layoutY="240.0" mnemonicParsing="false" onAction="#Shownotice" prefHeight="31.0" prefWidth="106.0" text="Show Notice">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>
