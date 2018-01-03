@@ -9,6 +9,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class employeeutil {
+    public static List<List<String>> getAllBooks(String Customer_id)
+    {
+        String sql = "select order_id,(select b.book_name from book b where b.book_id=o.book_id) book_name,amount,To_char(Time,'dd/mm/yyyy') Time,GET_STATUS(STATUS) STATUS\n" +
+                "from Customer_order o ,Customer c where o.CUSTOMER_ID=c.CUSTOMER_ID and c.branch_id="+Customer_id+" ORDER BY STATUS";
+        List<List<String>> resultList = new ArrayList<>();
+
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            ResultSet rs = pst.executeQuery();
+
+           // System.out.println(sql);
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString("order_id"));
+                row.add(rs.getString("book_name"));
+                row.add(rs.getString("amount"));
+
+                row.add(rs.getString("Time"));
+                row.add(rs.getString("STATUS"));
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return resultList;
+    }
     public static List<List<String>> getAllSelectedNotice(String job_id,String branch_id)
     {
         String sql = "SELECT NOTICE_ID,NOTICE,NOTICE_TIME,(SELECT JOB_NAME FROM JOB J WHERE J.JOB_ID=N.JOB_ID),GET_STATUS_NOTICE(ACTIVE) \n" +
@@ -717,5 +750,30 @@ public class employeeutil {
             System.out.println(e.toString());
         }
         return "";
+    }
+    public  static String  getBranch(String type)
+    {
+        String sql = "SELECT branch_id from employee where employee_id=?";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,type);
+
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next())
+            {
+
+                return   rs.getString("branch_id");
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        return null;
     }
 }

@@ -11,6 +11,7 @@ import java.util.List;
 import static Createaccount.InsertCustomerdata.getLocation;
 
 public class publisherutil {
+
     public  static boolean  updatebookreq(String id) {
         String sql = "update bookrequest\n" +
                 "set statues=1\n" +
@@ -445,4 +446,5 @@ public class publisherutil {
         }
         return null;
     }
+
 }
