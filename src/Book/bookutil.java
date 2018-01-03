@@ -130,7 +130,7 @@ public class bookutil {
                 String s="";
                 s+=rs.getString("PERCENTAGE");
 
-                s+="%";
+
                 // System.out.println(s);
                 return  s;
 
@@ -143,8 +143,69 @@ public class bookutil {
         {
 
         }
-        return "0%";
+        return "0";
     }
+
+
+
+    public static String getBookPrice(String book_name)
+    {
+        String sql = "select price\n" +
+                "from book\n" +
+                "where book_id=?";
+        //  System.out.println(book_name);
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,book_name);
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                String s=rs.getString(1);
+                return s;
+
+
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+
+        }
+        return "";
+    }
+
+    public static String getPurchase(String book_name)
+    {
+        String sql = "select purchase_id from customer_purchase where ORDER_ID=?";
+        //  System.out.println(book_name);
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,book_name);
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                String s=rs.getString(1);
+                return s;
+
+
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+
+        }
+        return "";
+    }
+
     public static String getBookid(String book_name)
     {
         String sql = "select book_id\n" +

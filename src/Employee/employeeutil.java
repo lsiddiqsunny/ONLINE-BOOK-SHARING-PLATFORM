@@ -9,6 +9,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class employeeutil {
+    public static List<List<String>> getAssignBook(String Customer_id)
+    {
+        String sql = "select order_id,(select b.book_name from book b where b.book_id=o.book_id) book_name,amount,\n" +
+                "(select (l.street_address||','||l.post_code||','||l.city)  from customer c ,location l  where c.customer_id=o.customer_id and c.LOCATION_ID=l.location_id) location\n" +
+                ",(select c.PHONE_NUMBER  from customer c  where c.customer_id=o.customer_id ) STATUS \n" +
+                "from Customer_order  o where ASSIGNEDTO=? and status=2 ORDER BY STATUS DESC";
+        List<List<String>> resultList = new ArrayList<>();
+
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,Customer_id);
+            ResultSet rs = pst.executeQuery();
+
+
+            // System.out.println(sql);
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString("order_id"));
+                row.add(rs.getString("book_name"));
+                row.add(rs.getString("amount"));
+
+                row.add(rs.getString("location"));
+                row.add(rs.getString("STATUS"));
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return resultList;
+    }
     public static List<List<String>> getAllBooks(String Customer_id)
     {
         String sql = "select order_id,(select b.book_name from book b where b.book_id=o.book_id) book_name,amount,To_char(Time,'dd/mm/yyyy') Time,GET_STATUS(STATUS) STATUS\n" +
@@ -780,6 +816,30 @@ public class employeeutil {
     {
         String sql = "UPDATE customer_order\n" +
                 "SET status=2\n" +
+                "WHERE order_id=?";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,type);
+
+
+
+            ResultSet rs = pst.executeQuery();
+
+
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+
+    }
+    public  static void  changestatus1(String type)
+    {
+        String sql = "UPDATE customer_order\n" +
+                "SET status=3\n" +
                 "WHERE order_id=?";
         try{
             Connection con = new oracleDBMS().getConnection();

@@ -123,6 +123,9 @@ public class Employee {
         if((x>=1 && x<=8 )||x==14){
             Load("../Workspace/managingderector.fxml");
         }
+        else if(x==28){
+            Load("../Workspace/supplier.fxml");
+        }
     }
     @FXML
     void Editprofile(ActionEvent actionEvent) {

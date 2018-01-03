@@ -1,5 +1,6 @@
 package CustomerOrder;
 
+import Customer.userutility;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -18,6 +19,7 @@ import java.util.List;
 
 import static Customer.User.userkey;
 import static CustomerOrder.Customercart.Item;
+import static Main.pdf.pdf;
 
 public class Purchase {
     ObservableList<orderinfo> data = FXCollections.observableArrayList();
@@ -64,10 +66,11 @@ public class Purchase {
             cartutil.Orderconfirm(Integer.toString(x),e.getOrderid());
         }
         if(co>0){
+            pdf(Item, userutility.getusername(userkey));
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("All orders are in queue. ");
             alert.setHeaderText("Wait for 24 hours!");
-            alert.setContentText("A purchase order is sent to your mail .\nPlease check it.");
+            alert.setContentText("A PDF file is generated.\nPlease check it.");
             alert.showAndWait();
         }
     }

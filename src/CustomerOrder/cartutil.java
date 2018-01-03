@@ -33,7 +33,37 @@ public class cartutil {
         }
 
     }
+
+
+    public static String  bookid(String bookname)
+
+    {
+        String sql = "select book_id from book where book_name=?";
+
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+pst.setString(1,bookname);
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+
+                return  rs.getString(1);
+
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return "";
+    }
     public static int lastid()
+
     {
         String sql = "(SELECT COUNT(DISTINCT PURCHASE_ID) FROM CUSTOMER_PURCHASE)";
 

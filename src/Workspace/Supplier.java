@@ -1,9 +1,7 @@
 package Workspace;
 
-import CustomerOrder.cartutil;
 import CustomerOrder.orderinfo;
 import Employee.employeeutil;
-import Publisher.publisherutil;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -21,11 +19,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static Customer.User.userkey;
 import static Employee.Changestatus.managedkey;
 import static Employee.Employee.employeekey;
 
-public class Bookdistribute {
+public class Supplier {
     @FXML
     Label items=new Label();
     @FXML
@@ -41,7 +38,7 @@ public class Bookdistribute {
     private Button assign=new Button();
     TableColumn<orderinfo, String> orderid=new TableColumn<>("Order Id");
 
-    TableColumn<orderinfo, String> time=new TableColumn<>("Order Time");
+    TableColumn<orderinfo, String> time=new TableColumn<>("Location To Drop");
     TableColumn<orderinfo, String> bookname=new TableColumn<>("Book Name");
 
     TableColumn<orderinfo, String> amount=new TableColumn<>("Amount");
@@ -53,19 +50,19 @@ public class Bookdistribute {
     @FXML
     public void initialize() {
         Item.clear();
-       // System.out.println(employeeutil.getBranch(employeekey));employeeutil.getAllBooks(employeeutil.getBranch(employeekey))
-        List<List<String>> cartList=  employeeutil.getAllBooks(employeeutil.getBranch(employeekey));
+        // System.out.println(employeeutil.getBranch(employeekey));employeeutil.getAllBooks(employeeutil.getBranch(employeekey))
+        List<List<String>> cartList=  employeeutil.getAssignBook(employeekey);
         orderlist.setEditable(true);
         int i=0;
         for (List<String> row : cartList)
         {
             data.add(new orderinfo(row.get(0), row.get(1), row.get(2),row.get(3),row.get(4)));
-            System.out.println(data.get(i));
-            i++;
+           // System.out.println(data.get(i));
+           // i++;
         }
         bookname.setPrefWidth(200);
         orderid.setPrefWidth(150);
-        time.setPrefWidth(200);
+       // time.setPrefWidth(200);
         status.setPrefWidth(150);
         amount.setPrefWidth(100);
 
@@ -74,7 +71,7 @@ public class Bookdistribute {
         time.setCellValueFactory(new PropertyValueFactory<>("time"));
         orderid.setCellValueFactory(new PropertyValueFactory<>("orderid"));
         amount.setCellValueFactory(new PropertyValueFactory<>("amount"));
-       orderlist.getColumns().setAll(orderid,bookname,amount,time,status);
+        orderlist.getColumns().setAll(orderid,bookname,amount,time,status);
         orderlist.setEditable(true);
 
         orderlist.setItems(data);
@@ -91,10 +88,10 @@ public class Bookdistribute {
                     items.setText(co+" rows selected.");
                     Item.remove(newValue);
                 }else {
-                    if(newValue.getStatus().equals("DUE")){
+
                         Item.add(newValue);
                         co++;
-                        items.setText(co+" rows selected.");}
+                        items.setText(co+" rows selected.");
                 }
             }
         });
@@ -108,7 +105,7 @@ public class Bookdistribute {
         //load up OTHER FXML document
         try {
 
-            root = FXMLLoader.load(getClass().getResource("../Employee/employeetable.fxml"));
+            root = FXMLLoader.load(getClass().getResource("../Employee/Employee.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Employee List");
@@ -122,8 +119,8 @@ public class Bookdistribute {
     @FXML
     void Assign(ActionEvent event) {
         for(orderinfo o:Item){
-            employeeutil.assignorder(o.getOrderid(),managedkey);
-            employeeutil.changestatus(o.getOrderid());
+           // employeeutil.assignorder(o.getOrderid(),managedkey);
+            employeeutil.changestatus1(o.getOrderid());
         }
         items.setText("Please Refresh.");
 
@@ -137,10 +134,10 @@ public class Bookdistribute {
         //load up OTHER FXML document
         try {
 
-            root = FXMLLoader.load(getClass().getResource("bookdistribute.fxml"));
+            root = FXMLLoader.load(getClass().getResource("supplier.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Change Status");
+            stage.setTitle("Workspace");
             stage.show();
 
         } catch (IOException e) {
