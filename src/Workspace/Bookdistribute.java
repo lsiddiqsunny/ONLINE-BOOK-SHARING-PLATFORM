@@ -91,7 +91,7 @@ public class Bookdistribute {
                     items.setText(co+" rows selected.");
                     Item.remove(newValue);
                 }else {
-                    if(newValue.getStatus().equals("UNPAID")){
+                    if(newValue.getStatus().equals("DUE")){
                         Item.add(newValue);
                         co++;
                         items.setText(co+" rows selected.");}
@@ -121,6 +121,10 @@ public class Bookdistribute {
 
     @FXML
     void Assign(ActionEvent event) {
+        for(orderinfo o:Item){
+            employeeutil.assignorder(o.getOrderid(),managedkey);
+            employeeutil.changestatus(o.getOrderid());
+        }
 
     }
 

@@ -776,4 +776,52 @@ public class employeeutil {
         }
         return null;
     }
+    public  static void  changestatus(String type)
+    {
+        String sql = "UPDATE customer_order\n" +
+                "SET status=2\n" +
+                "WHERE order_id=?";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,type);
+
+
+
+            ResultSet rs = pst.executeQuery();
+
+
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+
+    }
+    public  static void  assignorder(String id,String type)
+    {
+        String sql = "UPDATE customer_order\n" +
+                "SET ASSIGNEDTO=?\n" +
+                "WHERE order_id=?";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,type);
+            pst.setString(2,id);
+
+
+            ResultSet rs = pst.executeQuery();
+
+
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+
+    }
 }

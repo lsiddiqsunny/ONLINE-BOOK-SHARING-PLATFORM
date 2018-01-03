@@ -214,7 +214,7 @@ public class bookutil {
     {
         String sql = "Insert into customer_order values ((select count(*) from customer_order)+1,sysdate,0,?,?,?,(select PERCENTAGE\n" +
                 "from OFFER_DETAILS\n" +
-                "                where  MONTHS_BETWEEN(offer_end, sysdate)>0))";
+                "                where  MONTHS_BETWEEN(offer_end, sysdate)>0),null)";
         //  System.out.println(book_name);
         List<String>l=new ArrayList<>();
         try{

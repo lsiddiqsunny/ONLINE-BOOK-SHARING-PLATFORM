@@ -143,7 +143,21 @@ public class Usertest {
     }
     @FXML
     void Noti(ActionEvent event) {
+        Stage stage;
+        Parent root;
+        stage = (Stage) noti.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
 
+            root = FXMLLoader.load(getClass().getResource("notification.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Notification");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     void Help(ActionEvent event) {
