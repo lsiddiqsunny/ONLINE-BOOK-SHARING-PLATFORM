@@ -1,5 +1,6 @@
 package Workspace;
 
+import Book.bookutil;
 import CustomerOrder.orderinfo;
 import Employee.employeeutil;
 import javafx.beans.value.ChangeListener;
@@ -12,9 +13,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,10 +41,10 @@ public class Supplier {
 
     @FXML
     private Button assign=new Button();
-    TableColumn<orderinfo, String> orderid=new TableColumn<>("Order Id");
+    TableColumn<orderinfo, String> orderid=new TableColumn<>("Purchase Id");
 
     TableColumn<orderinfo, String> time=new TableColumn<>("Location To Drop");
-    TableColumn<orderinfo, String> bookname=new TableColumn<>("Book Name");
+    TableColumn<orderinfo, String> bookname=new TableColumn<>("Total price(with discount)");
 
     TableColumn<orderinfo, String> amount=new TableColumn<>("Amount");
 
@@ -123,6 +128,24 @@ public class Supplier {
             employeeutil.changestatus1(o.getOrderid());
         }
         items.setText("Please Refresh.");
+
+    }
+    @FXML
+    void Details(ActionEvent event) {
+        for(orderinfo o:Item){
+
+
+            String  name=employeeutil.getName(o.getOrderid());
+            String FILE="";
+            FILE=name+"_"+ o.getOrderid()+".pdf";
+            try {
+                Desktop.getDesktop().open(new File(FILE));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            System.out.println(FILE);
+        }
+
 
     }
 

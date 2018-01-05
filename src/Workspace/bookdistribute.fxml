@@ -7,7 +7,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane id="mainanchor" prefHeight="451.0" prefWidth="474.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Bookdistribute">
    <children>
       <Button fx:id="back" layoutX="325.0" layoutY="406.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="143.0" text="Back">
@@ -15,7 +14,7 @@
             <InnerShadow />
          </effect>
       </Button>
-      <TableView fx:id="orderlist" layoutX="14.0" layoutY="74.0" prefHeight="291.0" prefWidth="446.0" />
+      <TableView fx:id="orderlist" layoutX="14.0" layoutY="74.0" prefHeight="276.0" prefWidth="446.0" />
       <Label layoutX="185.0" layoutY="14.0" text="Order In Queue" />
       <Button fx:id="assign" layoutX="166.0" layoutY="406.0" mnemonicParsing="false" onAction="#Assign" prefHeight="31.0" prefWidth="143.0" text="Click To Assign">
          <effect>
@@ -28,5 +27,10 @@
          </effect>
       </Button>
       <Label fx:id="items" layoutX="325.0" layoutY="378.0" />
+      <Button fx:id="details" layoutX="14.0" layoutY="363.0" mnemonicParsing="false" onAction="#Details" prefHeight="31.0" prefWidth="143.0" text="See Details">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>

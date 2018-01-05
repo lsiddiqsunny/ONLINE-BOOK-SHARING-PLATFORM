@@ -19,7 +19,7 @@ public class cartutil {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,sz);
             pst.setString(2,order_id);
-            System.out.println(sql);
+         //   System.out.println(sql);
 
             pst.executeQuery();
 

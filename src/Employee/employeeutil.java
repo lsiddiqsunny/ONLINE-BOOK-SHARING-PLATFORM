@@ -2,6 +2,7 @@ package Employee;
 
 import Main.oracleDBMS;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,10 +12,9 @@ import java.util.List;
 public class employeeutil {
     public static List<List<String>> getAssignBook(String Customer_id)
     {
-        String sql = "select order_id,(select b.book_name from book b where b.book_id=o.book_id) book_name,amount,\n" +
-                "(select (l.street_address||','||l.post_code||','||l.city)  from customer c ,location l  where c.customer_id=o.customer_id and c.LOCATION_ID=l.location_id) location\n" +
-                ",(select c.PHONE_NUMBER  from customer c  where c.customer_id=o.customer_id ) STATUS \n" +
-                "from Customer_order  o where ASSIGNEDTO=? and status=2 ORDER BY STATUS DESC";
+        String sql = "SELECT DISTINCT p.Purchase_id,Get_Price(p.Purchase_id),GET_AMOUNT(p.Purchase_id) amount,(l.Street_address||','||l.post_code||','||l.city) Time,GET_STATUS(o.STATUS) STATUS\n" +
+                "FROM Customer_purchase p,Customer_order o,Customer c,Location l \n" +
+                "WHERE p.order_id=o.order_id AND o.customer_id=c.customer_id AND c.location_id=l.location_id AND o.ASSIGNEDTO=? AND o.status=2 ";
         List<List<String>> resultList = new ArrayList<>();
 
         try{
@@ -28,12 +28,12 @@ public class employeeutil {
             while (rs.next())
             {
                 List<String> row = new ArrayList<>();
-                row.add(rs.getString("order_id"));
-                row.add(rs.getString("book_name"));
-                row.add(rs.getString("amount"));
+                row.add(rs.getString(1));
+                row.add(rs.getString(2));
+                row.add(rs.getString(3));
 
-                row.add(rs.getString("location"));
-                row.add(rs.getString("STATUS"));
+                row.add(rs.getString(4));
+                row.add(rs.getString(5));
                 resultList.add(row);
             }
             pst.close();
@@ -47,26 +47,27 @@ public class employeeutil {
     }
     public static List<List<String>> getAllBooks(String Customer_id)
     {
-        String sql = "select order_id,(select b.book_name from book b where b.book_id=o.book_id) book_name,amount,To_char(Time,'dd/mm/yyyy') Time,GET_STATUS(STATUS) STATUS\n" +
-                "from Customer_order o ,Customer c where o.CUSTOMER_ID=c.CUSTOMER_ID and c.branch_id="+Customer_id+" ORDER BY STATUS";
+        String sql =
+                "select distinct p.Purchase_id,Get_Price(p.Purchase_id),GET_AMOUNT(p.Purchase_id) amount,To_char(p.Purchas_Time,'dd/mm/yyyy') Time,GET_STATUS(o.STATUS) STATUS\n" +
+                        "                from Customer_purchase p,Customer_order o,CUSTOMER c Where p.order_id=o.order_id and o.customer_id=c.CUSTOMER_ID and c.branch_id=?";
         List<List<String>> resultList = new ArrayList<>();
 
         try{
             Connection con = new oracleDBMS().getConnection();
             PreparedStatement pst = con.prepareStatement(sql);
-
+pst.setString(1,Customer_id);
             ResultSet rs = pst.executeQuery();
 
            // System.out.println(sql);
             while (rs.next())
             {
                 List<String> row = new ArrayList<>();
-                row.add(rs.getString("order_id"));
-                row.add(rs.getString("book_name"));
-                row.add(rs.getString("amount"));
+                row.add(rs.getString(1));
+                row.add(rs.getString(2));
+                row.add(rs.getString(3));
 
-                row.add(rs.getString("Time"));
-                row.add(rs.getString("STATUS"));
+                row.add(rs.getString(4));
+                row.add(rs.getString(5));
                 resultList.add(row);
             }
             pst.close();
@@ -763,6 +764,31 @@ public class employeeutil {
         }
         return "";
     }
+    public static String getName(String id)
+    {
+        String sql = "select DISTINCT c.customer_name from customer_order o,customer_purchase p,customer c where p.order_id=o.order_id and c.customer_id=o.customer_id and p.purchase_id=?";
+
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,id);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                return rs.getString(1);
+
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return "";
+    }
     public static String getuserBranch(String Employee_id)
     {
         String sql = "select branch_id from employee where employee_id=?";
@@ -812,43 +838,21 @@ public class employeeutil {
         }
         return null;
     }
-    public  static void  changestatus(String type)
-    {
-        String sql = "UPDATE customer_order\n" +
-                "SET status=2\n" +
-                "WHERE order_id=?";
-        try{
-            Connection con = new oracleDBMS().getConnection();
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1,type);
 
-
-
-            ResultSet rs = pst.executeQuery();
-
-
-            pst.close();
-            con.close();
-        }
-        catch(Exception e)
-        {
-            System.out.println(e);
-        }
-
-    }
     public  static void  changestatus1(String type)
     {
-        String sql = "UPDATE customer_order\n" +
-                "SET status=3\n" +
-                "WHERE order_id=?";
+
+
+        String sql = " {call SET_STATUS1(?)}";
         try{
             Connection con = new oracleDBMS().getConnection();
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1,type);
+            CallableStatement pst = con.prepareCall(sql);
+
+            pst.setInt(1,Integer.parseInt(type));
 
 
 
-            ResultSet rs = pst.executeQuery();
+            pst.executeQuery();
 
 
             pst.close();
@@ -862,17 +866,18 @@ public class employeeutil {
     }
     public  static void  assignorder(String id,String type)
     {
-        String sql = "UPDATE customer_order\n" +
-                "SET ASSIGNEDTO=?\n" +
-                "WHERE order_id=?";
+
+
+        String sql = " {call SET_SUPPLIERANDSTATUS(?,?)}";
         try{
             Connection con = new oracleDBMS().getConnection();
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1,type);
-            pst.setString(2,id);
+            CallableStatement pst = con.prepareCall(sql);
+            pst.setInt(1,Integer.parseInt(id));
+            pst.setInt(2,Integer.parseInt(type));
+System.out.println(type+ " "+id);
 
 
-            ResultSet rs = pst.executeQuery();
+        pst.executeQuery();
 
 
             pst.close();

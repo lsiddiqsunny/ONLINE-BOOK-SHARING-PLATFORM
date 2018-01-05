@@ -30,7 +30,7 @@ public class pdf {
     public static void pdf(ArrayList<orderinfo> Item ,String name) {
         try {
             Document document = new Document();
-            FILE=name+""+bookutil.getPurchase(Item.get(0).getOrderid())+".pdf";
+            FILE=name+"_"+bookutil.getPurchase(Item.get(0).getOrderid())+".pdf";
             PdfWriter.getInstance(document, new FileOutputStream(FILE));
             document.open();
             addMetaData(document);
