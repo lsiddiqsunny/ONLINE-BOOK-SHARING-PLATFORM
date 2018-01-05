@@ -13,24 +13,17 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TableView fx:id="requestlist" layoutX="27.0" layoutY="44.0" prefHeight="165.0" prefWidth="477.0" />
-      <Label layoutX="194.0" layoutY="251.0" text="Your Request">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <TableView fx:id="newbook" layoutX="24.0" layoutY="292.0" prefHeight="212.0" prefWidth="491.0" />
-      <Button layoutX="417.0" layoutY="220.0" mnemonicParsing="false" onAction="#Confirm" text="Confirm">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="back" layoutX="422.0" layoutY="538.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="74.0" text="Back">
+      <TableView fx:id="requestlist" layoutX="27.0" layoutY="44.0" prefHeight="484.0" prefWidth="477.0" />
+      <Button fx:id="confirm" layoutX="417.0" layoutY="538.0" mnemonicParsing="false" onAction="#Confirm" text="Confirm">
          <effect>
             <InnerShadow />
          </effect>
       </Button>
       <Label fx:id="items" layoutX="29.0" layoutY="225.0" />
-      <Label fx:id="items1" layoutX="7.0" layoutY="505.0" text="If status is CONFIRMED,you will be paid soon or contact with respective branch." />
+      <Button fx:id="back" layoutX="14.0" layoutY="538.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="74.0" text="Back">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>

@@ -49,10 +49,17 @@ public class PendingRequest {
             //  System.out.println(data.get(i));
             // i++;
         }
+        userDataList = publisherutil.getPendingBookinsert(publisherkey);
+        //int i = 0;
+        for (List<String> row : userDataList) {
+            data.add(new BookEdit(row.get(0), row.get(1), row.get(2),row.get(3)));
+            //  System.out.println(data.get(i));
+            // i++;
+        }
         editId.setPrefWidth(100);
         bookName.setPrefWidth(200);
         price.setPrefWidth(100);
-        status.setPrefWidth(89);
+       // status.setPrefWidth(89);
         bookName.setCellValueFactory(new PropertyValueFactory<>("BookName"));
         status.setCellValueFactory(new PropertyValueFactory<>("Status"));
         price.setCellValueFactory(new PropertyValueFactory<>("Price"));

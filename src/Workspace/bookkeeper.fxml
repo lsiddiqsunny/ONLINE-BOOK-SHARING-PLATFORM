@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="mainanchor" prefHeight="258.0" prefWidth="273.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Bookkeeper">
+   <children>
+      <Button fx:id="back" layoutX="179.0" layoutY="199.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="77.0" text="Back">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <Button fx:id="edit" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#Edit" prefHeight="31.0" prefWidth="242.0" text="See Book Edit  Request">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <Button fx:id="insert" layoutX="14.0" layoutY="66.0" mnemonicParsing="false" onAction="#Insert" prefHeight="31.0" prefWidth="242.0" text="See Book Insert request">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <Button fx:id="newbook" layoutX="14.0" layoutY="122.0" mnemonicParsing="false" onAction="#Newbook" prefHeight="31.0" prefWidth="242.0" text="New Book For Storage">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>

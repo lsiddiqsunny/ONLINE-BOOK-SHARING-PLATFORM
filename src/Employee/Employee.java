@@ -126,6 +126,10 @@ public class Employee {
         else if(x==28){
             Load("../Workspace/supplier.fxml");
         }
+        else if(x==12){
+            Load("../Workspace/bookkeeper.fxml");
+        }
+
     }
     @FXML
     void Editprofile(ActionEvent actionEvent) {

@@ -11,6 +11,35 @@ import java.util.List;
 import static Createaccount.InsertCustomerdata.getLocation;
 
 public class publisherutil {
+    public static List<List<String>> getNoti(String id)
+    {
+        String sql = "select notification_id,notification_massage,notification_time from NOTIFICATION where notifiedtopublisher=? and status=1";
+        List<List<String>> resultList = new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,id);
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString(1));
+                row.add(rs.getString(2));
+                row.add(rs.getString(3));
+
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {System.out.println(e.toString());
+
+        }
+        return resultList;
+    }
 
     public  static boolean  updatebookreq(String id) {
         String sql = "update bookrequest\n" +
@@ -64,6 +93,36 @@ public class publisherutil {
         }
         return resultList;
     }
+    public static List<List<String>> getPendingBookinsert(String publisher_id)
+    {
+        String sql = "SELECT PENDINGBOOKINSERTID,  BOOK_NAME,PRICE,GET_STATUS_EDIT(STATUS) STATUS FROM PENDINGBOOKINSERT P WHERE PUBLISHER_ID=?";
+        List<List<String>> resultList = new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,publisher_id);
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString(1));
+                row.add(rs.getString(2));
+                row.add(rs.getString(3));
+                row.add(rs.getString(4));
+                row.add(rs.getString(4));
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+
+        }
+        return resultList;
+    }
     public static List<List<String>> getBookReq(String publisher_id)
     {
         String sql = "SELECT REQUEST_ID,(SELECT BOOK_NAME FROM BOOK B WHERE B.BOOK_ID=P.BOOK_ID) BOOK_NAME,AMOUNT,GET_STATUS_EDIT(STATUES) STATUES,\n" +
@@ -97,39 +156,29 @@ public class publisherutil {
         }
         return resultList;
     }
-
-
-    public static List<List<String>> getPendingReq(String publisher_id)
-    {
-        String sql = "SELECT PENDINGBOOKINSERTID, BOOK_NAME,PRICE,GET_STATUS_EDIT(STATUS) STATUS FROM PENDINGBOOKINSERT P WHERE PUBLISHER_ID=?";
-        List<List<String>> resultList = new ArrayList<>();
-        try{
+    public  static String  getpendingid() {
+        String sql = "(select count(*) from PENDINGBOOKINSERT)";
+        // System.out.println(sql);
+        try {
             Connection con = new oracleDBMS().getConnection();
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1,publisher_id);
+
+
             ResultSet rs = pst.executeQuery();
-
-
-            while (rs.next())
-            {
-                List<String> row = new ArrayList<>();
-                row.add(rs.getString("PENDINGBOOKINSERTID"));
-                row.add(rs.getString("BOOK_NAME"));
-                row.add(rs.getString("PRICE"));
-                row.add(rs.getString("STATUS"));
-                resultList.add(row);
+            while(rs.next()){
+                return rs.getString(1);
             }
+
             pst.close();
             con.close();
-        }
-        catch(Exception e)
-        {
 
-        }
-        return resultList;
+        } catch (Exception e) {
+            System.out.println(e);
+        } return "";
     }
-    public  static boolean  pendingbookinsert(String a,String b,String c,String d,String e,String f,String g) {
-        String sql = "Insert into PENDINGBOOKINSERT values((select count(*) from PENDINGBOOKINSERT)+1,?,?,?,?,?,?,0,?)";
+
+    public  static boolean  pendingbookinsert(String x,String a,String b,String c,String d,String e,String f) {
+        String sql = "Insert into PENDINGBOOKINSERT values("+x+"+1,?,?,?,?,?,0,?)";
        // System.out.println(a+" "+b+" "+c+" "+d+" "+e+" "+f+" "+g);
         try {
             Connection con = new oracleDBMS().getConnection();
@@ -140,7 +189,7 @@ public class publisherutil {
             pst.setString(4,d);
             pst.setString(5,e);
             pst.setString(6,f);
-            pst.setString(7,g);
+
             System.out.println(pst.getParameterMetaData().toString());
             ResultSet rs = pst.executeQuery();
 
@@ -148,8 +197,8 @@ public class publisherutil {
             pst.close();
             con.close();
             return true;
-        } catch (Exception x) {
-            System.out.println(x);
+        } catch (Exception e1) {
+            System.out.println(e1);
         } return false;
     }
 
@@ -379,6 +428,7 @@ public class publisherutil {
             System.out.println(e);
         } return false;
     }
+
     public  static boolean  setPrice(String  Publisher,String id,String Value) {
         String sql = "Insert into PENDINGBOOKUPDATE values( (select count(*) from PENDINGBOOKUPDATE)+1,?,?,?,0)";
         // System.out.println(sql);

@@ -130,7 +130,7 @@ public class Editbook {
         String name= newbookname.getText();
         String isbn=  newisbn.getText();
         String price= newprice.getText();
-        String num=booknumbers.getText();
+       // String num=booknumbers.getText();
         String author="";
         int co=0;
         for(Author e:Item){
@@ -147,7 +147,7 @@ public class Editbook {
         }catch (Exception e){
             type="";
         }
-        if(name.length()==0||isbn.length()==0||price.length()==0||num.length()==0||author.length()==0||type.length()==0){
+        if(name.length()==0||isbn.length()==0||price.length()==0||author.length()==0||type.length()==0){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Submit All Data ");
             alert.setHeaderText("Submit All Data ");
@@ -155,10 +155,15 @@ public class Editbook {
             alert.showAndWait();
         }
         else{
-            System.out.println(type);
+           // System.out.println(type);
             type=publisherutil.getType(type);
+            String x=String .valueOf(Integer.parseInt(publisherutil.getpendingid())+1);
+            System.out.println(x);
+            for(Author e:Item){
+               publisherutil.pendingbookinsert(x,publisherkey,name,isbn,type,price,e.getAuthorId());
+            }
 
-            publisherutil.pendingbookinsert(publisherkey,name,isbn,type,price,num,author);
+
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Pending Book Added");
             alert.setHeaderText("Pending Book Addition ");

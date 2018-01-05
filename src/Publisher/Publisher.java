@@ -33,6 +33,8 @@ public class Publisher {
     @FXML
     Button editprofile=new Button();
     @FXML
+    Button noti=new Button();
+    @FXML
     Button transcation=new Button();
     @FXML
     Button editbook=new Button();
@@ -87,6 +89,24 @@ public class Publisher {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Transaction");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void Noti(ActionEvent actionEvent){
+        Stage stage;
+        Parent root;
+        stage = (Stage) editprofile.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+            root = FXMLLoader.load(getClass().getResource("notification.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Notification");
+
             stage.show();
 
         } catch (IOException e) {

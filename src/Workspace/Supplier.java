@@ -113,7 +113,7 @@ public class Supplier {
             root = FXMLLoader.load(getClass().getResource("../Employee/Employee.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Employee List");
+            stage.setTitle("Employee Account");
             stage.show();
 
         } catch (IOException e) {
