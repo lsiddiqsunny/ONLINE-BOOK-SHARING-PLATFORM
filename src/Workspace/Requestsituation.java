@@ -1,6 +1,7 @@
 package Workspace;
 
 
+import CustomerOrder.orderinfo;
 import Employee.employeeutil;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -11,10 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -24,8 +22,11 @@ import java.util.List;
 import static Employee.Employee.employeekey;
 
 public class Requestsituation {
+    public  static  bookinfo orderid=null;
     @FXML
     Button back=new Button();
+    @FXML
+    Button assign=new Button();
     @FXML
     Label alert=new Label();
     final ObservableList<bookinfo> data = FXCollections.observableArrayList();
@@ -64,6 +65,19 @@ public class Requestsituation {
 
         booklist.setItems(data);
 
+
+        booklist.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<bookinfo>() {
+            @Override
+            public void changed(ObservableValue<? extends bookinfo> observable, bookinfo oldValue, bookinfo newValue) {
+                if(newValue.getAmount().equals("CONFIRMED")){
+                    orderid=newValue;
+                   // System.out.println(orderid);
+                    alert.setText("Order Id "+newValue.getBookid()+" is selected");
+                }
+
+            }
+        });
+
     }
 
     @FXML
@@ -84,6 +98,26 @@ public class Requestsituation {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    void Assign(ActionEvent event) {
+        if(orderid!=null){
+            Stage stage;
+            Parent root;
+            stage = (Stage) assign.getScene().getWindow();
+            //load up OTHER FXML document
+            try {
+
+                root = FXMLLoader.load(getClass().getResource("bookassign.fxml"));
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.setTitle("Assign Book");
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }}
 
 }
 

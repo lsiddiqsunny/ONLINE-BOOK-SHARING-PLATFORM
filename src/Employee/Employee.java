@@ -129,6 +129,9 @@ public class Employee {
         else if(x==12){
             Load("../Workspace/bookkeeper.fxml");
         }
+        else if(x==15){
+            Load("../Workspace/purchasingagent.fxml");
+        }
 
     }
     @FXML

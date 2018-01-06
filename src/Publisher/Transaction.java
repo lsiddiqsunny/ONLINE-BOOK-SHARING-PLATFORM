@@ -95,12 +95,12 @@ public class Transaction {
         List<List<String>> userDataList = publisherutil.getBookReq(publisherkey);
         //int i = 0;
         for (List<String> row : userDataList) {
-            data.add(new BookRequest(row.get(0), row.get(1), row.get(2),row.get(3),row.get(4)));
-            //  System.out.println(data.get(i));
-            // i++;
+
+                data.add(new BookRequest(row.get(0), row.get(1), row.get(2),row.get(3),row.get(4)));
+
         }
         editId.setPrefWidth(100);
-        bookName.setPrefWidth(100);
+        bookName.setPrefWidth(200);
         amount.setPrefWidth(100);
         status.setPrefWidth(89);
         branch.setPrefWidth(100);
@@ -122,11 +122,16 @@ public class Transaction {
                     co--;
                     items.setText(co+" rows selected.");
                     Item.remove(newValue);
-                }else {
+                }
+                else {
                     if(newValue.getStatus().equals("IN QUEUE")){
                         Item.add(newValue);
                         co++;
                         items.setText(co+" rows selected.");
+                    }
+                  else   if(newValue.getStatus().equals("ASSIGNED")){
+
+                        items.setText("The order is assigned to our agent and will connect with you soon");
                     }
                 }
             }
