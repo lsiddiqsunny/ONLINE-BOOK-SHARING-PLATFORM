@@ -10,6 +10,129 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class employeeutil {
+    public static List<List<String>> getAlloffer()
+    {
+        String sql = "select offer_details_id,offer_details,offer_start,offer_end,percentage from offer_details";
+        List<List<String>> resultList = new ArrayList<>();
+
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            ResultSet rs = pst.executeQuery();
+
+
+            // System.out.println(sql);
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString(1));
+                row.add(rs.getString(2));
+                row.add(rs.getString(3));
+
+                row.add(rs.getString(4));
+                row.add(rs.getString(5));
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return resultList;
+    }
+    public static List<List<String>> getAllTransport(String employee_id)
+    {
+        String sql = "select transport_Id,license,weight_capacity from transport where driver_id=?";
+        List<List<String>> resultList = new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,employee_id);
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString(1));
+                row.add(rs.getString(2));
+                row.add(rs.getString(3));
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return resultList;
+    }
+    public static List<List<String>> getMechanic(String Customer_id)
+    {
+        String sql = "select employee_id,employee_name from employee where branch_id=? and job_id=22";
+        List<List<String>> resultList = new ArrayList<>();
+
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,Customer_id);
+            ResultSet rs = pst.executeQuery();
+
+
+            // System.out.println(sql);
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString(1));
+                row.add(rs.getString(2));
+
+
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return resultList;
+    }
+    public static List<List<String>> getDriver(String Customer_id)
+    {
+        String sql = "select employee_id,employee_name from employee where branch_id=? and job_id=20";
+        List<List<String>> resultList = new ArrayList<>();
+
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,Customer_id);
+            ResultSet rs = pst.executeQuery();
+
+
+            // System.out.println(sql);
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString(1));
+                row.add(rs.getString(2));
+
+
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return resultList;
+    }
     public static List<List<String>> getAssignedBook(String Id)
     {
         String sql = "select p.publisher_transaction_id,(select b.book_name from book b where b.book_id=p.book_id),\n" +
@@ -1619,6 +1742,31 @@ public class employeeutil {
             System.out.println(e);
         }
         return "";
+    }
+    public static void offerinsert(String a,String b,String c,String d)
+    {
+        String sql = "insert into OFFER_DETAILS " +
+                "values((select count(*) from offer_details)+1,?,To_date(?,'yyyy/mm/dd'),To_date(?,'yyyy/mm/dd'),?)";
+        //  System.out.println(sql);
+
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,a);
+            pst.setString(2,b);
+            pst.setString(3,c);
+            pst.setString(4,d);
+
+            ResultSet rs = pst.executeQuery();
+
+            pst.close();
+            con.close();
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex.toString());
+        }
+
     }
 
 }

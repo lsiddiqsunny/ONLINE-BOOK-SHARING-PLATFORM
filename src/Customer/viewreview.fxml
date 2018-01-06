@@ -6,13 +6,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="mainanchor" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Viewreview">
+<AnchorPane id="mainanchor" prefHeight="465.0" prefWidth="550.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Viewreview">
    <children>
-      <ListView fx:id="reviewlist" layoutX="14.0" layoutY="62.0" prefHeight="324.0" prefWidth="579.0" />
-      <Text layoutX="28.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Given review:" />
-      <Button fx:id="back" layoutX="491.0" layoutY="20.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="101.0" text="Back">
+      <TableView fx:id="reviewlist" layoutX="24.0" layoutY="45.0" prefHeight="362.0" prefWidth="516.0" />
+      <Button fx:id="back" layoutX="473.0" layoutY="420.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="67.0" text="Back">
          <effect>
             <InnerShadow />
-         </effect></Button>
+         </effect>
+      </Button>
+      <Label layoutX="262.0" layoutY="24.0" text="Reviews" />
    </children>
 </AnchorPane>

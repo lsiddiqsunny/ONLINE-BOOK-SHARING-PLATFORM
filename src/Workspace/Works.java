@@ -44,6 +44,7 @@ public class Works {
 
     @FXML
     void Back(ActionEvent actionEvent) {
+        if(employeeutil.getuserjobid(employeekey)!=21){
         Stage stage;
         Parent root;
         stage = (Stage) back.getScene().getWindow();
@@ -57,6 +58,21 @@ public class Works {
 
         } catch (IOException e) {
             e.printStackTrace();
+        }}else{
+            Stage stage;
+            Parent root;
+            stage = (Stage) back.getScene().getWindow();
+            //load up OTHER FXML document
+            try {
+                root = FXMLLoader.load(getClass().getResource("routemanager.fxml"));
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.setTitle("Workspace");
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -98,7 +114,7 @@ public class Works {
         for (List<String> row : userDataList)
         {
             data.add(new workinfo(row.get(0), row.get(1), row.get(2),row.get(3),row.get(4)));
-            //System.out.println(data.get(i));
+//            System.out.println(data.get(i));
             i++;
         }
 

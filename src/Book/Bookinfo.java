@@ -100,8 +100,20 @@ public class Bookinfo {
     }
     @FXML
     void View(ActionEvent event) {
+        Stage stage;
+        Parent root;
+        stage = (Stage)view.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+            root = FXMLLoader.load(getClass().getResource("review.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Review");
+            stage.show();
 
-System.out.println("here");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     void Cart(ActionEvent event) {

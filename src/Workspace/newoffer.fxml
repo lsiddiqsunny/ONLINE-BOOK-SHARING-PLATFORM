@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="mainanchor" prefHeight="453.0" prefWidth="494.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Newoffer">
+   <children>
+      <Label layoutX="213.0" layoutY="14.0" text="New Offer" />
+      <TextArea fx:id="details" layoutX="14.0" layoutY="81.0" prefHeight="178.0" prefWidth="459.0" promptText="Enter Offer Details.." />
+      <DatePicker fx:id="start" layoutX="14.0" layoutY="273.0" prefHeight="31.0" prefWidth="459.0" promptText="Start Time" />
+      <DatePicker fx:id="end" layoutX="14.0" layoutY="322.0" prefHeight="31.0" prefWidth="459.0" promptText="End Time" />
+      <TextField fx:id="per" layoutX="14.0" layoutY="368.0" prefHeight="31.0" prefWidth="459.0" promptText="Percentage" />
+      <Button fx:id="submit" layoutX="270.0" layoutY="408.0" mnemonicParsing="false" onAction="#Submit" prefHeight="31.0" prefWidth="205.0" text="Submit">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <Button fx:id="back" layoutX="14.0" layoutY="408.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="205.0" text="Back">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>

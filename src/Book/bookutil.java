@@ -10,6 +10,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class bookutil {
+    public static List<List<String>> getBookReview(String sitem)
+    {
+        sitem= sitem.toLowerCase();
+        String sql = "select review_time,(select c.customer_name from customer c where c.customer_id=r.customer_id),review  from review r where book_id=?";
+        List<List<String>> resultList = new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+pst.setString(1,sitem);
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString(1));
+                row.add(rs.getString(2));
+               row.add(rs.getString(3));
+
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {System.out.println(e.toString());
+
+        }
+        return resultList;
+    }
     public static List<List<String>> getSearchBookbyauthor(String sitem)
     {
         sitem= sitem.toLowerCase();

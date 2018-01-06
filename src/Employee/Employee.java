@@ -120,7 +120,7 @@ public class Employee {
     @FXML
     void Workspace(ActionEvent actionEvent) {
         int x=employeeutil.getuserjobid(employeekey);
-        if((x>=1 && x<=8 )||x==14){
+        if((x>=1 && x<=11 )||x==14){
             Load("../Workspace/managingderector.fxml");
         }
         else if(x==28){
@@ -131,6 +131,23 @@ public class Employee {
         }
         else if(x==15){
             Load("../Workspace/purchasingagent.fxml");
+        }
+        else if(x==20){
+            Load("../Workspace/driver.fxml");
+        }
+        else if(x==21){
+            Load("../Workspace/routemanager.fxml");
+        }
+        else if(x==22){
+            Load("../Workspace/notification.fxml");
+        }else if(x==26){
+            Load("../Workspace/notification.fxml");
+        }
+        else if(x==27){
+            Load("../Workspace/notification.fxml");
+        }
+        else if(x==25||x==24||x==23){
+            Load("../Workspace/mediaoffer.fxml");
         }
 
     }
