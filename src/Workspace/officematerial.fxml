@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="mainanchor" prefHeight="443.0" prefWidth="356.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Officematerial">
+   <children>
+      <Label layoutX="104.0" layoutY="14.0" text="Material In Your Office">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Label>
+   </children>
+</AnchorPane>

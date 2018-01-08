@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="mainanchor" prefHeight="517.0" prefWidth="322.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Addemployee">
+   <children>
+      <Label alignment="CENTER" layoutX="96.0" layoutY="14.0" text="Add New Employee" textAlignment="CENTER">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Label>
+      <TextField fx:id="name" alignment="CENTER" layoutX="14.0" layoutY="56.0" prefHeight="31.0" prefWidth="292.0" promptText="Enter Name" />
+      <TextField fx:id="email" alignment="CENTER" layoutX="14.0" layoutY="113.0" prefHeight="31.0" prefWidth="292.0" promptText="Enter Email" />
+      <TextField fx:id="phone" alignment="CENTER" layoutX="14.0" layoutY="167.0" prefHeight="31.0" prefWidth="292.0" promptText="Enter Phone" />
+      <ComboBox fx:id="Location" layoutX="14.0" layoutY="276.0" prefHeight="31.0" prefWidth="292.0" promptText="Location" />
+      <ComboBox fx:id="job" layoutX="14.0" layoutY="325.0" onAction="#Job" prefHeight="31.0" prefWidth="292.0" promptText="Job" />
+      <ComboBox fx:id="manager" layoutX="14.0" layoutY="383.0" prefHeight="31.0" prefWidth="292.0" promptText="Enter Managaer(After Select Job)" />
+      <Button fx:id="submit" layoutX="241.0" layoutY="472.0" mnemonicParsing="false" onAction="#Submit" text="Submit">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <Button fx:id="back" layoutX="14.0" layoutY="472.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="67.0" text="Back">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <PasswordField fx:id="password" alignment="CENTER" layoutX="14.0" layoutY="221.0" prefHeight="31.0" prefWidth="292.0" promptText="Enter A Random Password" />
+   </children>
+</AnchorPane>

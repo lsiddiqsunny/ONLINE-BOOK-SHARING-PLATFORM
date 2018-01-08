@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="mainanchor" prefHeight="144.0" prefWidth="355.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Clerk">
+   <children>
+      <Button fx:id="newemployee" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#Newemployee" text="Add New Employee">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <Button fx:id="officematerial" layoutX="190.0" layoutY="22.0" mnemonicParsing="false" onAction="#Officematerial" prefHeight="31.0" prefWidth="151.0" text="Office Materials">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <Button fx:id="back" layoutX="102.0" layoutY="65.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="151.0" text="Back">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>

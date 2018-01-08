@@ -144,7 +144,7 @@ pst.setString(1,sitem);
     }
     public static String getOffer()
     {
-        String sql = "select PERCENTAGE\n" +
+        String sql = "select NVL(PERCENTAGE,0)\n" +
                 "from OFFER_DETAILS\n" +
                 "where  MONTHS_BETWEEN(offer_end, sysdate)>0";
 
@@ -305,8 +305,8 @@ pst.setString(1,sitem);
     {
         String sql = "Insert into customer_order values ((select count(*) from customer_order)+1,sysdate,0,?,?,?,(select PERCENTAGE\n" +
                 "from OFFER_DETAILS\n" +
-                "                where  MONTHS_BETWEEN(offer_end, sysdate)>0),null)";
-        //  System.out.println(book_name);
+                "                where  MONTHS_BETWEEN(offer_end, sysdate)>0 and MONTHS_BETWEEN(offer_start, sysdate)<0),null)";
+          System.out.println(book_id);
         List<String>l=new ArrayList<>();
         try{
             Connection con = new oracleDBMS().getConnection();

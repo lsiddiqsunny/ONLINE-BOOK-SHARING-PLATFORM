@@ -22,8 +22,8 @@ import static Customer.User.userkey;
 
 public class Customercart {
     final ObservableList<orderinfo> data = FXCollections.observableArrayList();
-int co=0;
-   public static ArrayList<orderinfo> Item = new ArrayList<>();
+    int co=0;
+    public static ArrayList<orderinfo> Item = new ArrayList<>();
     @FXML
     Button back=new Button();
     @FXML
@@ -32,7 +32,8 @@ int co=0;
     TableView<orderinfo> carttable=new TableView<>();
     @FXML
     Button select=new Button();
-
+    @FXML
+    Button delete=new Button();
     @FXML
     void Back(ActionEvent event) {
         Stage stage;
@@ -78,6 +79,19 @@ int co=0;
         }
 
     }
+    @FXML
+    void Delete(ActionEvent event) {
+        for(orderinfo e:Item){
+      // System.out.println(e.getOrderid());
+            cartutil.DeleteCustomerOrder(e.getOrderid());
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Order. ");
+        alert.setHeaderText("Order Deleted");
+        alert.setContentText("Selected ORDER deleted.");
+        alert.showAndWait();
+
+    }
 
     @FXML
     public void initialize() {
@@ -120,9 +134,9 @@ int co=0;
                     Item.remove(newValue);
                 }else {
                     if(newValue.getStatus().equals("UNPAID")){
-                    Item.add(newValue);
-                    co++;
-                    items.setText(co+" rows selected.");}
+                        Item.add(newValue);
+                        co++;
+                        items.setText(co+" rows selected.");}
                 }
             }
         });

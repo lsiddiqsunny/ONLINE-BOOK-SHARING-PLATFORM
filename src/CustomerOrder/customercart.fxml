@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
@@ -24,5 +25,10 @@
          </effect>
       </Button>
       <Label fx:id="items" layoutX="39.0" layoutY="579.0" prefHeight="21.0" prefWidth="208.0" />
+      <Button fx:id="delete" layoutX="461.0" layoutY="574.0" mnemonicParsing="false" onAction="#Delete" prefHeight="31.0" prefWidth="104.0" text="Delete">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>

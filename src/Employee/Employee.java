@@ -141,7 +141,7 @@ public class Employee {
         else if(x==22){
             Load("../Workspace/notification.fxml");
         }else if(x==26){
-            Load("../Workspace/notification.fxml");
+            Load("../Workspace/clerk.fxml");
         }
         else if(x==27){
             Load("../Workspace/notification.fxml");

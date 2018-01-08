@@ -1,6 +1,7 @@
 package Employee;
 
 import Main.oracleDBMS;
+import javafx.scene.control.Alert;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -10,6 +11,167 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class employeeutil {
+    public static void Insertemployee(String []a )
+    {
+        String sql = "insert into employee values((select count(*) from employee)+1,?,?,?,?,?,?,?,0.00,null,?,?,SYSDATE)";
+        //  System.out.println(sql);
+
+
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+          //  pst.setString(1,a);
+            for(int i=0;i<9;i++){
+               pst.setString(i+1,a[i]);
+            }
+
+            ResultSet rs = pst.executeQuery();
+
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+
+    }
+    public  static String  getMinSal(String type)
+    {
+        String sql = "\n" +
+                "select min_salary from job where job_id=?";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,type);
+
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next())
+            {
+
+                return   rs.getString(1);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        return null;
+    }
+    public  static String  getEmployee(String type)
+    {
+        String sql = "\n" +
+                "SELECT employee_id FROM employee WHERE employee_name=?";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,type);
+
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next())
+            {
+
+                return   rs.getString(1);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        return null;
+    }
+    public static List<List<String>> getAllManager(String type,String branch)
+    {
+        String sql = "SELECT (select m.employee_name from employee m where e.employee_id=m.employee_id) from employee e where job_id=? and branch_id=?";
+        List<List<String>> resultList = new ArrayList<>();
+
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,type);
+            pst.setString(2,branch);
+            ResultSet rs = pst.executeQuery();
+
+
+            // System.out.println(sql);
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString(1));
+
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return resultList;
+    }
+    public  static String  getJob(String type)
+    {
+        String sql = "select job_id from job where job_name=?";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,type);
+
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next())
+            {
+
+                return   rs.getString(1);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        return null;
+    }
+    public static List<List<String>> getAllJob()
+    {
+        String sql = "select job_name from job";
+        List<List<String>> resultList = new ArrayList<>();
+
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            ResultSet rs = pst.executeQuery();
+
+
+            // System.out.println(sql);
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString(1));
+
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return resultList;
+    }
     public static List<List<String>> getAlloffer()
     {
         String sql = "select offer_details_id,offer_details,offer_start,offer_end,percentage from offer_details";
