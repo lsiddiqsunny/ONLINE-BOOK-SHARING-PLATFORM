@@ -66,6 +66,7 @@ public class Cartconfirm {
         }
 
         bookutil.updateorder(bookid,s,userkey);
+      //  bookutil.Updatebookamount(bookid,s);
     }
     @FXML
     public void initialize() {

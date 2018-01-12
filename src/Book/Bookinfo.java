@@ -91,6 +91,7 @@ public class Bookinfo {
 
         if(rating.length()!=0){
             bookutil.insertreview(bookid,userkey,s,rating);
+            bookutil.updaterating(bookid);
         }
         else{
             review.setPromptText("No review added.\n Please give a rating.");

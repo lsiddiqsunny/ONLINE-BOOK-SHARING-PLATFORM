@@ -3,6 +3,7 @@ package Book;
 import Main.oracleDBMS;
 import javafx.scene.control.Alert;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,10 +11,90 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class bookutil {
+    public static String getPublisher(String id)
+    {
+        String sql = "select publisher_id from book where book_id=?";
+
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+pst.setString(1,id);
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                String s="";
+                s+=rs.getString("PERCENTAGE");
+
+
+                // System.out.println(s);
+                return  s;
+
+
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+
+        }
+        return "0";
+    }
+    public  static void  Updatebookamount(String id,String am)
+    {
+
+
+        String sql = " {call Updatebookamount(?,?)}";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            CallableStatement pst = con.prepareCall(sql);
+            pst.setInt(1,Integer.parseInt(id));
+            pst.setInt(2,Integer.parseInt(am));
+//System.out.println(type+ " "+id);
+
+
+            pst.executeQuery();
+
+
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+
+    }
+    public  static void  updaterating(String id)
+    {
+
+
+        String sql = " {call Set_rating(?)}";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            CallableStatement pst = con.prepareCall(sql);
+            pst.setInt(1,Integer.parseInt(id));
+//System.out.println(type+ " "+id);
+
+
+            pst.executeQuery();
+
+
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+
+    }
     public static List<List<String>> getBookReview(String sitem)
     {
         sitem= sitem.toLowerCase();
-        String sql = "select review_time,(select c.customer_name from customer c where c.customer_id=r.customer_id),review  from review r where book_id=?";
+        String sql = "select review_time,(select c.customer_name from customer c where c.customer_id=r.customer_id),NVL(review,'No Review')   from review r where book_id=?";
         List<List<String>> resultList = new ArrayList<>();
         try{
             Connection con = new oracleDBMS().getConnection();
@@ -303,9 +384,7 @@ pst.setString(1,sitem);
     }
     public static void updateorder(String book_id,String am,String user)
     {
-        String sql = "Insert into customer_order values ((select count(*) from customer_order)+1,sysdate,0,?,?,?,(select PERCENTAGE\n" +
-                "from OFFER_DETAILS\n" +
-                "                where  MONTHS_BETWEEN(offer_end, sysdate)>0 and MONTHS_BETWEEN(offer_start, sysdate)<0),null)";
+        String sql = "Insert into customer_order values ((select count(*) from customer_order)+1,sysdate,0,?,?,?,(select NVL(PERCENTAGE,0) from OFFER_DETAILS   where  MONTHS_BETWEEN(offer_end, sysdate)>0),null)";
           System.out.println(book_id);
         List<String>l=new ArrayList<>();
         try{

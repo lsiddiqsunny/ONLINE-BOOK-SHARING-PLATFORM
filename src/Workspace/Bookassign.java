@@ -44,6 +44,7 @@ public class Bookassign {
             employeeutil.transactioninsert(l.get(0).get(0),l.get(0).get(1),l.get(0).get(2),p,orderid.getBookid());
 
             employeeutil.changestatus2(orderid.getBookid());
+            employeeutil.publisher4(orderid.getBookid());
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Order Assigned");

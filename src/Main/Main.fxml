@@ -1,36 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="mainanchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="379.0" prefWidth="308.0" stylesheets="@test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="379.0" prefWidth="308.0" stylesheets="@test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Controller">
    <children>
-   
-         <ComboBox fx:id="loginas" layoutX="92.0" layoutY="43.0" prefHeight="31.0" prefWidth="124.0" promptText="Login As" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="90.0" />
          <Text fx:id="loginalert" layoutX="122.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="65.6708984375" />
-         <TextField fx:id="userid" alignment="CENTER" layoutX="61.0" layoutY="107.0" promptText="Enter your user id" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0" />
-         <PasswordField fx:id="userpassword" alignment="CENTER" layoutX="60.0" layoutY="156.0" promptText="Enter your password" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0" />
-         <Button fx:id="loginbutton" layoutX="160.0" layoutY="218.0" mnemonicParsing="false" onAction="#Login" prefHeight="31.0" prefWidth="107.0" text="Login" AnchorPane.rightAnchor="45.0">
+      <JFXComboBox fx:id="loginas" labelFloat="true" layoutX="45.0" layoutY="33.0" prefHeight="31.0" prefWidth="218.0" promptText="Login As" />
+      <JFXTextField fx:id="userid" labelFloat="true" layoutX="45.0" layoutY="103.0" prefHeight="31.0" prefWidth="218.0" promptText="Enter User Name" />
+      <JFXPasswordField fx:id="userpassword" labelFloat="true" layoutX="45.0" layoutY="167.0" prefHeight="31.0" prefWidth="218.0" promptText="Enter Password" />
+      <JFXButton fx:id="resetbutton" buttonType="RAISED" contentDisplay="CENTER" layoutX="45.0" layoutY="218.0" onAction="#Reset" prefHeight="31.0" prefWidth="107.0" ripplerFill="BLACK" text="Reset" textFill="#282727">
          <effect>
-            <InnerShadow />
-         </effect></Button>
-   
-         <Button fx:id="resetbutton" layoutX="60.0" layoutY="218.0" mnemonicParsing="false" onAction="#Reset" prefHeight="31.0" prefWidth="107.0" text="Reset" AnchorPane.leftAnchor="45.0">
-         <effect>
-            <InnerShadow />
-         </effect></Button>
-         <Button fx:id="newcustomer" layoutX="45.0" layoutY="307.0" mnemonicParsing="false" onAction="#newaccount" text="Create new customer account" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0">
-         <effect>
-            <InnerShadow />
-         </effect></Button>
-      <Button fx:id="forgetpassword" layoutX="45.0" layoutY="263.0" mnemonicParsing="false" onAction="#Forgetpassword" prefHeight="31.0" prefWidth="217.0" text="Forget Password" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0">
-         <effect>
-            <InnerShadow />
+            <InnerShadow color="#0d0d0d" />
          </effect>
-      </Button>
+      </JFXButton>
+      <JFXButton fx:id="loginbutton" buttonType="RAISED" layoutX="155.0" layoutY="218.0" onAction="#Login" prefHeight="31.0" prefWidth="107.0" text="Login" />
+      <JFXButton fx:id="forgetpassword" buttonType="RAISED" layoutX="45.0" layoutY="263.0" onAction="#Forgetpassword" prefHeight="31.0" prefWidth="218.0" text="Forget Password" />
+      <JFXButton fx:id="newcustomer" buttonType="RAISED" layoutX="45.0" layoutY="311.0" onAction="#newaccount" prefHeight="31.0" prefWidth="218.0" text="Create Customer Account" />
    </children>
 
 </AnchorPane>

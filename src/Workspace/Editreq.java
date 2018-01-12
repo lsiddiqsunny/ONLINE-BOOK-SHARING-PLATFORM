@@ -100,9 +100,10 @@ public class Editreq {
     @FXML
     void Confirm(ActionEvent event) {
         if(editbookid!=null){
-            System.out.println(editbookid);
+           // System.out.println(editbookid);
             employeeutil.updatebookprice(Price,editbookid);
             employeeutil.updatebookreq(editbookid);
+            employeeutil.publisher1(editbookid);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Book Price Changing Confirmed");
             alert.setHeaderText("Book Price Changing Confirmed");

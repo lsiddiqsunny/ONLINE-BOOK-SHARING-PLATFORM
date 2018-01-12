@@ -40,12 +40,14 @@ public class Notice {
         try{
             job=joblist.getValue().toString();
             job=employeeutil.getjobid(job);
-            //System.out.println(job);
+            System.out.println(job);
             String b=employeeutil.getuserBranch(employeekey);
             String  mg=mssg.getText();
            // System.out.println(mg);
             if(mg.length()>0) {
                 employeeutil.noticetojob(mg, employeekey, b, job);
+
+
             }
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Notice Published");
@@ -58,8 +60,12 @@ public class Notice {
             String  mg=mssg.getText();
             // System.out.println(mg);
             if(mg.length()>0) {
-                employeeutil.noticetoall(mg, employeekey, b);
-                employeeutil.nullnotice();
+               // employeeutil.noticetoall(mg, employeekey, b);
+                if(job==null){
+                //    System.out.println("here");
+                    employeeutil.NoticeAll(employeekey,b,mg);
+                }
+               // employeeutil.nullnotice();
             }
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Notice Published");

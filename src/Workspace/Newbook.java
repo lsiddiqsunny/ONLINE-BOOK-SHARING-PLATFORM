@@ -20,6 +20,11 @@ import java.util.List;
 import static Employee.Employee.employeekey;
 
 public class Newbook {
+    @FXML
+    Label totalbook=new Label();
+    @FXML
+    Label totalnow=new Label();
+
     public String  editbookid=null;
     @FXML
     Label alert=new Label();
@@ -62,7 +67,10 @@ public class Newbook {
 
     @FXML
     public void initialize() {
-
+String x=employeeutil.getTotal(employeekey);
+totalnow.setText(totalnow.getText()+x);
+x=employeeutil.getCapacity(employeekey);
+totalbook.setText(totalbook.getText()+x);
         List<List<String>> cartList= employeeutil.getStorageBook(employeekey) ;
         booklist.setEditable(true);
         int i=0;

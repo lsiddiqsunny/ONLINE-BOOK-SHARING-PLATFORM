@@ -1,5 +1,6 @@
 package CustomerOrder;
 
+import Book.bookutil;
 import Customer.userutility;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -64,7 +65,8 @@ public class Purchase {
         for(orderinfo e:Item){
             co++;
             cartutil.Orderconfirm(Integer.toString(x),e.getOrderid());
-        }
+
+        }cartutil.updatestatus(String .valueOf(x));
         if(co>0){
             pdf(Item, userutility.getusername(userkey));
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
