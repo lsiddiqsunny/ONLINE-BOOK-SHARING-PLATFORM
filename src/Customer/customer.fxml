@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="517.0" prefWidth="602.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Customer">
+   <children>
+      <JFXHamburger fx:id="hamburger" layoutX="558.0" layoutY="14.0" />
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" layoutY="-2.0" prefHeight="517.0" prefWidth="200.0" stylesheets="@../Main/test.css" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="-2.0" />
+   </children>
+</AnchorPane>

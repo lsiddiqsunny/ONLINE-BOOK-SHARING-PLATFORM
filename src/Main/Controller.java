@@ -13,6 +13,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -23,7 +25,6 @@ import static Book.SearchBook.start;
 
 
 public class Controller {
-
 
     @FXML
     ComboBox loginas=new ComboBox();
@@ -80,7 +81,7 @@ public class Controller {
                             try {
                                 start=0;
                                 end=0;
-                                root = FXMLLoader.load(getClass().getResource("../Customer/Usertest.fxml"));
+                                root = FXMLLoader.load(getClass().getResource("../Customer/customer.fxml"));
                                 Scene scene = new Scene(root);
                                 stage.setScene(scene);
                                 stage.setTitle("Customer Account");
