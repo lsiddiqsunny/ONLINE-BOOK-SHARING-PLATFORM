@@ -11,16 +11,6 @@
 
 <AnchorPane prefHeight="502.0" prefWidth="537.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Book.Bookinfo">
    <children>
-      <Button fx:id="backbutton" alignment="CENTER" layoutX="398.0" layoutY="306.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="125.0" text="Back" AnchorPane.rightAnchor="14.0">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="cart" layoutX="398.0" layoutY="346.0" mnemonicParsing="false" onAction="#Cart" prefHeight="31.0" prefWidth="125.0" text="Add to cart">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
       <Label layoutX="36.0" layoutY="112.0" prefHeight="21.0" prefWidth="102.0" text="Author :" textFill="#1e0b0b" />
       <Label layoutX="36.0" layoutY="161.0" prefHeight="21.0" prefWidth="102.0" text="Price:" textFill="#1e0b0b" />
       <Label layoutX="33.0" layoutY="191.0" prefHeight="21.0" prefWidth="102.0" text="Commission: " textFill="#1e0b0b" />
@@ -39,21 +29,15 @@
       <Label layoutX="33.0" layoutY="295.0" text="Total In Storage:" textFill="#1e0b0b" />
       <Text fx:id="amount" layoutX="164.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Label layoutX="36.0" layoutY="340.0" text="Give Rating:" textFill="#1e0b0b" />
-      <Button fx:id="submit" layoutX="398.0" layoutY="423.0" mnemonicParsing="false" onAction="#Submit" prefHeight="31.0" prefWidth="125.0" text="Submit review">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="view" layoutX="398.0" layoutY="384.0" mnemonicParsing="false" onAction="#View" prefHeight="31.0" prefWidth="125.0" text="View Reviews">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <JFXTextArea fx:id="review" labelFloat="true" layoutX="15.0" layoutY="381.0" prefHeight="106.0" prefWidth="377.0" promptText="Please give a rating before submit a review." />
+      <JFXTextArea fx:id="review" labelFloat="true" layoutX="15.0" layoutY="381.0" prefHeight="126.0" prefWidth="377.0" promptText="Please give a rating before submit a review." AnchorPane.bottomAnchor="10.0" />
       <JFXRadioButton fx:id="rb1" layoutX="115.0" layoutY="340.0" text="1" />
       <JFXRadioButton fx:id="rb2" layoutX="164.0" layoutY="340.0" text="2" />
       <JFXRadioButton fx:id="rb3" layoutX="214.0" layoutY="340.0" text="3" />
       <JFXRadioButton fx:id="rb4" layoutX="264.0" layoutY="340.0" text="4" />
       <JFXRadioButton fx:id="rb5" layoutX="314.0" layoutY="340.0" text="5" />
+      <JFXButton fx:id="backbutton" buttonType="RAISED" layoutX="402.0" layoutY="465.0" onAction="#Back" prefHeight="31.0" prefWidth="125.0" text="Back" AnchorPane.bottomAnchor="10.0" />
+      <JFXButton fx:id="cart" buttonType="RAISED" layoutX="402.0" layoutY="425.0" onAction="#Cart" prefHeight="31.0" prefWidth="125.0" text="Add To Cart" AnchorPane.bottomAnchor="50.0" />
+      <JFXButton fx:id="view" buttonType="RAISED" layoutX="402.0" layoutY="381.0" onAction="#View" prefHeight="31.0" prefWidth="125.0" text="View Reviews" AnchorPane.bottomAnchor="90.0" />
+      <JFXButton fx:id="submit" buttonType="RAISED" layoutX="402.0" layoutY="335.0" onAction="#Submit" prefHeight="31.0" prefWidth="125.0" text="Submit Reviews" AnchorPane.bottomAnchor="130.0" />
    </children>
 </AnchorPane>

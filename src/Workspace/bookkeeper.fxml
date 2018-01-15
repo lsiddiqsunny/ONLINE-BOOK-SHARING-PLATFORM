@@ -1,34 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="mainanchor" prefHeight="258.0" prefWidth="273.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Bookkeeper">
+<AnchorPane id="s" prefHeight="258.0" prefWidth="273.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Bookkeeper">
    <children>
-      <Button fx:id="back" layoutX="179.0" layoutY="199.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="77.0" text="Back">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="edit" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#Edit" prefHeight="31.0" prefWidth="242.0" text="See Book Edit  Request">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="insert" layoutX="14.0" layoutY="66.0" mnemonicParsing="false" onAction="#Insert" prefHeight="31.0" prefWidth="242.0" text="See Book Insert request">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="newbook" layoutX="14.0" layoutY="122.0" mnemonicParsing="false" onAction="#Newbook" prefHeight="31.0" prefWidth="242.0" text="New Book For Storage">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
+      <JFXButton fx:id="edit" buttonType="RAISED" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#Edit" prefHeight="31.0" prefWidth="242.0" text="See Edit Book Request" />
+      <JFXButton fx:id="insert" buttonType="RAISED" layoutX="14.0" layoutY="73.0" mnemonicParsing="false" onAction="#Insert" prefHeight="31.0" prefWidth="242.0" text="See Insert Request" />
+      <JFXButton fx:id="newbook" buttonType="RAISED" layoutX="14.0" layoutY="129.0" mnemonicParsing="false" onAction="#Newbook" prefHeight="31.0" prefWidth="242.0" text="New Book For The Storage" />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="128.0" layoutY="199.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="128.0" text="Back" />
    </children>
 </AnchorPane>

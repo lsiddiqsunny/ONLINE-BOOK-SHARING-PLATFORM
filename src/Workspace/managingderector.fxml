@@ -1,31 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="mainanchor" prefHeight="221.0" prefWidth="303.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Managingderector">
+<AnchorPane prefHeight="221.0" prefWidth="303.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Managingderector">
    <children>
-      <Button fx:id="underpeople" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#Underpeople" prefHeight="31.0" prefWidth="275.0" text="See people working under you">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="back" layoutX="219.0" layoutY="169.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="70.0" text="Back">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="work" layoutX="14.0" layoutY="60.0" mnemonicParsing="false" onAction="#Work" prefHeight="31.0" prefWidth="275.0" text="Chcek your ordered works in queue">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="notice" layoutX="14.0" layoutY="107.0" mnemonicParsing="false" onAction="#Notice" prefHeight="31.0" prefWidth="275.0" text="Give or Update  Notices">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
+      <JFXButton fx:id="underpeople" buttonType="RAISED" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#Underpeople" prefHeight="31.0" prefWidth="275.0" text="See People Under You" />
+      <JFXButton fx:id="work" buttonType="RAISED" layoutX="14.0" layoutY="64.0" mnemonicParsing="false" onAction="#Work" prefHeight="31.0" prefWidth="275.0" text="Chcek your ordered works in queue" />
+      <JFXButton fx:id="notice" buttonType="RAISED" layoutX="14.0" layoutY="111.0" mnemonicParsing="false" onAction="#Notice" prefHeight="31.0" prefWidth="275.0" text="Give Or Update Notice" />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="141.0" layoutY="170.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="148.0" text="Back" />
    </children>
 </AnchorPane>

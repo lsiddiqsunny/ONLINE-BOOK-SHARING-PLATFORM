@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="mainanchor" prefHeight="465.0" prefWidth="342.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Notice">
+<AnchorPane prefHeight="483.0" prefWidth="342.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Notice">
    <children>
-      <ComboBox fx:id="joblist" layoutX="11.0" layoutY="14.0" prefHeight="31.0" prefWidth="316.0" promptText="Select specific section" />
-      <TextArea fx:id="mssg" layoutX="14.0" layoutY="61.0" prefHeight="297.0" prefWidth="316.0" promptText="Write your notice" />
-      <Button fx:id="notice" layoutX="178.0" layoutY="370.0" mnemonicParsing="false" onAction="#Notice" prefHeight="31.0" prefWidth="149.0" text="Notice">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="back" layoutX="178.0" layoutY="411.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="149.0" text="Back">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="showactive" layoutX="14.0" layoutY="370.0" mnemonicParsing="false" onAction="#Showactive" text="Show Active Notice">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
+      <JFXComboBox fx:id="joblist" labelFloat="true" layoutX="14.0" layoutY="14.0" prefHeight="31.0" prefWidth="316.0" promptText="Select Specific Section" />
+      <JFXTextArea fx:id="mssg" labelFloat="true" layoutX="14.0" layoutY="68.0" prefHeight="289.0" prefWidth="316.0" promptText="Enter Notice" />
+      <JFXButton fx:id="showactive" buttonType="RAISED" layoutX="14.0" layoutY="380.0" mnemonicParsing="false" onAction="#Showactive" prefHeight="31.0" prefWidth="149.0" text="Show Active Notice" />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="178.0" layoutY="438.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="149.0" text="Back" />
+      <JFXButton fx:id="notice" buttonType="RAISED" layoutX="181.0" layoutY="380.0" mnemonicParsing="false" onAction="#Notice" prefHeight="31.0" prefWidth="149.0" text="Notice" />
    </children>
 </AnchorPane>

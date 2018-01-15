@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="mainanchor" prefHeight="443.0" prefWidth="356.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Officematerial">
+<AnchorPane prefHeight="443.0" prefWidth="356.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Officematerial">
    <children>
       <Label layoutX="104.0" layoutY="14.0" text="Material In Your Office">
          <effect>
             <InnerShadow />
          </effect>
       </Label>
-      <Button fx:id="back" layoutX="277.0" layoutY="398.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="67.0" text="Back">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
       <GridPane fx:id="grid" alignment="CENTER" layoutX="14.0" layoutY="42.0" prefHeight="341.0" prefWidth="327.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -35,5 +31,6 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="276.0" layoutY="398.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="71.0" text="Back" />
    </children>
 </AnchorPane>

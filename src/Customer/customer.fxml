@@ -1,18 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
+<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="517.0" prefWidth="602.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Customer">
+<AnchorPane prefHeight="574.0" prefWidth="602.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Customer">
    <children>
-      <JFXHamburger fx:id="hamburger" layoutX="558.0" layoutY="14.0" />
-      <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" layoutY="-2.0" prefHeight="517.0" prefWidth="200.0" stylesheets="@../Main/test.css" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="-2.0" />
+      <AnchorPane id="anotheranchor" layoutY="43.0" prefHeight="534.0" prefWidth="994.0" stylesheets="@../Main/test.css">
+         <children>
+            <Text layoutX="443.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top Rated Books">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="468.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Books">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="439.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top Selling Books">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <GridPane id="gridPane" fx:id="gridPane" alignment="CENTER" hgap="5.0" layoutX="32.0" layoutY="44.0" prefHeight="120.0" prefWidth="960.0" stylesheets="@gridpane.css" vgap="5.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane id="gridPane" fx:id="gridPane1" alignment="CENTER" hgap="5.0" layoutX="33.0" layoutY="202.0" prefHeight="120.0" prefWidth="960.0" stylesheets="@gridpane.css" vgap="5.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane id="gridPane" fx:id="gridPane2" alignment="CENTER" hgap="5.0" layoutX="30.0" layoutY="368.0" prefHeight="120.0" prefWidth="960.0" stylesheets="@gridpane.css" vgap="5.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="mainanchor" prefHeight="43.0" prefWidth="994.0" stylesheets="@../Main/test.css">
+         <children>
+            <JFXHamburger fx:id="hamburger" layoutX="14.0" layoutY="12.0" />
+         </children>
+      </AnchorPane>
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" layoutY="55.0" prefHeight="527.0" prefWidth="200.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="45.0" />
    </children>
 </AnchorPane>

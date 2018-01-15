@@ -1,26 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="mainanchor" prefHeight="499.0" prefWidth="540.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Newbookinsert">
+<AnchorPane prefHeight="499.0" prefWidth="540.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Newbookinsert">
    <children>
       <TableView fx:id="booklist" layoutX="27.0" layoutY="61.0" prefHeight="315.0" prefWidth="488.0" />
       <Label layoutX="227.0" layoutY="24.0" text="Edit Request" />
-      <Button fx:id="confirm" layoutX="440.0" layoutY="398.0" mnemonicParsing="false" onAction="#Confirm" text="Confirm">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="back" layoutX="440.0" layoutY="440.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="74.0" text="Back">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
+      <JFXButton fx:id="confirm" buttonType="RAISED" layoutX="434.0" layoutY="399.0" mnemonicParsing="false" onAction="#Confirm" prefHeight="31.0" prefWidth="92.0" text="Confirm" />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="434.0" layoutY="448.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="92.0" text="Back" />
    </children>
 </AnchorPane>

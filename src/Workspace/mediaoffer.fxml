@@ -1,26 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="mainanchor" prefHeight="435.0" prefWidth="409.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Mediaoffer">
+<AnchorPane prefHeight="435.0" prefWidth="409.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Mediaoffer">
    <children>
       <Label layoutX="161.0" layoutY="14.0" text="Current Offer" />
       <TableView fx:id="offer" layoutX="11.0" layoutY="40.0" prefHeight="339.0" prefWidth="389.0" />
-      <Button fx:id="back" layoutX="220.0" layoutY="390.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="179.0" text="Back">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="newoffer" layoutX="21.0" layoutY="390.0" mnemonicParsing="false" onAction="#Newoffer" prefHeight="31.0" prefWidth="179.0" text="Add Offer">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
+      <JFXButton fx:id="newoffer" buttonType="RAISED" layoutX="14.0" layoutY="390.0" mnemonicParsing="false" onAction="#Newoffer" prefHeight="31.0" prefWidth="179.0" text="Add Offer" />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="216.0" layoutY="390.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="179.0" text="Back" />
    </children>
 </AnchorPane>

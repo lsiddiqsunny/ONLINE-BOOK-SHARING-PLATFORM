@@ -1,31 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="mainanchor" prefHeight="506.0" prefWidth="440.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Works">
+<AnchorPane prefHeight="506.0" prefWidth="490.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Works">
    <children>
-      <Button fx:id="refresh" layoutX="145.0" layoutY="440.0" mnemonicParsing="false" onAction="#Refresh" text="Refreash">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="change" layoutX="235.0" layoutY="440.0" mnemonicParsing="false" onAction="#Change" text="Change status">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <TableView fx:id="worklist" layoutX="24.0" layoutY="55.0" prefHeight="371.0" prefWidth="398.0" />
-      <Label layoutX="143.0" layoutY="24.0" prefHeight="31.0" prefWidth="163.0" text="Your ordered  works'list" />
-      <Button fx:id="back" layoutX="357.0" layoutY="440.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="71.0" text="Back">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
+      <TableView fx:id="worklist" layoutX="24.0" layoutY="55.0" prefHeight="371.0" prefWidth="439.0" />
+      <Label layoutX="170.0" layoutY="14.0" prefHeight="31.0" prefWidth="163.0" text="Your ordered  works'list" />
+      <JFXButton fx:id="refresh" buttonType="RAISED" layoutX="14.0" layoutY="440.0" mnemonicParsing="false" onAction="#Refresh" prefHeight="31.0" prefWidth="144.0" text="Refresh" />
+      <JFXButton fx:id="change" buttonType="RAISED" layoutX="170.0" layoutY="440.0" mnemonicParsing="false" onAction="#Change" prefHeight="31.0" prefWidth="144.0" text="Change Status" />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="325.0" layoutY="440.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="144.0" text="Back" />
    </children>
 </AnchorPane>
