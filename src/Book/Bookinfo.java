@@ -66,14 +66,18 @@ public class Bookinfo {
         stage = (Stage) backbutton.getScene().getWindow();
         //load up OTHER FXML document
         try {
-            if(!fromsearch)
-                root = FXMLLoader.load(getClass().getResource("../Customer/usertest.fxml"));
-            else
+            if(!fromsearch){
+                root = FXMLLoader.load(getClass().getResource("../Customer/customer.fxml"));
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.setTitle("Customer Account");}
+            else {
                 root = FXMLLoader.load(getClass().getResource("SearchBook.fxml"));
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.setTitle("Search Book");
+            }
 
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("Customer Account");
             stage.show();
 
         } catch (IOException e) {

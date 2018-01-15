@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,25 +8,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="mainanchor" prefHeight="475.0" prefWidth="426.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Employee.Notification">
+<AnchorPane prefHeight="475.0" prefWidth="426.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Employee.Notification">
    <children>
-      <Button fx:id="back" layoutX="347.0" layoutY="430.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="71.0" text="Back">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
       <Label layoutX="165.0" layoutY="14.0" prefHeight="31.0" prefWidth="96.0" text="Your works'list" />
       <TableView fx:id="worklist" layoutX="14.0" layoutY="45.0" prefHeight="371.0" prefWidth="398.0" />
-      <Button fx:id="change" layoutX="225.0" layoutY="430.0" mnemonicParsing="false" onAction="#Change" text="Change status">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="refresh" layoutX="135.0" layoutY="430.0" mnemonicParsing="false" onAction="#Refresh" text="Refreash">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="14.0" layoutY="430.0" onAction="#Back" prefHeight="31.0" prefWidth="124.0" text="Back" />
+      <JFXButton fx:id="refresh" buttonType="RAISED" layoutX="151.0" layoutY="430.0" onAction="#Refresh" prefHeight="31.0" prefWidth="124.0" text="Refresh" />
+      <JFXButton fx:id="change" buttonType="RAISED" layoutX="288.0" layoutY="430.0" onAction="#Change" prefHeight="31.0" prefWidth="124.0" text="Change Status" />
    </children>
 </AnchorPane>

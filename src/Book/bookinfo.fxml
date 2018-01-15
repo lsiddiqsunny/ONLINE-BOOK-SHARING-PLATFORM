@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import java.lang.*?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="mainanchor" prefHeight="468.0" prefWidth="537.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Book.Bookinfo">
+<AnchorPane prefHeight="502.0" prefWidth="537.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Book.Bookinfo">
    <children>
       <Button fx:id="backbutton" alignment="CENTER" layoutX="398.0" layoutY="306.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="125.0" text="Back" AnchorPane.rightAnchor="14.0">
          <effect>
@@ -38,12 +39,6 @@
       <Label layoutX="33.0" layoutY="295.0" text="Total In Storage:" textFill="#1e0b0b" />
       <Text fx:id="amount" layoutX="164.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Label layoutX="36.0" layoutY="340.0" text="Give Rating:" textFill="#1e0b0b" />
-      <RadioButton fx:id="rb1" layoutX="127.0" layoutY="340.0" mnemonicParsing="false" text="1" />
-      <RadioButton fx:id="rb2" layoutX="171.0" layoutY="340.0" mnemonicParsing="false" text="2" />
-      <RadioButton fx:id="rb3" layoutX="214.0" layoutY="340.0" mnemonicParsing="false" text="3" />
-      <RadioButton fx:id="rb4" layoutX="260.0" layoutY="340.0" mnemonicParsing="false" text="4" />
-      <RadioButton fx:id="rb5" layoutX="311.0" layoutY="340.0" mnemonicParsing="false" text="5" />
-      <TextArea fx:id="review" layoutX="27.0" layoutY="369.0" prefHeight="92.0" prefWidth="322.0" promptText="Please give a rating before submit a review." />
       <Button fx:id="submit" layoutX="398.0" layoutY="423.0" mnemonicParsing="false" onAction="#Submit" prefHeight="31.0" prefWidth="125.0" text="Submit review">
          <effect>
             <InnerShadow />
@@ -54,5 +49,11 @@
             <InnerShadow />
          </effect>
       </Button>
+      <JFXTextArea fx:id="review" labelFloat="true" layoutX="15.0" layoutY="381.0" prefHeight="106.0" prefWidth="377.0" promptText="Please give a rating before submit a review." />
+      <JFXRadioButton fx:id="rb1" layoutX="115.0" layoutY="340.0" text="1" />
+      <JFXRadioButton fx:id="rb2" layoutX="164.0" layoutY="340.0" text="2" />
+      <JFXRadioButton fx:id="rb3" layoutX="214.0" layoutY="340.0" text="3" />
+      <JFXRadioButton fx:id="rb4" layoutX="264.0" layoutY="340.0" text="4" />
+      <JFXRadioButton fx:id="rb5" layoutX="314.0" layoutY="340.0" text="5" />
    </children>
 </AnchorPane>

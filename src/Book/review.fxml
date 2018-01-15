@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,15 +8,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="mainanchor" prefHeight="455.0" prefWidth="542.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Book.Review">
+<AnchorPane prefHeight="455.0" prefWidth="542.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Book.Review">
    <children>
       <Label layoutX="252.0" layoutY="14.0" text="Reviews" />
-      <Button fx:id="back" layoutX="463.0" layoutY="410.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="67.0" text="Back">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
       <TableView fx:id="reviewlist" layoutX="14.0" layoutY="35.0" prefHeight="362.0" prefWidth="516.0" />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="465.0" layoutY="410.0" onAction="#Back" prefHeight="31.0" prefWidth="69.0" text="Back" />
    </children>
 </AnchorPane>

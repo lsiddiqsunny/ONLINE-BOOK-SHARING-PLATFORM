@@ -43,7 +43,7 @@ public class Customercart {
         //load up OTHER FXML document
         try {
 
-            root = FXMLLoader.load(getClass().getResource("../Customer/usertest.fxml"));
+            root = FXMLLoader.load(getClass().getResource("../Customer/customer.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Customer Account");

@@ -14,8 +14,7 @@ import java.io.IOException;
 
 public class User {
     public static String userkey;
-    @FXML
-    Button updateinfo=new Button();
+
 
     @FXML
     Text phone=new Text();
@@ -33,48 +32,9 @@ public class User {
     Text username=new Text();
     @FXML
     Button back=new Button();
-    @FXML
-    Button review=new Button();
-    @FXML
-    Button searchbook=new Button();
-@FXML
-void Searchbook(ActionEvent actionEvent){
 
-}
-    @FXML
-    void Review(ActionEvent actionEvent){
-        Parent root;
-        Stage stage = (Stage) review.getScene().getWindow();
-        //load up OTHER FXML document
-        try {
-            root = FXMLLoader.load(getClass().getResource("viewreview.fxml"));
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("View Reviews");
-            stage.show();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    @FXML
-    public   void Updateonformation(ActionEvent event) {
-        Stage stage;
-        Parent root;
-        stage = (Stage) updateinfo.getScene().getWindow();
-        //load up OTHER FXML document
-        try {
-            root = FXMLLoader.load(getClass().getResource("userupdate.fxml"));
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("Update Information");
-            stage.show();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
     @FXML
     void backbutton(ActionEvent actionEvent) {
         Stage stage;
@@ -82,7 +42,7 @@ void Searchbook(ActionEvent actionEvent){
         stage = (Stage) back.getScene().getWindow();
         //load up OTHER FXML document
         try {
-            root = FXMLLoader.load(getClass().getResource("Usertest.fxml"));
+            root = FXMLLoader.load(getClass().getResource("customer.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Customer Page");

@@ -49,7 +49,7 @@ public class SearchBook {
         stage = (Stage) back.getScene().getWindow();
         //load up OTHER FXML document
         try {
-            root = FXMLLoader.load(getClass().getResource("../Customer/usertest.fxml"));
+            root = FXMLLoader.load(getClass().getResource("../Customer/customer.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Customer Account");
@@ -78,7 +78,7 @@ public class SearchBook {
             return;
         }
         else sz=booklist.size();
-         System.out.println(sz);
+       //  System.out.println(sz);
         result.setHgap(15);
         result.setVgap(15);
         for(int i = start-1; i< end; i++){
@@ -279,12 +279,16 @@ public class SearchBook {
             }
         }
         if(booklist!=null){
+
             start=1;
+
             end=Integer.min(12,booklist.size());
             page.setText("Showing "+start+ " to "+ end+ " of "+booklist.size() +" results");
             if(booklist.size()>12){
                 next.setVisible(true);
             }
+        }else{
+            page.setText("");
         }
 
 

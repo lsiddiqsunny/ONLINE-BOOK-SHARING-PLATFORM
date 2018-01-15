@@ -37,7 +37,7 @@ public class Viewreview {
     TableColumn<reviewinfo, String> review=new TableColumn<>("Review");
     @FXML
     public void initialize() {
-
+//System.out.println(userkey);
         List<List<String>> cartList= userutility.getAllreview(userkey);
         reviewlist.setEditable(true);
         int i=0;
@@ -47,8 +47,8 @@ public class Viewreview {
 
         }
         user_name.setPrefWidth(150);
-        //  review.setPrefWidth(250);
-        //  review_time.setPrefWidth(100);
+          review.setPrefWidth(240);
+         review_time.setPrefWidth(120);
 
 
         user_name.setCellValueFactory(new PropertyValueFactory<>("username"));
@@ -69,7 +69,7 @@ public class Viewreview {
         stage = (Stage) back.getScene().getWindow();
         //load up OTHER FXML document
         try {
-            root = FXMLLoader.load(getClass().getResource("usertest.fxml"));
+            root = FXMLLoader.load(getClass().getResource("customer.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("User Account");

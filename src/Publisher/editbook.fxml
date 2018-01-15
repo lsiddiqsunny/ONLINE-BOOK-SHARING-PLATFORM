@@ -1,77 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="mainanchor" prefHeight="648.0" prefWidth="450.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Publisher.Editbook">
+<AnchorPane prefHeight="709.0" prefWidth="450.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Publisher.Editbook">
    <children>
       <Label layoutX="121.0" layoutY="14.0" text="Change Book Price">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <ComboBox fx:id="booklist" layoutX="14.0" layoutY="50.0" prefHeight="31.0" prefWidth="150.0" promptText="Your Books" />
-      <TextField fx:id="price" layoutX="172.0" layoutY="50.0" prefHeight="31.0" prefWidth="150.0" promptText="Enter new Price" />
-      <Button fx:id="submit" layoutX="333.0" layoutY="50.0" mnemonicParsing="false" onAction="#Submit" prefHeight="31.0" prefWidth="103.0" text="Submit">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="back" layoutX="371.0" layoutY="568.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="67.0" text="Back">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
       <Label layoutX="135.0" layoutY="102.0" text="Add a new book">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <TextField fx:id="newbookname" layoutX="132.0" layoutY="138.0" prefHeight="31.0" prefWidth="300.0" promptText="Enter Book Name" />
-      <Label layoutX="14.0" layoutY="139.0" text="Book Name:">
+      <Label layoutX="16.0" layoutY="149.0" text="Book Name:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="182.0" text="ISBN:">
+      <Label layoutX="16.0" layoutY="197.0" text="ISBN:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="newisbn" layoutX="132.0" layoutY="182.0" prefHeight="31.0" prefWidth="300.0" promptText="Enter ISBN number" />
-      <Label layoutX="14.0" layoutY="235.0" text="Price:">
+      <Label layoutX="16.0" layoutY="245.0" text="Price:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="newprice" layoutX="132.0" layoutY="235.0" prefHeight="31.0" prefWidth="300.0" promptText="Enter Price" />
-      <ComboBox fx:id="booktype" layoutX="136.0" layoutY="284.0" prefHeight="31.0" prefWidth="300.0" promptText="Book Type" />
-      <Label layoutX="15.0" layoutY="289.0" text="Book Type:">
+      <Label layoutX="15.0" layoutY="295.0" text="Book Type:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TableView fx:id="authorlist" layoutX="13.0" layoutY="319.0" prefHeight="200.0" prefWidth="425.0" />
-      <Button fx:id="newauthor" layoutX="239.0" layoutY="530.0" mnemonicParsing="false" onAction="#Newauthor" prefHeight="31.0" prefWidth="193.0" text="Not In the List? Add one.">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="submit1" layoutX="298.0" layoutY="568.0" mnemonicParsing="false" onAction="#Submit1" text="Submit">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="reset" layoutX="227.0" layoutY="568.0" mnemonicParsing="false" onAction="#Reset" prefHeight="31.0" prefWidth="67.0" text="Reset">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
+      <TableView fx:id="authorlist" layoutX="16.0" layoutY="352.0" prefHeight="261.0" prefWidth="417.0" />
       <Label fx:id="items" layoutX="22.0" layoutY="535.0" />
+      <JFXComboBox fx:id="booklist" labelFloat="true" layoutX="14.0" layoutY="71.0" prefWidth="150.0" promptText="Your Books" />
+      <JFXTextField fx:id="price" labelFloat="true" layoutX="167.0" layoutY="71.0" prefHeight="31.0" prefWidth="166.0" promptText="New Price" />
+      <JFXButton fx:id="submit" buttonType="RAISED" layoutX="339.0" layoutY="71.0" mnemonicParsing="false" onAction="#Submit" prefHeight="31.0" prefWidth="90.0" text="Change" />
+      <JFXTextField fx:id="newbookname" labelFloat="true" layoutX="132.0" layoutY="149.0" prefHeight="31.0" prefWidth="300.0" promptText="Enter Book Name" />
+      <JFXTextField fx:id="newisbn" labelFloat="true" layoutX="132.0" layoutY="197.0" prefHeight="31.0" prefWidth="300.0" promptText="Enter ISBN Number" />
+      <JFXTextField fx:id="newprice" labelFloat="true" layoutX="132.0" layoutY="245.0" prefHeight="31.0" prefWidth="300.0" promptText="Enter Price" />
+      <JFXComboBox fx:id="booktype" labelFloat="true" layoutX="132.0" layoutY="302.0" prefHeight="31.0" prefWidth="300.0" promptText="Enter Book Type" />
+      <JFXButton fx:id="newauthor" buttonType="RAISED" layoutX="233.0" layoutY="624.0" mnemonicParsing="false" onAction="#Newauthor" prefHeight="31.0" prefWidth="201.0" text="Not in list? Add one." />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="16.0" layoutY="664.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="130.0" text="Back" />
+      <JFXButton fx:id="reset" buttonType="RAISED" layoutX="160.0" layoutY="664.0" mnemonicParsing="false" onAction="#Reset" prefHeight="31.0" prefWidth="130.0" text="Reset" />
+      <JFXButton fx:id="submit1" buttonType="RAISED" layoutX="302.0" layoutY="664.0" mnemonicParsing="false" onAction="#Submit1" prefHeight="31.0" prefWidth="130.0" text="Submit" />
    </children>
 </AnchorPane>

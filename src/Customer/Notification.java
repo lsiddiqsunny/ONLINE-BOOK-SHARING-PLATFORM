@@ -45,7 +45,7 @@ public class Notification {
         stage = (Stage) back.getScene().getWindow();
         //load up OTHER FXML document
         try {
-            root = FXMLLoader.load(getClass().getResource("Usertest.fxml"));
+            root = FXMLLoader.load(getClass().getResource("customer.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("User Account");

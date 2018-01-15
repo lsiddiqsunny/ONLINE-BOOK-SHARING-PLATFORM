@@ -1,50 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="mainanchor" prefHeight="462.0" prefWidth="693.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Publisher.Publisher">
+<AnchorPane prefHeight="513.0" prefWidth="693.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Publisher.Publisher">
    <children>
-      <Text fx:id="publishername" layoutX="21.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="551.0">
+      <Text fx:id="publishername" layoutX="18.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="658.0">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
       <Text fx:id="publisherid" layoutX="131.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="68.0" />
-      <Text fx:id="publisheraddress" layoutX="121.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="publisheraddress" layoutX="116.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="563.0" />
       <Text layoutX="21.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" />
       <Text layoutX="21.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Publisher ID:" />
       <Text layoutX="21.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Books provided by this company:" />
-      <TableView fx:id="booklist" layoutX="44.0" layoutY="231.0" prefHeight="205.0" prefWidth="479.0" />
-      <Button fx:id="logout" layoutX="530.0" layoutY="26.0" mnemonicParsing="false" onAction="#Logout" prefHeight="31.0" prefWidth="149.0" text="Logout" AnchorPane.topAnchor="26.0">
-         <effect>
-            <InnerShadow />
-         </effect></Button>
-      <Button fx:id="editprofile" layoutX="530.0" layoutY="66.0" mnemonicParsing="false" onAction="#Editprofile" prefHeight="31.0" prefWidth="149.0" text="Edit Profile" AnchorPane.topAnchor="66.0">
-         <effect>
-            <InnerShadow />
-         </effect></Button>
-      <Button fx:id="transcation" layoutX="530.0" layoutY="106.0" mnemonicParsing="false" onAction="#Transaction" prefHeight="31.0" prefWidth="149.0" text="Your Transcations" AnchorPane.topAnchor="106.0">
-         <effect>
-            <InnerShadow />
-         </effect></Button>
-      <Button fx:id="editbook" layoutX="530.0" layoutY="146.0" mnemonicParsing="false" onAction="#Editbook" prefHeight="31.0" prefWidth="149.0" text="Edit for your books" AnchorPane.topAnchor="146.0">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="request" layoutX="530.0" layoutY="186.0" mnemonicParsing="false" onAction="#Request" prefHeight="31.0" prefWidth="149.0" text="Your Requests">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="noti" layoutX="530.0" layoutY="231.0" mnemonicParsing="false" onAction="#Noti" prefHeight="31.0" prefWidth="149.0" text="Notification">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
+      <TableView fx:id="booklist" layoutX="44.0" layoutY="241.0" prefHeight="246.0" prefWidth="479.0" />
+      <JFXButton fx:id="logout" buttonType="RAISED" layoutX="530.0" layoutY="241.0" mnemonicParsing="false" onAction="#Logout" prefHeight="31.0" prefWidth="149.0" text="Logout" />
+      <JFXButton fx:id="editprofile" buttonType="RAISED" layoutX="530.0" layoutY="281.0" mnemonicParsing="false" onAction="#Editprofile" prefHeight="31.0" prefWidth="149.0" text="Edit Profile" />
+      <JFXButton fx:id="transcation" buttonType="RAISED" layoutX="530.0" layoutY="328.0" mnemonicParsing="false" onAction="#Transaction" prefHeight="31.0" prefWidth="149.0" text="Your Transactions" />
+      <JFXButton fx:id="noti" buttonType="RAISED" layoutX="530.0" layoutY="456.0" mnemonicParsing="false" onAction="#Noti" prefHeight="31.0" prefWidth="149.0" text="Notification" />
+      <JFXButton fx:id="request" buttonType="RAISED" layoutX="530.0" layoutY="416.0" mnemonicParsing="false" onAction="#Request" prefHeight="31.0" prefWidth="149.0" text="Your Request" />
+      <JFXButton fx:id="editbook" buttonType="RAISED" layoutX="530.0" layoutY="375.0" mnemonicParsing="false" onAction="#Editbook" prefHeight="31.0" prefWidth="149.0" text="Edit Your Book" />
    </children>
 </AnchorPane>

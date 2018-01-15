@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import java.lang.*?>
@@ -8,36 +9,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="mainanchor" prefHeight="607.0" prefWidth="373.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Employee.Changestatus">
+<AnchorPane prefHeight="607.0" prefWidth="373.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Employee.Changestatus">
    <children>
-      <Button fx:id="back" layoutX="295.0" layoutY="555.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="66.0" text="Back">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
       <Label layoutX="63.0" layoutY="14.0" prefHeight="30.0" prefWidth="247.0" text="Change Salary/Commission">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="salary" layoutX="14.0" layoutY="56.0" prefHeight="31.0" prefWidth="347.0" promptText="Change salary.Previous salary:" />
-      <TextField fx:id="commission" layoutX="14.0" layoutY="103.0" prefHeight="31.0" prefWidth="347.0" promptText="Change commission.Previous:" />
-      <Button fx:id="change" layoutX="288.0" layoutY="202.0" mnemonicParsing="false" onAction="#Change" text="Change">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Label layoutX="109.0" layoutY="280.0" text="Assign New Work">
+      <Label layoutX="109.0" layoutY="274.0" text="Assign New Work">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextArea id="textarea" fx:id="details" layoutX="14.0" layoutY="311.0" prefHeight="200.0" prefWidth="347.0" promptText="Enter Details..." stylesheets="@../Main/test.css" />
-      <Button fx:id="assign" layoutX="295.0" layoutY="518.0" mnemonicParsing="false" onAction="#Assign" prefHeight="31.0" prefWidth="66.0" text="Assign">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <ComboBox fx:id="newjob" layoutX="14.0" layoutY="148.0" prefHeight="31.0" prefWidth="347.0" promptText="Change Job" />
+      <JFXTextField fx:id="salary" labelFloat="true" layoutX="14.0" layoutY="81.0" prefHeight="31.0" prefWidth="347.0" promptText="Change Salary.Previous:" />
+      <JFXTextField fx:id="commission" labelFloat="true" layoutX="14.0" layoutY="139.0" prefHeight="31.0" prefWidth="347.0" promptText="Change Commission.Previous:" />
+      <JFXComboBox fx:id="newjob" layoutX="14.0" layoutY="193.0" prefHeight="31.0" prefWidth="347.0" promptText="Change Job" />
+      <JFXButton fx:id="change" buttonType="RAISED" layoutX="288.0" layoutY="249.0" onAction="#Change" text="Change" />
+      <JFXTextArea fx:id="details" labelFloat="true" layoutX="14.0" layoutY="335.0" prefHeight="202.0" prefWidth="347.0" promptText="Enter Details..." />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="14.0" layoutY="562.0" onAction="#Back" prefHeight="31.0" prefWidth="156.0" text="Back" />
+      <JFXButton buttonType="RAISED" layoutX="205.0" layoutY="562.0" prefHeight="31.0" prefWidth="156.0" text="Assign" />
    </children>
 </AnchorPane>

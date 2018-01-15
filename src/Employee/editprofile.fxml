@@ -1,30 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="mainanchor" prefHeight="302.0" prefWidth="272.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Employee.Editprofile">
+<AnchorPane prefHeight="319.0" prefWidth="272.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Employee.Editprofile">
    <children>
-      <Button fx:id="reset" layoutX="102.0" layoutY="246.0" mnemonicParsing="false" onAction="#Reset" prefHeight="31.0" prefWidth="68.0" text="Reset">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <Button fx:id="submit" layoutX="179.0" layoutY="246.0" mnemonicParsing="false" onAction="#Submit" prefHeight="31.0" prefWidth="68.0" text="Submit">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <PasswordField fx:id="Password" layoutX="21.0" layoutY="90.0" prefHeight="31.0" prefWidth="226.0" promptText="Enter New Password" />
-      <ComboBox fx:id="Location" layoutX="21.0" layoutY="39.0" prefHeight="31.0" prefWidth="226.0" promptText="Change Your Location" />
-      <Button fx:id="backbutton" layoutX="21.0" layoutY="246.0" mnemonicParsing="false" onAction="#Backbutton" prefHeight="31.0" prefWidth="68.0" text="Back">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
-      <TextField fx:id="phone" layoutX="21.0" layoutY="136.0" prefHeight="31.0" prefWidth="226.0" promptText="Enter New Phone Number" />
-      <TextField fx:id="email" layoutX="21.0" layoutY="185.0" prefHeight="31.0" prefWidth="226.0" promptText="Enter New Email" />
+      <JFXComboBox fx:id="Location" labelFloat="true" layoutX="21.0" layoutY="36.0" prefHeight="31.0" prefWidth="226.0" promptText="Change Your Location" />
+      <JFXPasswordField fx:id="Password" labelFloat="true" layoutX="21.0" layoutY="88.0" prefHeight="31.0" prefWidth="226.0" promptText="Change Password" />
+      <JFXTextField fx:id="phone" labelFloat="true" layoutX="21.0" layoutY="143.0" prefHeight="31.0" prefWidth="226.0" promptText="Change Phone Number" />
+      <JFXTextField fx:id="email" labelFloat="true" layoutX="23.0" layoutY="200.0" prefHeight="31.0" prefWidth="226.0" promptText="Change Email" />
+      <JFXButton fx:id="backbutton" buttonType="RAISED" layoutX="20.0" layoutY="261.0" onAction="#Backbutton" prefHeight="31.0" prefWidth="68.0" text="Back" />
+      <JFXButton fx:id="reset" buttonType="RAISED" layoutX="101.0" layoutY="261.0" onAction="#Reset" prefHeight="31.0" prefWidth="68.0" text="Reset" />
+      <JFXButton fx:id="submit" buttonType="RAISED" layoutX="180.0" layoutY="261.0" onAction="#Submit" prefHeight="31.0" prefWidth="68.0" text="Submit" />
    </children>
 </AnchorPane>

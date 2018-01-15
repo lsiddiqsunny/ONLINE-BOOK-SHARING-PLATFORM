@@ -1,34 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="mainanchor" prefHeight="650.0" prefWidth="822.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CustomerOrder.Customercart">
+<AnchorPane prefHeight="650.0" prefWidth="822.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CustomerOrder.Customercart">
    <children>
-      <Button fx:id="back" layoutX="716.0" layoutY="572.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="104.0" text="Back" AnchorPane.bottomAnchor="45.0" AnchorPane.rightAnchor="30.0">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
       <Text layoutX="349.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Cart" textAlignment="CENTER">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
       <TableView fx:id="carttable" layoutX="10.0" layoutY="59.0" prefHeight="500.0" prefWidth="802.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0" />
-      <Button fx:id="select" layoutX="572.0" layoutY="574.0" mnemonicParsing="false" onAction="#Select" prefHeight="31.0" prefWidth="104.0" text="Purchase">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
       <Label fx:id="items" layoutX="39.0" layoutY="579.0" prefHeight="21.0" prefWidth="208.0" />
-      <Button fx:id="delete" layoutX="461.0" layoutY="574.0" mnemonicParsing="false" onAction="#Delete" prefHeight="31.0" prefWidth="104.0" text="Delete">
-         <effect>
-            <InnerShadow />
-         </effect>
-      </Button>
+      <JFXButton fx:id="delete" buttonType="RAISED" layoutX="460.0" layoutY="574.0" onAction="#Delete" prefHeight="31.0" prefWidth="104.0" text="Delete" />
+      <JFXButton fx:id="select" buttonType="RAISED" layoutX="574.0" layoutY="574.0" onAction="#Select" prefHeight="31.0" prefWidth="104.0" text="Purchase" />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="688.0" layoutY="574.0" onAction="#Back" prefHeight="31.0" prefWidth="104.0" text="Back" />
    </children>
 </AnchorPane>

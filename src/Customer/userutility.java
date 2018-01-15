@@ -12,7 +12,7 @@ import java.util.List;
 public class userutility {
     public static List<List<String>> getAllreview(String customer_id)
     {
-        String sql = "Select r.review Review,(select b.book_name from book b where b.book_id=r.book_id) book_name, r.REVIEW_TIME Time\n" +
+        String sql = "Select NVL(r.review,'No Review ') Review,(select b.book_name from book b where b.book_id=r.book_id) book_name, r.REVIEW_TIME Time\n" +
                 "from review r\n" +
                 "where customer_id=?";
         List<List<String>> resultList = new ArrayList<>();
