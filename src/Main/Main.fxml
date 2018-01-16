@@ -9,26 +9,26 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="376.0" prefWidth="308.0" stylesheets="@test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Controller">
+<AnchorPane id="mainanchor1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="323.0" prefWidth="650.0" stylesheets="@test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Controller">
    <children>
-         <Text fx:id="loginalert" layoutX="122.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="65.6708984375" />
-      <JFXComboBox fx:id="loginas" labelFloat="true" layoutX="58.0" layoutY="38.0" prefHeight="31.0" prefWidth="218.0" promptText="Login As" />
-      <JFXTextField fx:id="userid" labelFloat="true" layoutX="60.0" layoutY="103.0" prefHeight="31.0" prefWidth="218.0" promptText="Enter User Name" />
-      <JFXPasswordField fx:id="userpassword" labelFloat="true" layoutX="60.0" layoutY="167.0" prefHeight="31.0" prefWidth="218.0" promptText="Enter Password" />
-      <JFXButton fx:id="resetbutton" buttonType="RAISED" contentDisplay="CENTER" layoutX="60.0" layoutY="217.0" onAction="#Reset" prefHeight="31.0" prefWidth="107.0" ripplerFill="BLACK" text="Reset" textFill="#282727">
+         <Text fx:id="loginalert" layoutX="137.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="65.6708984375" />
+      <JFXComboBox fx:id="loginas" labelFloat="true" layoutX="58.0" layoutY="24.0" prefHeight="31.0" prefWidth="218.0" promptText="Login As" />
+      <JFXTextField fx:id="userid" labelFloat="true" layoutX="60.0" layoutY="77.0" prefHeight="31.0" prefWidth="218.0" promptText="Enter User Name" />
+      <JFXPasswordField fx:id="userpassword" labelFloat="true" layoutX="60.0" layoutY="125.0" prefHeight="31.0" prefWidth="218.0" promptText="Enter Password" />
+      <JFXButton fx:id="resetbutton" buttonType="RAISED" contentDisplay="CENTER" layoutX="60.0" layoutY="175.0" onAction="#Reset" prefHeight="31.0" prefWidth="107.0" ripplerFill="BLACK" text="Reset" textFill="#282727">
          <effect>
             <InnerShadow color="#0d0d0d" />
          </effect>
       </JFXButton>
-      <JFXButton fx:id="loginbutton" buttonType="RAISED" layoutX="170.0" layoutY="217.0" onAction="#Login" prefHeight="31.0" prefWidth="107.0" text="Login" />
-      <JFXButton fx:id="forgetpassword" buttonType="RAISED" layoutX="60.0" layoutY="262.0" onAction="#Forgetpassword" prefHeight="31.0" prefWidth="218.0" text="Forget Password" />
-      <JFXButton fx:id="newcustomer" buttonType="RAISED" layoutX="60.0" layoutY="310.0" onAction="#newaccount" prefHeight="31.0" prefWidth="218.0" text="Create Customer Account" />
-      <ImageView fitHeight="31.0" fitWidth="39.0" layoutX="14.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+      <JFXButton fx:id="loginbutton" buttonType="RAISED" layoutX="170.0" layoutY="175.0" onAction="#Login" prefHeight="31.0" prefWidth="107.0" text="Login" />
+      <JFXButton fx:id="forgetpassword" buttonType="RAISED" layoutX="60.0" layoutY="220.0" onAction="#Forgetpassword" prefHeight="31.0" prefWidth="218.0" text="Forget Password" />
+      <JFXButton fx:id="newcustomer" buttonType="RAISED" layoutX="60.0" layoutY="268.0" onAction="#newaccount" prefHeight="31.0" prefWidth="218.0" text="Create Customer Account" />
+      <ImageView fitHeight="31.0" fitWidth="39.0" layoutX="14.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Image/password.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="14.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="14.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Image/user.png" />
          </image>

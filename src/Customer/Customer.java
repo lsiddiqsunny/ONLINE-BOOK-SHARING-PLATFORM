@@ -15,6 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -138,6 +139,7 @@ public class Customer {
             name.setText(l.get(0));
             author.setText(l.get(1));
             rating.setText(l.get(2));
+         //   name.setFont(new Font(20));
             details.setEffect(cart.getEffect());
             gridPane2.add(name,i,0);
             gridPane2.add(author,i,1);

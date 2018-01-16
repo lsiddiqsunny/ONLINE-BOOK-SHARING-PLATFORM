@@ -139,12 +139,12 @@ public class Employee {
             Load("../Workspace/routemanager.fxml");
         }
         else if(x==22){
-            Load("../Workspace/notification.fxml");
+            Load("notification.fxml");
         }else if(x==26){
             Load("../Workspace/clerk.fxml");
         }
         else if(x==27){
-            Load("../Workspace/notification.fxml");
+            Load("notification.fxml");
         }
         else if(x==25||x==24||x==23){
             Load("../Workspace/mediaoffer.fxml");

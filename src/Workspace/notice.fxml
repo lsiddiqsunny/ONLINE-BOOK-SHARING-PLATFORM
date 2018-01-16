@@ -5,7 +5,7 @@
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="483.0" prefWidth="342.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Notice">
+<AnchorPane prefHeight="483.0" prefWidth="342.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Notice">
    <children>
       <JFXComboBox fx:id="joblist" labelFloat="true" layoutX="14.0" layoutY="14.0" prefHeight="31.0" prefWidth="316.0" promptText="Select Specific Section" />
       <JFXTextArea fx:id="mssg" labelFloat="true" layoutX="14.0" layoutY="68.0" prefHeight="289.0" prefWidth="316.0" promptText="Enter Notice" />

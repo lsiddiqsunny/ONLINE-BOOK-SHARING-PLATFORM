@@ -19,13 +19,13 @@ public class InsertCustomerdata {
             Connection con = new oracleDBMS().getConnection();
             PreparedStatement pst = con.prepareStatement(sql);
 
-pst.setString(1,branch);
+            pst.setString(1,branch);
             ResultSet rs = pst.executeQuery();
 
             if (rs.next())
             {
 
-              return   rs.getString("Branch_id");
+                return   rs.getString("Branch_id");
             }
             pst.close();
             con.close();
@@ -43,12 +43,17 @@ pst.setString(1,branch);
             Connection con = new oracleDBMS().getConnection();
             PreparedStatement pst = con.prepareStatement(sql);
             String[] parts = Location.split(",");
-//            for(String x: parts){
-//                System.out.println(x);
-//            }
-            pst.setString(1,parts[0]);
-            pst.setString(2,parts[1]);
-            pst.setString(3,parts[2]);
+            String x="";
+          for(int i=0;i<parts.length-2;i++){
+
+                x=x+parts[i];
+                if(i!=parts.length-3){
+                    x=x+",";
+                }
+          }
+            pst.setString(1,x);
+            pst.setString(2,parts[parts.length-2]);
+            pst.setString(3,parts[parts.length-1]);
             ResultSet rs = pst.executeQuery();
 
             if (rs.next())
@@ -63,7 +68,7 @@ pst.setString(1,branch);
         {
             System.out.println(e);
         }
-        return String.valueOf(new Random().nextInt(100));
+        return String.valueOf("$");
     }
     public  static String  getid()
     {
@@ -76,8 +81,8 @@ pst.setString(1,branch);
 
             if (rs.next())
             {
-return rs.getString(1);
-               // return Integer.getInteger(rs.toString());
+                return rs.getString(1);
+                // return Integer.getInteger(rs.toString());
             }
             pst.close();
             con.close();
@@ -92,11 +97,11 @@ return rs.getString(1);
     {
 
         Branch=getBranch(Branch);
-       // System.out.println(Branch);
-        Location=getLocation(Location);
-        System.out.println(Location);
+        // System.out.println(Branch);
+        // Location=getLocation(Location);
+        // System.out.println(Location);
         String  id=Integer.toString(Integer.parseInt(getid())+1001);
-        System.out.print(id);
+        // System.out.println(id);
         String sql = "INSERT INTO Customer (Customer_id,Customer_name,Email,Phone_number,Password,Location_id,Branch_id) VALUES (?,?,?,?,?,?,?)";
 
         try{
@@ -110,13 +115,36 @@ return rs.getString(1);
             pst.setString(5,Password);
             pst.setString(6,Location);
             pst.setString(7,Branch);
-           pst.executeQuery();
+            pst.executeQuery();
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Account created!");
             alert.setHeaderText("Account created Successfully!");
             alert.setContentText("Your customer id is "+id+".\nPlease remember the id to log into the system.");
             alert.showAndWait();
 
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e+"now");
+        }
+
+
+    }
+    public  static void InsertLocation(String a,String b,String c)
+    {
+        String sql = "insert into location values((select count(*) from location)+1,?,?,?)";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setString(1,a);
+            pst.setString(2,b);
+            pst.setString(3,c);
+            // System.out.println(a+" "+b+" "+c);
+
+            pst.executeQuery();
             pst.close();
             con.close();
         }

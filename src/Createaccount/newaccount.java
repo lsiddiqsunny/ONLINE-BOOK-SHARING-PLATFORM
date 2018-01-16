@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,12 +17,31 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Latif Siddiq Suuny on 01-Dec-17.
  */
 public class newaccount {
+    ObservableList<String> district =FXCollections.observableArrayList(
+            "Dhaka",
+            "Chittagong",
+            "Comilla",
+            "Dinajpur",
+            "Bogra",
+            "Joypurhat",
+            "Sylhet",
+            "Noakhali"
+    );
+
+    @FXML
+    TextField street=new TextField();
+    @FXML
+    ComboBox<String> post=new ComboBox(
+    );
+
     @FXML
     ComboBox branch=new ComboBox();
     @FXML
@@ -55,8 +75,13 @@ public class newaccount {
         String userpass=password.getText();
         String locationid=null;
         String branchid=null;
+        String Post=null;
+        String Street=street.getText();
         try{
-            locationid= Location.getValue().toString();}catch (Exception e){
+            locationid= Location.getValue().toString();
+
+
+        }catch (Exception e){
             Alert.setText("Enter All Data");
 
         }
@@ -65,9 +90,27 @@ public class newaccount {
         catch (Exception e){
             Alert.setText("Enter All Data");
         }
-        if(username.isEmpty()||useremail.isEmpty()||userpass.isEmpty()||userphone.isEmpty())
+        try{
+            Post= post.getValue().toString();}
+        catch (Exception e){
+            Alert.setText("Enter All Data");
+        }
+        if(username.isEmpty()||useremail.isEmpty()||userpass.isEmpty()||userphone.isEmpty()||Street.isEmpty())
             Alert.setText("Enter All Data");
         else {
+
+           locationid=InsertCustomerdata.getLocation(Street +","+Post+","+locationid);
+            //System.out.println(locationid);
+            if(locationid.equals("$")){
+             //   System.out.println(Street + " "+Post+" "+Location.getValue());
+                InsertCustomerdata.InsertLocation(Street, Post,Location.getValue().toString());
+                locationid=InsertCustomerdata.getLocation(Street +","+Post+","+Location.getValue().toString());
+              //  System.out.println(locationid);
+                if(locationid.equals("$")){
+                    locationid=String .valueOf(new Random(100).nextInt(100));
+                }
+
+            }
             InsertCustomerdata.Inserdata(username,userpass,useremail,userphone,locationid,branchid);
 
         }
@@ -95,24 +138,19 @@ public class newaccount {
     @FXML
     void reset(ActionEvent event) {
         name.clear();email.clear();phone.clear();password.clear();
+        street.clear();
 
     }
 
     @FXML
     public void initialize() {
-        ObservableList<String> locationlist =
-                FXCollections.observableArrayList();
-        List<List<String>> locations= Getlistofsecondaryitems.getAllLocation();
+        Location.setItems(district);
+        ObservableList<String> postcode =FXCollections.observableArrayList();
 
-
-        for(List<String> s: locations){
-
-            for(String x:s){
-                //  System.out.println(x);
-                locationlist.add(x);
-            }
+        for(int i=1200;i<=1300;i++){
+            postcode.add(String .valueOf(i));
         }
-        Location.setItems(locationlist);
+        post.setItems(postcode);
         List<List<String>> branches= Getlistofsecondaryitems.getAllBranch();
         ObservableList<String> branchlist =FXCollections.observableArrayList();
 
