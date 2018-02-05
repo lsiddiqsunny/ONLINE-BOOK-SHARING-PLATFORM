@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="202.0" prefWidth="346.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Report">
+   <children>
+      <JFXComboBox fx:id="month" labelFloat="true" layoutX="16.0" layoutY="41.0" prefHeight="31.0" prefWidth="150.0" promptText="Month" />
+      <JFXComboBox fx:id="year" labelFloat="true" layoutX="183.0" layoutY="41.0" prefHeight="31.0" prefWidth="150.0" promptText="Year" />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="16.0" layoutY="157.0" onAction="#Back" prefHeight="31.0" prefWidth="150.0" text="Back" />
+      <JFXButton fx:id="show" buttonType="RAISED" layoutX="183.0" layoutY="157.0" onAction="#Show" prefHeight="31.0" prefWidth="150.0" text="Show Report" />
+      <JFXComboBox fx:id="branch" labelFloat="true" layoutX="13.0" layoutY="101.0" prefHeight="31.0" prefWidth="320.0" promptText="Branch" />
+   </children>
+</AnchorPane>

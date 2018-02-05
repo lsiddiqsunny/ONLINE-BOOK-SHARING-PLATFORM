@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="555.0" prefWidth="722.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Book.SearchBook">
+   <children>
+      <FlowPane fx:id="result" layoutX="14.0" layoutY="63.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="421.0" prefWidth="702.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <Label fx:id="page" layoutX="462.0" layoutY="478.0" prefHeight="21.0" prefWidth="243.0" />
+      <JFXButton fx:id="searchbutton" buttonType="RAISED" layoutX="501.0" layoutY="24.0" onAction="#Search" prefHeight="31.0" prefWidth="103.0" text="Search" />
+      <JFXComboBox fx:id="search" labelFloat="true" layoutX="9.0" layoutY="24.0" prefHeight="31.0" prefWidth="155.0" promptText="Search By" />
+      <JFXButton fx:id="clear" buttonType="RAISED" layoutX="611.0" layoutY="24.0" onAction="#Clear" prefHeight="31.0" prefWidth="103.0" text="Reset" />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="612.0" layoutY="510.0" onAction="#Back" prefHeight="31.0" prefWidth="103.0" text="Back" />
+      <JFXButton fx:id="next" buttonType="RAISED" layoutX="503.0" layoutY="510.0" onAction="#Next" prefHeight="31.0" prefWidth="103.0" text="Next" visible="false" />
+      <JFXButton fx:id="previous" buttonType="RAISED" layoutX="395.0" layoutY="510.0" onAction="#Previous" prefHeight="31.0" prefWidth="103.0" text="Previous" visible="false" />
+      <JFXTextField fx:id="query" labelFloat="true" layoutX="172.0" layoutY="24.0" prefHeight="31.0" prefWidth="322.0" promptText="Enter Query" />
+   </children>
+</AnchorPane>

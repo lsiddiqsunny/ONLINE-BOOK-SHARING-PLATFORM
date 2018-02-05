@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="350.0" prefWidth="600.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Employee.Employee">
+   <children>
+      <Text fx:id="employeename" layoutX="18.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="564.0">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="22.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee ID:" />
+      <Text fx:id="employeeid" layoutX="127.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="22.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
+      <Text fx:id="employeeemail" layoutX="120.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="22.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number:" />
+      <Text fx:id="employeephone" layoutX="172.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="18.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address: " />
+      <Text fx:id="employeeaddress" layoutX="120.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="22.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Job:" />
+      <Text fx:id="employeejob" layoutX="95.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="21.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department:" />
+      <Text fx:id="employeedepartment" layoutX="120.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="22.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager Name:" />
+      <Text fx:id="employeemanager" layoutX="144.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <JFXButton fx:id="logout" buttonType="RAISED" layoutX="480.0" layoutY="63.0" onAction="#Logout" prefHeight="31.0" prefWidth="106.0" text="Logout" />
+      <JFXButton fx:id="workspace" buttonType="RAISED" layoutX="480.0" layoutY="108.0" onAction="#Workspace" prefHeight="31.0" prefWidth="106.0" text="Workspace" />
+      <JFXButton fx:id="editprofile" buttonType="RAISED" layoutX="480.0" layoutY="151.0" onAction="#Editprofile" prefHeight="31.0" prefWidth="106.0" text="Edit Profile" />
+      <JFXButton fx:id="notification" buttonType="RAISED" layoutX="480.0" layoutY="196.0" onAction="#Notification" prefHeight="31.0" prefWidth="106.0" text="Notification" />
+      <JFXButton fx:id="shownotice" buttonType="RAISED" layoutX="480.0" layoutY="239.0" onAction="#Shownotice" prefHeight="31.0" prefWidth="106.0" text="Show Notice" />
+   </children>
+</AnchorPane>

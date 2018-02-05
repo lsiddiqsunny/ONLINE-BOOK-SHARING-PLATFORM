@@ -12,6 +12,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class employeeutil {
+    public static List<List<String>> getReport(String branch,String start,String end)
+    {
+        String sql = "select  b.book_name, sum(o.amount*(b.price)),sum(o.amount*b.publisher_price),( sum(o.amount*(b.price))-sum(o.amount*b.publisher_price))\n" +
+                "from book b,customer_order o ,customer c,BRANCH b\n" +
+                "where o.book_id=b.book_id and o.customer_id=c.customer_id and c.branch_id=b.branch_id\n" +
+                "and TIME  BETWEEN TO_DATE('"+start+"', 'DD/MM/YYYY') AND TO_DATE('"+end+"', 'DD/MM/YYYY') and b.branch_id=?\n" +
+                "group by b.book_name";
+        List<List<String>> resultList = new ArrayList<>();
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1,branch);
+            ResultSet rs = pst.executeQuery();
+
+
+            while (rs.next())
+            {
+                List<String> row = new ArrayList<>();
+                row.add(rs.getString(1));
+                row.add(rs.getString(2));
+                row.add(rs.getString(3));
+                row.add(rs.getString(4));
+                resultList.add(row);
+            }
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return resultList;
+    }
 
     public static void updateuserjob(String sal,String Employee_id)
     {
@@ -84,17 +117,18 @@ public class employeeutil {
         }
         return resultList;
     }
-    public  static void  publisher1(String type)
+    public  static void  publisher1(String x,String type)
     {
 
 
-        String sql = " {call PUBLISHER_NOTICE(?,?)}";
+        String sql = " {call PUBLISHER_NOTICE(?,?,?)}";
         try{
             Connection con = new oracleDBMS().getConnection();
             CallableStatement pst = con.prepareCall(sql);
+            pst.setString(1,(x));
 
-            pst.setInt(1,Integer.parseInt(type));
-            pst.setString(2,"The  book is inserted");
+            pst.setString(2,(type));
+            pst.setString(3,"The  book is inserted");
 
 
 
@@ -110,17 +144,19 @@ public class employeeutil {
         }
 
     }
-    public  static void  publisher4(String type)
+    public  static void  publisher4(String x,String type)
     {
 
 
-        String sql = " {call PUBLISHER_NOTICE(?,?)}";
+        String sql = " {call PUBLISHER_NOTICE(?,?,?)}";
         try{
             Connection con = new oracleDBMS().getConnection();
             CallableStatement pst = con.prepareCall(sql);
+            pst.setString(1,x);
+         //   pst.setString(2,(bookutil.getPublisher(type)));
 
-            pst.setInt(1,Integer.parseInt(employeeutil.getPublisherid(type)));
-            pst.setString(2,"The order is assigned to our agent.You will be paid  soon.Thank You.");
+            pst.setString(2,(employeeutil.getPublisherid(type)));
+            pst.setString(3,"The order is assigned to our agent.You will be paid  soon.Thank You.");
 
 
 
@@ -136,17 +172,19 @@ public class employeeutil {
         }
 
     }
-    public  static void  publisher2(String type)
+    public  static void  publisher2(String x,String type)
     {
 
 
-        String sql = " {call PUBLISHER_NOTICE(?,?)}";
+        String sql = " {call PUBLISHER_NOTICE(?,?,?)}";
         try{
             Connection con = new oracleDBMS().getConnection();
             CallableStatement pst = con.prepareCall(sql);
+            System.out.println(x+" "+bookutil.getPublisher(type));
+            pst.setString(1,x);
+            pst.setString(2,(bookutil.getPublisher(type)));
 
-            pst.setInt(1,Integer.parseInt(bookutil.getPublisher(type)));
-            pst.setString(2,"The Price of the book is Updated");
+            pst.setString(3,"The Price of the book is Updated");
 
 
 
@@ -162,17 +200,18 @@ public class employeeutil {
         }
 
     }
-    public  static void  publisher3(String type)
+    public  static void  publisher3(String x,String type)
     {
 
 
-        String sql = " {call PUBLISHER_NOTICE(?,?)}";
+        String sql = " {call PUBLISHER_NOTICE(?,?,?)}";
         try{
             Connection con = new oracleDBMS().getConnection();
             CallableStatement pst = con.prepareCall(sql);
+            pst.setString(1,(x));
 
-            pst.setInt(1,Integer.parseInt(employeeutil.getPublisherid(type)));
-            pst.setString(2,"You are paid and recieved books.If it is an error,please call our help center-123.Thank You");
+            pst.setString(2,(employeeutil.getPublisherid(type)));
+            pst.setString(3,"You are paid and recieved books.If it is an error,please call our help center-123.Thank You");
 
 
 
@@ -251,9 +290,9 @@ public class employeeutil {
         try{
             Connection con = new oracleDBMS().getConnection();
             PreparedStatement pst = con.prepareStatement(sql);
-          //  pst.setString(1,a);
+            //  pst.setString(1,a);
             for(int i=0;i<9;i++){
-               pst.setString(i+1,a[i]);
+                pst.setString(i+1,a[i]);
             }
 
             ResultSet rs = pst.executeQuery();
@@ -950,7 +989,8 @@ public class employeeutil {
     {
         String sql =
                 "select distinct p.Purchase_id,Get_Price(p.Purchase_id),GET_AMOUNT(p.Purchase_id) amount,To_char(p.Purchas_Time,'dd/mm/yyyy') Time,GET_STATUS(o.STATUS) STATUS\n" +
-                        "                from Customer_purchase p,Customer_order o,CUSTOMER c Where p.order_id=o.order_id and o.customer_id=c.CUSTOMER_ID and c.branch_id=?";
+                        "from Customer_purchase p,Customer_order o,CUSTOMER c Where p.order_id=o.order_id and o.customer_id=c.CUSTOMER_ID and c.branch_id=?\n" +
+                        "order by status ";
         List<List<String>> resultList = new ArrayList<>();
 
         try{
@@ -1794,14 +1834,13 @@ public class employeeutil {
 
 
         String sql = "UPDATE book\n" +
-                "SET price=" +price+"+"+price+"*.01"+
+                "SET price=" +price+"+"+price+"*.1"+
                 "WHERE book_id=?";
         try{
             Connection con = new oracleDBMS().getConnection();
             PreparedStatement pst = con.prepareCall(sql);
 
-            pst.setString(1,price);
-            pst.setString(2,id);
+            pst.setString(1,id);
 
 
 
@@ -1813,7 +1852,34 @@ public class employeeutil {
         }
         catch(Exception e)
         {
-            System.out.println(e);
+            System.out.println(e+"here");
+        }
+
+    }
+    public  static void  updatebookpubprice(String id,String price)
+    {
+
+
+        String sql = "UPDATE book\n" +
+                "SET publisher_price=" +price+
+                "WHERE book_id=?";
+        try{
+            Connection con = new oracleDBMS().getConnection();
+            PreparedStatement pst = con.prepareCall(sql);
+
+            pst.setString(1,id);
+
+
+
+            pst.executeQuery();
+
+
+            pst.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e+"here");
         }
 
     }
@@ -2136,10 +2202,10 @@ public class employeeutil {
         }
         return "";
     }
-    public static void offerinsert(String a,String b,String c,String d)
+    public static void offerinsert(String a,String b,String c,String d,String e)
     {
         String sql = "insert into OFFER_DETAILS " +
-                "values((select count(*) from offer_details)+1,?,To_date(?,'yyyy/mm/dd'),To_date(?,'yyyy/mm/dd'),?)";
+                "values((select count(*) from offer_details)+1,?,To_date(?,'yyyy/mm/dd'),To_date(?,'yyyy/mm/dd'),?,?)";
         //  System.out.println(sql);
 
         try{
@@ -2149,6 +2215,7 @@ public class employeeutil {
             pst.setString(2,b);
             pst.setString(3,c);
             pst.setString(4,d);
+            pst.setString(5,e);
 
             ResultSet rs = pst.executeQuery();
 

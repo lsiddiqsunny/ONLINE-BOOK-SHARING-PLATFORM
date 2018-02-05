@@ -307,7 +307,7 @@ public class publisherutil {
     }
     public static List<List<String>> getAllBooks(String publisher_id)
     {
-        String sql = "Select DISTINCT BOOK_NAME,GET_AUTHOR_NAME(b.book_id) AUTHOR_NAME,PRICE\n" +
+        String sql = "Select DISTINCT BOOK_NAME,GET_AUTHOR_NAME(b.book_id) AUTHOR_NAME,Publisher_PRICE\n" +
                 "from Book b,Publisher Pb,Author A\n" +
                 "where b.publisher_id=Pb.PUBLISHER_ID and  b.publisher_id=? and b.book_id=A.book_id";
         List<List<String>> resultList = new ArrayList<>();
@@ -323,7 +323,7 @@ public class publisherutil {
                 List<String> row = new ArrayList<>();
                 row.add(rs.getString("BOOK_NAME"));
                 row.add(rs.getString("AUTHOR_NAME"));
-                row.add(rs.getString("PRICE"));
+                row.add(rs.getString("Publisher_PRICE"));
                 resultList.add(row);
             }
             pst.close();

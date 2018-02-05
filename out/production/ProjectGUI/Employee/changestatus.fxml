@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="607.0" prefWidth="373.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Employee.Changestatus">
+   <children>
+      <Label layoutX="63.0" layoutY="14.0" prefHeight="30.0" prefWidth="247.0" text="Change Salary/Commission">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="109.0" layoutY="274.0" text="Assign New Work">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="salary" labelFloat="true" layoutX="14.0" layoutY="81.0" prefHeight="31.0" prefWidth="347.0" promptText="Change Salary.Previous:" />
+      <JFXTextField fx:id="commission" labelFloat="true" layoutX="14.0" layoutY="139.0" prefHeight="31.0" prefWidth="347.0" promptText="Change Commission.Previous:" />
+      <JFXComboBox fx:id="newjob" layoutX="14.0" layoutY="193.0" prefHeight="31.0" prefWidth="347.0" promptText="Change Job" />
+      <JFXButton fx:id="change" buttonType="RAISED" layoutX="288.0" layoutY="249.0" onAction="#Change" text="Change" />
+      <JFXTextArea fx:id="details" labelFloat="true" layoutX="14.0" layoutY="335.0" prefHeight="202.0" prefWidth="347.0" promptText="Enter Details..." />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="14.0" layoutY="562.0" onAction="#Back" prefHeight="31.0" prefWidth="156.0" text="Back" />
+      <JFXButton buttonType="RAISED" layoutX="205.0" layoutY="562.0" prefHeight="31.0" prefWidth="156.0" text="Assign" />
+   </children>
+</AnchorPane>

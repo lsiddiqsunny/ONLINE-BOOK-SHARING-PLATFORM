@@ -117,7 +117,7 @@ public class Newbookinsert {
 
 
             }
-            employeeutil.publisher2(publisher);
+            employeeutil.publisher1(employeekey,publisher);
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("New Book Insertion Confirmed");

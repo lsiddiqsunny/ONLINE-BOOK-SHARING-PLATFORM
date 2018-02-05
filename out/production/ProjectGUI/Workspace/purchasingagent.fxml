@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="531.0" prefWidth="574.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Purchasingagent">
+   <children>
+      <Label layoutX="211.0" layoutY="14.0" text="Order Assigned To You" />
+      <TableView fx:id="orderlist" layoutX="14.0" layoutY="35.0" prefHeight="417.0" prefWidth="546.0" />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="14.0" layoutY="486.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="241.0" text="Back" />
+      <JFXButton fx:id="confirm" buttonType="RAISED" layoutX="319.0" layoutY="486.0" mnemonicParsing="false" onAction="#Confirm" prefHeight="31.0" prefWidth="241.0" text="Confirm" />
+   </children>
+</AnchorPane>

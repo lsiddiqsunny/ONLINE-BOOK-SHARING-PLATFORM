@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="319.0" prefWidth="272.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Employee.Editprofile">
+   <children>
+      <JFXComboBox fx:id="Location" labelFloat="true" layoutX="21.0" layoutY="36.0" prefHeight="31.0" prefWidth="226.0" promptText="Change Your Location" />
+      <JFXPasswordField fx:id="Password" labelFloat="true" layoutX="21.0" layoutY="88.0" prefHeight="31.0" prefWidth="226.0" promptText="Change Password" />
+      <JFXTextField fx:id="phone" labelFloat="true" layoutX="21.0" layoutY="143.0" prefHeight="31.0" prefWidth="226.0" promptText="Change Phone Number" />
+      <JFXTextField fx:id="email" labelFloat="true" layoutX="23.0" layoutY="200.0" prefHeight="31.0" prefWidth="226.0" promptText="Change Email" />
+      <JFXButton fx:id="backbutton" buttonType="RAISED" layoutX="20.0" layoutY="261.0" onAction="#Backbutton" prefHeight="31.0" prefWidth="68.0" text="Back" />
+      <JFXButton fx:id="reset" buttonType="RAISED" layoutX="101.0" layoutY="261.0" onAction="#Reset" prefHeight="31.0" prefWidth="68.0" text="Reset" />
+      <JFXButton fx:id="submit" buttonType="RAISED" layoutX="180.0" layoutY="261.0" onAction="#Submit" prefHeight="31.0" prefWidth="68.0" text="Submit" />
+   </children>
+</AnchorPane>

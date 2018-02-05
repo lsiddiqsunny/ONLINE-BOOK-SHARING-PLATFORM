@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="475.0" prefWidth="516.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Editreq">
+   <children>
+      <Label layoutX="217.0" layoutY="14.0" text="Edit Request" />
+      <TableView fx:id="booklist" layoutX="17.0" layoutY="51.0" prefHeight="315.0" prefWidth="488.0" />
+      <JFXButton fx:id="confirm" buttonType="RAISED" layoutX="430.0" layoutY="389.0" mnemonicParsing="false" onAction="#Confirm" text="Confirm" />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="432.0" layoutY="430.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="74.0" text="Back" />
+   </children>
+</AnchorPane>

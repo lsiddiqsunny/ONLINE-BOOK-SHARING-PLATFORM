@@ -20,6 +20,25 @@ public class Managingderector {
     @FXML
     Button notice=new Button();
     @FXML
+    Button report=new Button();
+    @FXML
+    void Report(ActionEvent event){
+        Stage stage;
+        Parent root;
+        stage = (Stage) report.getScene().getWindow();
+        //load up OTHER FXML document
+        try {
+            root = FXMLLoader.load(getClass().getResource("report.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Report");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
     void Notice(ActionEvent event){
         Stage stage;
         Parent root;

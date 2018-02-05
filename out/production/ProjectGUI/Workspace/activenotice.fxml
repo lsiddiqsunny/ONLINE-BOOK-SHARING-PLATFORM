@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="506.0" prefWidth="383.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Activenotice">
+   <children>
+      <Label layoutX="148.0" layoutY="14.0" text="Active Notice" />
+      <TableView fx:id="noticelist" layoutX="14.0" layoutY="35.0" prefHeight="416.0" prefWidth="352.0" />
+      <JFXButton fx:id="refresh" buttonType="RAISED" layoutX="14.0" layoutY="461.0" onAction="#Refresh" prefHeight="31.0" prefWidth="112.0" text="Refresh" />
+      <JFXButton fx:id="inactive" buttonType="RAISED" layoutX="137.0" layoutY="461.0" onAction="#Inactive" prefHeight="31.0" prefWidth="112.0" text="Inactive" />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="264.0" layoutY="461.0" onAction="#Back" prefHeight="31.0" prefWidth="112.0" text="Back" />
+   </children>
+</AnchorPane>

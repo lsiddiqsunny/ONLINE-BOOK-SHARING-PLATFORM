@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="147.0" prefWidth="321.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Bookassign">
+   <children>
+      <JFXComboBox fx:id="worker" layoutX="22.0" layoutY="28.0" prefHeight="31.0" prefWidth="275.0" />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="22.0" layoutY="72.0" onAction="#Back" prefHeight="31.0" prefWidth="129.0" text="Back" />
+      <JFXButton fx:id="assign" buttonType="RAISED" layoutX="168.0" layoutY="72.0" onAction="#Assign" prefHeight="31.0" prefWidth="129.0" text="Assign" />
+   </children>
+</AnchorPane>

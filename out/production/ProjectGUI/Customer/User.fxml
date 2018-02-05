@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="348.0" prefWidth="584.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.User">
+   <children>
+   
+         <Text fx:id="username" layoutX="20.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="563.6708984375">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Text>
+         <Text layoutX="20.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Id: " />
+         <Text fx:id="id" layoutX="125.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="454.0" />
+         <Text layoutX="20.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address and Branch: " />
+         <Text fx:id="Location" layoutX="171.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="409.1474609375" />
+         <Text layoutX="20.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
+         <Text fx:id="email" layoutX="121.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="409.1474609375" />
+         <Text layoutX="20.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number:" />
+         <Text fx:id="phone" layoutX="147.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="409.1474609375" />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="505.0" layoutY="303.0" onAction="#backbutton" prefHeight="31.0" prefWidth="69.0" text="Back" />
+   </children>
+
+</AnchorPane>

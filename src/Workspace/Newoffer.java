@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Locale;
 
+import static Employee.Employee.employeekey;
+
 public class Newoffer {
 
     @FXML
@@ -44,7 +46,7 @@ public class Newoffer {
         c=date.toString();
         d=per.getText();
         if(a!=null||b!=null||c!=null||d!=null){
-            employeeutil.offerinsert(a,b,c,d);
+            employeeutil.offerinsert(a,b,c,d,employeekey);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Offer Added");
             alert.setHeaderText("Offer Added");

@@ -25,7 +25,7 @@ pst.setString(1,id);
             while (rs.next())
             {
                 String s="";
-                s+=rs.getString("PERCENTAGE");
+                s+=rs.getString(1);
 
 
                 // System.out.println(s);
@@ -40,7 +40,7 @@ pst.setString(1,id);
         {
 
         }
-        return "0";
+        return "1";
     }
     public  static void  Updatebookamount(String id,String am)
     {

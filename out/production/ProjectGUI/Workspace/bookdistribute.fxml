@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="451.0" prefWidth="474.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Bookdistribute">
+   <children>
+      <TableView fx:id="orderlist" layoutX="14.0" layoutY="74.0" prefHeight="276.0" prefWidth="446.0" />
+      <Label layoutX="185.0" layoutY="14.0" text="Order In Queue" />
+      <Label fx:id="items" layoutX="325.0" layoutY="378.0" />
+      <JFXButton fx:id="details" buttonType="RAISED" layoutX="14.0" layoutY="363.0" mnemonicParsing="false" onAction="#Details" prefHeight="31.0" prefWidth="143.0" text="See Details" />
+      <JFXButton fx:id="refresh" buttonType="RAISED" layoutX="14.0" layoutY="406.0" mnemonicParsing="false" onAction="#Refresh" prefHeight="31.0" prefWidth="143.0" text="Refresh" />
+      <JFXButton fx:id="assign" buttonType="RAISED" layoutX="172.0" layoutY="406.0" mnemonicParsing="false" onAction="#Assign" prefHeight="31.0" prefWidth="143.0" text="Click To Assign" />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="325.0" layoutY="406.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="143.0" text="Back" />
+   </children>
+</AnchorPane>

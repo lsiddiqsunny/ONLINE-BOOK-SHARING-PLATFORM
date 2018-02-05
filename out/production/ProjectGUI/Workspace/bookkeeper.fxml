@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="s" prefHeight="258.0" prefWidth="273.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Workspace.Bookkeeper">
+   <children>
+      <JFXButton fx:id="edit" buttonType="RAISED" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#Edit" prefHeight="31.0" prefWidth="242.0" text="See Edit Book Request" />
+      <JFXButton fx:id="insert" buttonType="RAISED" layoutX="14.0" layoutY="73.0" mnemonicParsing="false" onAction="#Insert" prefHeight="31.0" prefWidth="242.0" text="See Insert Request" />
+      <JFXButton fx:id="newbook" buttonType="RAISED" layoutX="14.0" layoutY="129.0" mnemonicParsing="false" onAction="#Newbook" prefHeight="31.0" prefWidth="242.0" text="New Book For The Storage" />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="128.0" layoutY="199.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="128.0" text="Back" />
+   </children>
+</AnchorPane>

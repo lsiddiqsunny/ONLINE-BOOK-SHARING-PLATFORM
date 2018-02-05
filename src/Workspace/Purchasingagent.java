@@ -49,7 +49,7 @@ public class Purchasingagent {
             employeeutil.updatepublishertransaction(editbookid.getBookid());
             employeeutil.updatebookamount(bookutil.getBookid(editbookid.getBookname()),editbookid.getAmount());
             employeeutil.changestatus3(employeeutil.getrequestid(editbookid.getBookid()));
-            employeeutil.publisher3(editbookid.getBookid());
+            employeeutil.publisher3(employeekey,editbookid.getBookid());
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Work Done");
             alert.setHeaderText("Work Done");

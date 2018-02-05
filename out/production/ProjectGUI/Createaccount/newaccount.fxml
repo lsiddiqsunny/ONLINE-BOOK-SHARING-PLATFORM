@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="551.0" prefWidth="391.0" stylesheets="@../Main/test.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Createaccount.newaccount">
+   <children>
+            <Text fx:id="Alert" layoutX="54.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="286.0" />
+      <JFXTextField fx:id="name" alignment="TOP_LEFT" labelFloat="true" layoutX="16.0" layoutY="53.0" prefHeight="31.0" prefWidth="362.0" promptText="Enter Your Name" />
+      <JFXTextField fx:id="email" alignment="TOP_LEFT" labelFloat="true" layoutX="16.0" layoutY="108.0" prefHeight="31.0" prefWidth="362.0" promptText="Enter Your Email" />
+      <JFXTextField fx:id="phone" alignment="TOP_LEFT" labelFloat="true" layoutX="16.0" layoutY="164.0" prefHeight="31.0" prefWidth="362.0" promptText="Enter Your Phone Number" />
+      <JFXPasswordField fx:id="password" alignment="TOP_LEFT" labelFloat="true" layoutX="16.0" layoutY="213.0" prefHeight="31.0" prefWidth="362.0" promptText="Enter Your Password" />
+      <JFXComboBox fx:id="Location" labelFloat="true" layoutX="207.0" layoutY="316.0" prefHeight="31.0" prefWidth="171.0" promptText="Select Location" />
+      <JFXComboBox fx:id="branch" labelFloat="true" layoutX="15.0" layoutY="369.0" prefHeight="31.0" prefWidth="362.0" promptText="Select Branch" />
+      <JFXButton fx:id="resetbutton" buttonType="RAISED" layoutX="13.0" layoutY="419.0" onAction="#reset" prefHeight="31.0" prefWidth="171.0" text="Reset" />
+      <JFXButton fx:id="submitbutton" buttonType="RAISED" layoutX="207.0" layoutY="419.0" onAction="#submit" prefHeight="31.0" prefWidth="171.0" text="Submit" />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="110.0" layoutY="477.0" onAction="#Backbutton" prefHeight="31.0" prefWidth="171.0" text="Back" />
+      <JFXComboBox fx:id="post" labelFloat="true" layoutX="17.0" layoutY="316.0" prefHeight="31.0" prefWidth="171.0" promptText="Select Post Code" />
+      <JFXTextField fx:id="street" labelFloat="true" layoutX="14.0" layoutY="266.0" prefHeight="31.0" prefWidth="362.0" promptText="Enter Street Address" />
+   </children>
+
+
+</AnchorPane>

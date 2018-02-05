@@ -1,0 +1,9 @@
+.toggle-button {
+    -fx-background-image: url('Arrow.png');
+    -fx-background-color: white;
+}
+
+.toggle-button:selected {
+    -fx-background-image: url('Arrow.png');
+    -fx-background-color: white;
+}
